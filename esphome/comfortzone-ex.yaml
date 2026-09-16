@@ -1,0 +1,139 @@
+substitutions:
+  device_name: comfortzone-ex
+  friendly_name: Comfortzone EX
+
+esphome:
+  name: ${device_name}
+  friendly_name: ${friendly_name}
+  min_version: 2026.9.0
+  project:
+    name: local.comfortzone_ex
+    version: "0.2.0"
+
+esp32:
+  board: esp32-s3-devkitc-1
+  variant: esp32s3
+  flash_size: 16MB
+  framework:
+    type: esp-idf
+
+external_components:
+  - source:
+      type: local
+      path: ../components
+    components: [comfortzone_ex]
+
+logger:
+  level: INFO
+  hardware_uart: USB_SERIAL_JTAG
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    encryption: {}
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  reboot_timeout: 0s
+  ap:
+    ssid: "Comfortzone EX Setup"
+    password: !secret fallback_ap_password
+    ap_timeout: 30s
+
+captive_portal:
+
+uart:
+  id: comfortzone_bus
+  baud_rate: 19200
+  data_bits: 8
+  parity: NONE
+  stop_bits: 1
+  rx_buffer_size: 512
+  rx_pin:
+    number: GPIO18
+    inverted: true
+
+comfortzone_ex:
+  id: comfortzone_monitor
+  uart_id: comfortzone_bus
+  receiver_enable_pin: GPIO21
+
+  outdoor_temperature:
+    name: Outdoor Temperature
+  flow_temperature:
+    name: Flow Temperature
+  return_temperature:
+    name: Return Temperature
+  indoor_temperature:
+    name: Indoor Temperature
+  hot_gas_temperature:
+    name: Hot Gas Temperature
+  exchanger_out_temperature:
+    name: Exchanger Outlet Temperature
+  evaporator_in_temperature:
+    name: Evaporator Inlet Temperature
+  exhaust_air_temperature:
+    name: Exhaust Air Temperature
+  hot_water_temperature:
+    name: Hot Water Temperature
+
+  room_setpoint:
+    name: Room Setpoint
+  hot_water_target:
+    name: Hot Water Target
+
+  compressor_frequency:
+    name: Compressor Frequency
+  compressor_output_power:
+    name: Compressor Output Power
+  additional_heater_power:
+    name: Additional Heater Power
+  total_output_power:
+    name: Total Output Power
+  compressor_input_power:
+    name: Compressor Input Power
+
+  compressor_energy:
+    name: Compressor Energy
+  additional_heater_energy:
+    name: Additional Heater Energy
+  hot_water_energy:
+    name: Hot Water Energy
+  compressor_runtime:
+    name: Compressor Runtime
+  total_runtime:
+    name: Total Runtime
+
+  compressor_running:
+    name: Compressor Running
+  additional_heater_active:
+    name: Additional Heater Active
+    icon: mdi:radiator
+  fan_speed:
+    name: Fan Speed
+
+  bus_online:
+    name: RS485 Bus Online
+  protocol_coverage:
+    name: Protocol Coverage
+  last_decoded_frame_age:
+    name: Last Decoded Frame Age
+  rs485_bytes:
+    name: RS485 Bytes
+    disabled_by_default: true
+  valid_frames:
+    name: Valid Frames
+    disabled_by_default: true
+  decoded_frames:
+    name: Decoded Frames
+    disabled_by_default: true
+  unsupported_frames:
+    name: Unsupported Frames
+    disabled_by_default: true
+  crc_errors:
+    name: CRC Errors
+    disabled_by_default: true

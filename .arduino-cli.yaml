@@ -1,0 +1,11 @@
+board_manager:
+  additional_urls:
+    - https://espressif.github.io/arduino-esp32/package_esp32_index.json
+directories:
+  data: C:/GIT/comfortzone-ha/.arduino/data
+  downloads: C:/GIT/comfortzone-ha/.arduino/downloads
+  user: C:/GIT/comfortzone-ha/.arduino/user
+metrics:
+  enabled: false
+updater:
+  enable_notification: false

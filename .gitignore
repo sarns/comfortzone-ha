@@ -1,0 +1,10 @@
+.arduino/
+.tools/
+.upstream-comfortzone/
+build/
+.esphome/
+.esphome-venv/
+esphome/.esphome/
+esphome/secrets.yaml
+__pycache__/
+*.pyc
