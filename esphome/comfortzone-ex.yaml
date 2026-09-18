@@ -8,7 +8,7 @@ esphome:
   min_version: 2026.9.0
   project:
     name: local.comfortzone_ex
-    version: "0.2.0"
+    version: "0.3.0"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -61,7 +61,7 @@ comfortzone_ex:
   id: comfortzone_monitor
   uart_id: comfortzone_bus
   receiver_enable_pin: GPIO21
-  raw_frame_logging: true
+  raw_frame_logging: false
 
   outdoor_temperature:
     name: Outdoor Temperature
@@ -108,6 +108,21 @@ comfortzone_ex:
     name: Compressor Runtime
   total_runtime:
     name: Total Runtime
+
+  calculated_flow_temperature:
+    name: Calculated Flow Temperature
+  fan_power:
+    name: Fan Power
+    icon: mdi:fan
+  filter_change_time:
+    name: Filter Change Time
+    icon: mdi:air-filter
+  heating_flow:
+    name: Heating Flow
+    icon: mdi:water-pump
+  hot_water_flow:
+    name: Hot Water Flow
+    icon: mdi:water-pump
 
   compressor_running:
     name: Compressor Running

@@ -10,12 +10,13 @@ namespace esphome {
 namespace comfortzone_ex {
 
 static const char *const TAG = "comfortzone_ex";
+static constexpr const char *const PROTOCOL_COVERAGE = "9 of 22 read registers decoded";
 
 void ComfortzoneExComponent::setup() {
   this->receiver_enable_pin_->setup();
   this->receiver_enable_pin_->digital_write(false);
   this->bus_online_binary_sensor_->publish_state(false);
-  this->protocol_coverage_text_sensor_->publish_state("6 of 22 read registers decoded");
+  this->protocol_coverage_text_sensor_->publish_state(PROTOCOL_COVERAGE);
   ESP_LOGI(TAG, "RS485 receiver enabled; transmitter remains disabled");
   ESP_LOGI(TAG, "Raw frame logging: %s", this->raw_frame_logging_ ? "enabled" : "disabled");
 }
@@ -45,7 +46,7 @@ void ComfortzoneExComponent::dump_config() {
   ESP_LOGCONFIG(TAG, "Comfortzone EX receive-only monitor:");
   LOG_PIN("  Receiver enable pin: ", this->receiver_enable_pin_);
   ESP_LOGCONFIG(TAG, "  Protocol family: EX 0B10");
-  ESP_LOGCONFIG(TAG, "  Supported read registers: 6 of 22 observed");
+  ESP_LOGCONFIG(TAG, "  Implemented read registers: 9 of 22 observed");
   ESP_LOGCONFIG(TAG, "  Raw frame logging: %s", this->raw_frame_logging_ ? "enabled" : "disabled");
 }
 
@@ -169,13 +170,46 @@ bool ComfortzoneExComponent::decode_frame_() {
     return true;
   }
 
+  if (this->register_is_(0x00, 0x28, 0x04) && payload_size >= 72) {
+    if (this->should_publish_(PUBLISH_CALCULATED_FLOW)) {
+      const int16_t raw = static_cast<int16_t>(read_u16_le_(payload + 70));
+      this->calculated_flow_temperature_sensor_->publish_state(raw / 10.0f);
+    }
+    return true;
+  }
+
+  if (this->register_is_(0x00, 0xF7, 0x03) && payload_size >= 8) {
+    if (this->should_publish_(PUBLISH_FILTER)) {
+      this->filter_change_time_sensor_->publish_state(read_u16_le_(payload + 6));
+    }
+    return true;
+  }
+
   if (this->register_is_(0x01, 0xD1, 0x02) && payload_size >= 35) {
     this->compressor_frequency_x10_ = read_u16_le_(payload + 33);
+    this->current_flow_x10_ = read_u16_le_(payload + 10);
     if (this->should_publish_(PUBLISH_FAN_AND_COMPRESSOR)) {
       this->fan_speed_text_sensor_->publish_state(fan_speed_name_(payload[3]));
+      this->fan_power_sensor_->publish_state(read_u16_le_(payload + 2) / 10.0f);
+      if (this->heating_flow_known_) {
+        this->hot_water_flow_sensor_->publish_state(
+            this->heating_flow_x10_ == 0 ? this->current_flow_x10_ / 10.0f : 0.0f);
+      }
       this->compressor_frequency_sensor_->publish_state(
           this->compressor_frequency_x10_ / 10.0f);
       this->update_compressor_state_();
+    }
+    return true;
+  }
+
+  if (this->register_is_(0x01, 0xF9, 0x01) && payload_size >= 20) {
+    // Provisional mapping: confirm against a display photo while space heating is active.
+    this->heating_flow_x10_ = read_u16_le_(payload + 18);
+    this->heating_flow_known_ = true;
+    if (this->should_publish_(PUBLISH_FLOW_RATES)) {
+      this->heating_flow_sensor_->publish_state(this->heating_flow_x10_ / 10.0f);
+      this->hot_water_flow_sensor_->publish_state(
+          this->heating_flow_x10_ == 0 ? this->current_flow_x10_ / 10.0f : 0.0f);
     }
     return true;
   }

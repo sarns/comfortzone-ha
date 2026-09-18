@@ -47,6 +47,11 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   CZ_SENSOR_SETTER(hot_water_energy)
   CZ_SENSOR_SETTER(compressor_runtime)
   CZ_SENSOR_SETTER(total_runtime)
+  CZ_SENSOR_SETTER(calculated_flow_temperature)
+  CZ_SENSOR_SETTER(fan_power)
+  CZ_SENSOR_SETTER(filter_change_time)
+  CZ_SENSOR_SETTER(heating_flow)
+  CZ_SENSOR_SETTER(hot_water_flow)
   CZ_SENSOR_SETTER(last_decoded_frame_age)
   CZ_SENSOR_SETTER(rs485_bytes)
   CZ_SENSOR_SETTER(valid_frames)
@@ -87,6 +92,9 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
     PUBLISH_FAN_AND_COMPRESSOR,
     PUBLISH_POWER,
     PUBLISH_COUNTERS,
+    PUBLISH_CALCULATED_FLOW,
+    PUBLISH_FILTER,
+    PUBLISH_FLOW_RATES,
     PUBLISH_GROUP_COUNT,
   };
 
@@ -123,6 +131,9 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
 
   uint16_t compressor_frequency_x10_{0};
   uint16_t compressor_input_power_w_{0};
+  uint16_t current_flow_x10_{0};
+  uint16_t heating_flow_x10_{0};
+  bool heating_flow_known_{false};
 
 #define CZ_SENSOR_MEMBER(name) sensor::Sensor *name##_sensor_{nullptr};
 
@@ -147,6 +158,11 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   CZ_SENSOR_MEMBER(hot_water_energy)
   CZ_SENSOR_MEMBER(compressor_runtime)
   CZ_SENSOR_MEMBER(total_runtime)
+  CZ_SENSOR_MEMBER(calculated_flow_temperature)
+  CZ_SENSOR_MEMBER(fan_power)
+  CZ_SENSOR_MEMBER(filter_change_time)
+  CZ_SENSOR_MEMBER(heating_flow)
+  CZ_SENSOR_MEMBER(hot_water_flow)
   CZ_SENSOR_MEMBER(last_decoded_frame_age)
   CZ_SENSOR_MEMBER(rs485_bytes)
   CZ_SENSOR_MEMBER(valid_frames)

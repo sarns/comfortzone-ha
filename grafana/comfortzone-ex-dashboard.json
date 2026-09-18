@@ -667,7 +667,7 @@
                             },
                             {
                               "params": [],
-                              "type": "mean"
+                              "type": "distinct"
                             }
                           ]
                         ],
@@ -961,6 +961,7 @@
                       "group": "influxdb",
                       "kind": "DataQuery",
                       "spec": {
+                        "alias": "Shelly Heat Pump",
                         "groupBy": [
                           {
                             "params": [
@@ -978,6 +979,8 @@
                         "measurement": "sensor.shellypro3em_waermepumpe_energy",
                         "orderByTime": "ASC",
                         "policy": "default",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.shellypro3em_waermepumpe_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "rawQuery": true,
                         "resultFormat": "time_series",
                         "select": [
                           [
@@ -993,10 +996,7 @@
                             }
                           ]
                         ],
-                        "tags": [],
-                        "alias": "Shelly Heat Pump",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.shellypro3em_waermepumpe_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
-                        "rawQuery": true
+                        "tags": []
                       },
                       "version": "v0"
                     },
@@ -1005,10 +1005,9 @@
                 }
               ],
               "queryOptions": {
+                "hideTimeOverride": false,
                 "interval": "20s",
-                "timeFrom": "now-7d",
-                "timeTo": "now",
-                "hideTimeOverride": false
+                "timeFrom": "now-7d"
               },
               "transformations": []
             }
@@ -1016,7 +1015,7 @@
           "description": "Each series shows consumption relative to its first cumulative-energy value in the rolling seven-day window.",
           "id": 4,
           "links": [],
-          "title": "Energy Consumption \u2014 Last 7 Days",
+          "title": "Energy Consumption — Last 7 Days",
           "vizConfig": {
             "group": "timeseries",
             "kind": "VizConfig",
@@ -1079,7 +1078,7 @@
                     "lastNotNull"
                   ],
                   "displayMode": "table",
-                  "placement": "bottom",
+                  "placement": "right",
                   "showLegend": true
                 },
                 "tooltip": {
@@ -1916,10 +1915,10 @@
         "1d"
       ],
       "fiscalYearStartMonth": 0,
-      "from": "now-6h",
+      "from": "2026-09-17T23:39:55.581Z",
       "hideTimepicker": false,
       "timezone": "browser",
-      "to": "now"
+      "to": "2026-09-18T11:39:55.581Z"
     },
     "title": "Comfortzone EX Heat Pump",
     "variables": []

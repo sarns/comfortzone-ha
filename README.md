@@ -13,7 +13,7 @@ LOW, and the ESPHome UART is configured without a TX pin.
 - RS485 receiver enable: GPIO21, held LOW
 - Serial format: 19200 baud, 8N1
 - Observed register family: `0B 10`
-- Confirmed read registers: 6 of 22 recurring groups
+- Implemented read registers: 9 of 22 recurring groups
 
 ## ESPHome installation
 
@@ -46,8 +46,16 @@ LOW, and the ESPHome UART is configured without a TX pin.
 ## Published entities
 
 The component exposes nine named temperatures, room and hot-water targets,
-compressor frequency, four instantaneous power readings, three lifetime energy
-counters, two runtime counters, compressor/heater state, and fan speed.
+calculated flow temperature, fan duty percentage, filter time remaining, the
+two flow readings, compressor frequency, four instantaneous power readings,
+three lifetime energy counters, two runtime counters, compressor/heater state,
+and fan speed.
+
+The heating-flow register is included as a provisional mapping. It currently
+matches the small idle flow shown by the controller and falls to zero during
+hot-water production, but it still needs confirmation during active space
+heating. The hot-water-flow field is already matched to the controller's
+displayed hot-water flow during a hot-water cycle.
 
 Measurements are decoded continuously and published to Home Assistant once per
 minute. Bus connectivity changes are published immediately.
@@ -58,6 +66,21 @@ coverage. Counter diagnostics are disabled by default in Home Assistant.
 
 `Protocol Coverage` describes the implemented decoder, not current bus health.
 Unknown registers are counted but never published under speculative names.
+
+## Confirm the heating-flow mapping later
+
+When outdoor temperatures are low enough for space heating:
+
+1. Leave the ESP32 connected and let the normal firmware run.
+2. When the display shows a non-zero **Heizungsdurchfluss**, photograph the
+   screen and note the exact local time to the nearest second.
+3. Repeat once while space heating is idle or off, and once during an active
+   hot-water cycle if possible.
+4. Compare the photo with the ESP32 capture at those timestamps. The
+   `Heating Flow` entity should match the display during space heating, while
+   `Hot Water Flow` should match the hot-water value during the hot-water cycle.
+5. If the values do not match, enable `raw_frame_logging` temporarily, repeat
+   the timed photos, and adjust only the provisional heating-flow offset.
 
 ## Long-term raw capture
 

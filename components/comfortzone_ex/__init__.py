@@ -57,6 +57,14 @@ ENERGY_KEYS = (
 
 RUNTIME_KEYS = ("compressor_runtime", "total_runtime")
 
+AUXILIARY_KEYS = (
+    "calculated_flow_temperature",
+    "fan_power",
+    "filter_change_time",
+    "heating_flow",
+    "hot_water_flow",
+)
+
 DIAGNOSTIC_COUNTER_KEYS = (
     "rs485_bytes",
     "valid_frames",
@@ -85,6 +93,14 @@ def power_schema():
         unit_of_measurement=UNIT_WATT,
         accuracy_decimals=0,
         device_class=DEVICE_CLASS_POWER,
+        state_class=STATE_CLASS_MEASUREMENT,
+    )
+
+
+def auxiliary_schema(unit, accuracy_decimals=1):
+    return sensor.sensor_schema(
+        unit_of_measurement=unit,
+        accuracy_decimals=accuracy_decimals,
         state_class=STATE_CLASS_MEASUREMENT,
     )
 
@@ -122,6 +138,16 @@ CONFIG_SCHEMA = (
                 )
                 for key in RUNTIME_KEYS
             },
+            cv.Required("calculated_flow_temperature"): temperature_schema(),
+            cv.Required("fan_power"): auxiliary_schema("%"),
+            cv.Required("filter_change_time"): sensor.sensor_schema(
+                unit_of_measurement="d",
+                accuracy_decimals=0,
+                device_class=DEVICE_CLASS_DURATION,
+                state_class=STATE_CLASS_MEASUREMENT,
+            ),
+            cv.Required("heating_flow"): auxiliary_schema("L/min"),
+            cv.Required("hot_water_flow"): auxiliary_schema("L/min"),
             cv.Required("last_decoded_frame_age"): sensor.sensor_schema(
                 unit_of_measurement=UNIT_SECOND,
                 accuracy_decimals=0,
@@ -165,7 +191,14 @@ async def to_code(config):
     cg.add(var.set_receiver_enable_pin(pin))
     cg.add(var.set_raw_frame_logging(config[CONF_RAW_FRAME_LOGGING]))
 
-    for key in TEMPERATURE_KEYS + SETPOINT_KEYS + POWER_KEYS + ENERGY_KEYS + RUNTIME_KEYS:
+    for key in (
+        TEMPERATURE_KEYS
+        + SETPOINT_KEYS
+        + POWER_KEYS
+        + ENERGY_KEYS
+        + RUNTIME_KEYS
+        + AUXILIARY_KEYS
+    ):
         entity = await sensor.new_sensor(config[key])
         cg.add(getattr(var, f"set_{key}_sensor")(entity))
 
