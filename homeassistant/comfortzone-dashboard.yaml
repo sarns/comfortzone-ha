@@ -135,8 +135,8 @@ views:
                   tap_action:
                     action: more-info
                   style:
-                    left: 50%
-                    top: 36%
+                    left: 57%
+                    top: 59%
                     color: "#ff9675"
                     background: "rgba(5, 18, 32, 0.9)"
                     border: "1px solid rgba(255, 150, 117, 0.45)"
@@ -152,7 +152,7 @@ views:
                     action: more-info
                   style:
                     left: 57%
-                    top: 59%
+                    top: 36%
                     color: "#ffad8e"
                     background: "rgba(5, 18, 32, 0.9)"
                     border: "1px solid rgba(255, 173, 142, 0.45)"
@@ -505,7 +505,7 @@ views:
                       tap_action:
                         action: more-info
                       style:
-                        left: 31%
+                        left: 27%
                         top: 12%
                         color: "#8bdcff"
                         background: "rgba(5, 18, 32, 0.9)"
@@ -522,7 +522,7 @@ views:
                         action: more-info
                       style:
                         left: 13%
-                        top: 31%
+                        top: 33%
                         color: "#ffffff"
                         background: "rgba(5, 18, 32, 0.9)"
                         border: "1px solid rgba(255, 255, 255, 0.35)"
@@ -537,8 +537,8 @@ views:
                       tap_action:
                         action: more-info
                       style:
-                        left: 25%
-                        top: 46%
+                        left: 40%
+                        top: 12%
                         color: "#8bdcff"
                         background: "rgba(5, 18, 32, 0.9)"
                         border: "1px solid rgba(139, 220, 255, 0.45)"
@@ -554,7 +554,7 @@ views:
                         action: more-info
                       style:
                         left: 48%
-                        top: 49%
+                        top: 75%
                         color: "#ffad93"
                         background: "rgba(5, 18, 32, 0.92)"
                         border: "1px solid rgba(255, 100, 75, 0.5)"
@@ -570,7 +570,7 @@ views:
                         action: more-info
                       style:
                         left: 68%
-                        top: 43%
+                        top: 38%
                         color: "#ffad93"
                         background: "rgba(5, 18, 32, 0.9)"
                         border: "1px solid rgba(255, 100, 75, 0.5)"
@@ -586,7 +586,7 @@ views:
                         action: more-info
                       style:
                         left: 68%
-                        top: 51%
+                        top: 75%
                         color: "#79ceff"
                         background: "rgba(5, 18, 32, 0.9)"
                         border: "1px solid rgba(67, 170, 255, 0.5)"
@@ -617,8 +617,8 @@ views:
                       tap_action:
                         action: more-info
                       style:
-                        left: 78%
-                        top: 63%
+                        left: 83%
+                        top: 75%
                         color: "#ffd166"
                         background: "rgba(5, 18, 32, 0.9)"
                         border: "1px solid rgba(255, 209, 102, 0.45)"
