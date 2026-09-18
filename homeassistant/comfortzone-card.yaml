@@ -1,0 +1,797 @@
+type: vertical-stack
+cards:
+  - type: conditional
+    conditions:
+      - condition: screen
+        media_query: "(min-width: 1400px)"
+    card:
+      type: picture-elements
+      image: /local/comfortzone/comfortzone-ex-schema.png
+      elements:
+        # Haus und Abluft
+        - type: state-label
+          entity: sensor.comfortzone_ex_outdoor_temperature
+          prefix: "Außen: "
+          tap_action:
+            action: more-info
+          style:
+            left: 31%
+            top: 12%
+            color: "#8bdcff"
+            background: "rgba(5, 18, 32, 0.88)"
+            border: "1px solid rgba(139, 220, 255, 0.45)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 1vw, 15px)"
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_indoor_temperature
+          prefix: "Ist: "
+          tap_action:
+            action: more-info
+          style:
+            left: 13%
+            top: 30.5%
+            color: "#ffffff"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(255, 255, 255, 0.35)"
+            border-radius: "10px 10px 0 0"
+            box-sizing: border-box
+            width: 15%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_room_setpoint
+          prefix: "Soll: "
+          tap_action:
+            action: more-info
+          style:
+            left: 13%
+            top: 33.5%
+            color: "#d9e8f5"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(255, 255, 255, 0.35)"
+            border-right: "1px solid rgba(255, 255, 255, 0.35)"
+            border-bottom: "1px solid rgba(255, 255, 255, 0.35)"
+            border-radius: "0 0 10px 10px"
+            box-sizing: border-box
+            width: 15%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_exhaust_air_temperature
+          prefix: "Temperatur: "
+          tap_action:
+            action: more-info
+          style:
+            left: 44%
+            top: 12.5%
+            color: "#8bdcff"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(139, 220, 255, 0.45)"
+            border-radius: "10px 10px 0 0"
+            box-sizing: border-box
+            width: 18%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_fan_speed
+          prefix: "Lüfter: "
+          tap_action:
+            action: more-info
+          style:
+            left: 44%
+            top: 15.5%
+            color: "#8bdcff"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(139, 220, 255, 0.45)"
+            border-right: "1px solid rgba(139, 220, 255, 0.45)"
+            border-bottom: "1px solid rgba(139, 220, 255, 0.45)"
+            border-radius: "0 0 10px 10px"
+            box-sizing: border-box
+            width: 18%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        # Kältekreis und Kompressor
+        - type: state-label
+          entity: sensor.comfortzone_ex_evaporator_inlet_temperature
+          prefix: "Verdampfer ein: "
+          tap_action:
+            action: more-info
+          style:
+            left: 36%
+            top: 36%
+            color: "#72dcff"
+            background: "rgba(5, 18, 32, 0.9)"
+            border: "1px solid rgba(114, 220, 255, 0.45)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 1vw, 15px)"
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_hot_gas_temperature
+          prefix: "Heißgas: "
+          tap_action:
+            action: more-info
+          style:
+            left: 50%
+            top: 36%
+            color: "#ff9675"
+            background: "rgba(5, 18, 32, 0.9)"
+            border: "1px solid rgba(255, 150, 117, 0.45)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 1vw, 15px)"
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_exchanger_outlet_temperature
+          prefix: "WT-Ausgang: "
+          tap_action:
+            action: more-info
+          style:
+            left: 57%
+            top: 59%
+            color: "#ffad8e"
+            background: "rgba(5, 18, 32, 0.9)"
+            border: "1px solid rgba(255, 173, 142, 0.45)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 1vw, 15px)"
+            white-space: nowrap
+
+        - type: state-label
+          entity: binary_sensor.comfortzone_ex_compressor_running
+          prefix: "Kompressor: "
+          tap_action:
+            action: more-info
+          style:
+            left: 48%
+            top: 65%
+            color: "#ffad93"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(255, 100, 75, 0.5)"
+            border-radius: "10px 10px 0 0"
+            box-sizing: border-box
+            width: 18%
+            padding: 6px 10px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_compressor_frequency
+          prefix: "Frequenz: "
+          tap_action:
+            action: more-info
+          style:
+            left: 48%
+            top: 68%
+            color: "#ffad93"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(255, 100, 75, 0.5)"
+            border-right: "1px solid rgba(255, 100, 75, 0.5)"
+            border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+            border-radius: 0
+            box-sizing: border-box
+            width: 18%
+            padding: 6px 10px
+            font-size: "clamp(9px, 0.9vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_compressor_input_power
+          prefix: "Aufnahme: "
+          tap_action:
+            action: more-info
+          style:
+            left: 48%
+            top: 71%
+            color: "#ffad93"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(255, 100, 75, 0.5)"
+            border-right: "1px solid rgba(255, 100, 75, 0.5)"
+            border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+            border-radius: 0
+            box-sizing: border-box
+            width: 18%
+            padding: 6px 10px
+            font-size: "clamp(9px, 0.9vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_compressor_output_power
+          prefix: "Abgabe: "
+          tap_action:
+            action: more-info
+          style:
+            left: 48%
+            top: 74%
+            color: "#ffad93"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(255, 100, 75, 0.5)"
+            border-right: "1px solid rgba(255, 100, 75, 0.5)"
+            border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+            border-radius: "0 0 10px 10px"
+            box-sizing: border-box
+            width: 18%
+            padding: 6px 10px
+            font-size: "clamp(9px, 0.9vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        # Heizkreis und Warmwasser
+        - type: state-label
+          entity: sensor.comfortzone_ex_flow_temperature
+          prefix: "Vorlauf: "
+          tap_action:
+            action: more-info
+          style:
+            left: 68%
+            top: 43%
+            color: "#ffad93"
+            background: "rgba(5, 18, 32, 0.9)"
+            border: "1px solid rgba(255, 100, 75, 0.5)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 1vw, 15px)"
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_return_temperature
+          prefix: "Rücklauf: "
+          tap_action:
+            action: more-info
+          style:
+            left: 68%
+            top: 51%
+            color: "#79ceff"
+            background: "rgba(5, 18, 32, 0.9)"
+            border: "1px solid rgba(67, 170, 255, 0.5)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 1vw, 15px)"
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_hot_water_temperature
+          prefix: "Warmwasser: "
+          tap_action:
+            action: more-info
+          style:
+            left: 88%
+            top: 28.5%
+            color: "#ffad93"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(255, 100, 75, 0.5)"
+            border-radius: "10px 10px 0 0"
+            box-sizing: border-box
+            width: 15%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_hot_water_target
+          prefix: "WW-Soll: "
+          tap_action:
+            action: more-info
+          style:
+            left: 88%
+            top: 31.5%
+            color: "#ffd4c9"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(255, 100, 75, 0.5)"
+            border-right: "1px solid rgba(255, 100, 75, 0.5)"
+            border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+            border-radius: "0 0 10px 10px"
+            box-sizing: border-box
+            width: 15%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_total_output_power
+          prefix: "Heizleistung: "
+          tap_action:
+            action: more-info
+          style:
+            left: 78%
+            top: 62%
+            color: "#ffd166"
+            background: "rgba(5, 18, 32, 0.9)"
+            border: "1px solid rgba(255, 209, 102, 0.45)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 1vw, 15px)"
+            white-space: nowrap
+
+        - type: state-label
+          entity: binary_sensor.comfortzone_ex_additional_heater_active
+          prefix: "Zusatzheizung: "
+          tap_action:
+            action: more-info
+          style:
+            left: 67%
+            top: 68%
+            color: "#ffc778"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(255, 199, 120, 0.45)"
+            border-radius: "10px 10px 0 0"
+            box-sizing: border-box
+            width: 17%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_additional_heater_power
+          prefix: "Zusatzleistung: "
+          tap_action:
+            action: more-info
+          style:
+            left: 67%
+            top: 71%
+            color: "#ffd166"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(255, 199, 120, 0.45)"
+            border-right: "1px solid rgba(255, 199, 120, 0.45)"
+            border-bottom: "1px solid rgba(255, 199, 120, 0.45)"
+            border-radius: "0 0 10px 10px"
+            box-sizing: border-box
+            width: 17%
+            padding: 7px 11px
+            font-size: "clamp(9px, 1vw, 15px)"
+            text-align: left
+            white-space: nowrap
+
+        # Zähler und Laufzeiten im freien unteren Bildbereich
+        - type: state-label
+          entity: sensor.comfortzone_ex_compressor_energy
+          prefix: "Kompressor: "
+          tap_action:
+            action: more-info
+          style:
+            left: 17%
+            top: 84%
+            color: "#e7f2fa"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(170, 205, 230, 0.35)"
+            border-radius: "10px 10px 0 0"
+            box-sizing: border-box
+            width: 22%
+            padding: 7px 11px
+            font-size: "clamp(9px, 0.95vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_additional_heater_energy
+          prefix: "Zusatzheizung: "
+          tap_action:
+            action: more-info
+          style:
+            left: 17%
+            top: 87%
+            color: "#e7f2fa"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(170, 205, 230, 0.35)"
+            border-right: "1px solid rgba(170, 205, 230, 0.35)"
+            border-bottom: "1px solid rgba(170, 205, 230, 0.35)"
+            border-radius: 0
+            box-sizing: border-box
+            width: 22%
+            padding: 7px 11px
+            font-size: "clamp(9px, 0.95vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_hot_water_energy
+          prefix: "Warmwasser: "
+          tap_action:
+            action: more-info
+          style:
+            left: 17%
+            top: 90%
+            color: "#e7f2fa"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(170, 205, 230, 0.35)"
+            border-top: none
+            border-radius: "0 0 10px 10px"
+            box-sizing: border-box
+            width: 22%
+            padding: 7px 11px
+            font-size: "clamp(9px, 0.95vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_compressor_runtime
+          prefix: "Kompressor: "
+          tap_action:
+            action: more-info
+          style:
+            left: 49%
+            top: 84%
+            color: "#e7f2fa"
+            background: "rgba(5, 18, 32, 0.94)"
+            border: "1px solid rgba(170, 205, 230, 0.35)"
+            border-radius: "10px 10px 0 0"
+            box-sizing: border-box
+            width: 22%
+            padding: 7px 11px
+            font-size: "clamp(9px, 0.95vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        - type: state-label
+          entity: sensor.comfortzone_ex_total_runtime
+          prefix: "Gesamt: "
+          tap_action:
+            action: more-info
+          style:
+            left: 49%
+            top: 87%
+            color: "#e7f2fa"
+            background: "rgba(5, 18, 32, 0.94)"
+            border-left: "1px solid rgba(170, 205, 230, 0.35)"
+            border-right: "1px solid rgba(170, 205, 230, 0.35)"
+            border-bottom: "1px solid rgba(170, 205, 230, 0.35)"
+            border-radius: "0 0 10px 10px"
+            box-sizing: border-box
+            width: 22%
+            padding: 7px 11px
+            font-size: "clamp(9px, 0.95vw, 14px)"
+            text-align: left
+            white-space: nowrap
+
+        # Schnittstellenstatus
+        - type: state-label
+          entity: binary_sensor.comfortzone_ex_rs485_bus_online
+          prefix: "RS485: "
+          tap_action:
+            action: more-info
+          style:
+            left: 80%
+            top: 82%
+            color: "#9df3b0"
+            background: "rgba(5, 18, 32, 0.9)"
+            border: "1px solid rgba(157, 243, 176, 0.4)"
+            border-radius: 8px
+            padding: 5px 9px
+            font-size: "clamp(9px, 0.95vw, 14px)"
+            white-space: nowrap
+  - type: conditional
+    conditions:
+      - condition: screen
+        media_query: "(min-width: 600px) and (max-width: 1399px)"
+    card:
+      type: vertical-stack
+      cards:
+        - type: picture-elements
+          image: /local/comfortzone/comfortzone-ex-schema.png
+          elements:
+            - type: state-label
+              entity: sensor.comfortzone_ex_outdoor_temperature
+              prefix: "Außen: "
+              tap_action:
+                action: more-info
+              style:
+                left: 31%
+                top: 12%
+                color: "#8bdcff"
+                background: "rgba(5, 18, 32, 0.9)"
+                border: "1px solid rgba(139, 220, 255, 0.45)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+            - type: state-label
+              entity: sensor.comfortzone_ex_indoor_temperature
+              prefix: "Raum: "
+              tap_action:
+                action: more-info
+              style:
+                left: 13%
+                top: 31%
+                color: "#ffffff"
+                background: "rgba(5, 18, 32, 0.9)"
+                border: "1px solid rgba(255, 255, 255, 0.35)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+            - type: state-label
+              entity: sensor.comfortzone_ex_exhaust_air_temperature
+              prefix: "Abluft: "
+              tap_action:
+                action: more-info
+              style:
+                left: 25%
+                top: 46%
+                color: "#8bdcff"
+                background: "rgba(5, 18, 32, 0.9)"
+                border: "1px solid rgba(139, 220, 255, 0.45)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+            - type: state-label
+              entity: binary_sensor.comfortzone_ex_compressor_running
+              prefix: "Kompressor: "
+              tap_action:
+                action: more-info
+              style:
+                left: 48%
+                top: 49%
+                color: "#ffad93"
+                background: "rgba(5, 18, 32, 0.92)"
+                border: "1px solid rgba(255, 100, 75, 0.5)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+            - type: state-label
+              entity: sensor.comfortzone_ex_flow_temperature
+              prefix: "Vorlauf: "
+              tap_action:
+                action: more-info
+              style:
+                left: 68%
+                top: 43%
+                color: "#ffad93"
+                background: "rgba(5, 18, 32, 0.9)"
+                border: "1px solid rgba(255, 100, 75, 0.5)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+            - type: state-label
+              entity: sensor.comfortzone_ex_return_temperature
+              prefix: "Rücklauf: "
+              tap_action:
+                action: more-info
+              style:
+                left: 68%
+                top: 51%
+                color: "#79ceff"
+                background: "rgba(5, 18, 32, 0.9)"
+                border: "1px solid rgba(67, 170, 255, 0.5)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+            - type: state-label
+              entity: sensor.comfortzone_ex_hot_water_temperature
+              prefix: "Warmwasser: "
+              tap_action:
+                action: more-info
+              style:
+                left: 88%
+                top: 29%
+                color: "#ffad93"
+                background: "rgba(5, 18, 32, 0.9)"
+                border: "1px solid rgba(255, 100, 75, 0.5)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+            - type: state-label
+              entity: sensor.comfortzone_ex_total_output_power
+              prefix: "Heizleistung: "
+              tap_action:
+                action: more-info
+              style:
+                left: 78%
+                top: 63%
+                color: "#ffd166"
+                background: "rgba(5, 18, 32, 0.9)"
+                border: "1px solid rgba(255, 209, 102, 0.45)"
+                border-radius: 7px
+                padding: 4px 6px
+                font-size: "clamp(9px, 1.4vw, 14px)"
+                white-space: nowrap
+
+        - type: grid
+          columns: 2
+          square: false
+          cards:
+            - type: entities
+              title: Temperaturen
+              show_header_toggle: false
+              entities:
+                - entity: sensor.comfortzone_ex_outdoor_temperature
+                  name: Außen
+                - entity: sensor.comfortzone_ex_indoor_temperature
+                  name: Raum
+                - entity: sensor.comfortzone_ex_room_setpoint
+                  name: Raum Soll
+                - entity: sensor.comfortzone_ex_exhaust_air_temperature
+                  name: Abluft
+                - entity: sensor.comfortzone_ex_evaporator_inlet_temperature
+                  name: Verdampfer Eingang
+                - entity: sensor.comfortzone_ex_hot_gas_temperature
+                  name: Heißgas
+                - entity: sensor.comfortzone_ex_exchanger_outlet_temperature
+                  name: Wärmetauscher Ausgang
+                - entity: sensor.comfortzone_ex_flow_temperature
+                  name: Vorlauf
+                - entity: sensor.comfortzone_ex_return_temperature
+                  name: Rücklauf
+                - entity: sensor.comfortzone_ex_hot_water_temperature
+                  name: Warmwasser
+                - entity: sensor.comfortzone_ex_hot_water_target
+                  name: Warmwasser Soll
+
+            - type: entities
+              title: Betrieb
+              show_header_toggle: false
+              entities:
+                - entity: binary_sensor.comfortzone_ex_compressor_running
+                  name: Kompressor
+                - entity: sensor.comfortzone_ex_compressor_frequency
+                  name: Frequenz
+                - entity: sensor.comfortzone_ex_compressor_input_power
+                  name: Aufnahmeleistung
+                - entity: sensor.comfortzone_ex_compressor_output_power
+                  name: Abgabeleistung
+                - entity: sensor.comfortzone_ex_total_output_power
+                  name: Heizleistung
+                - entity: binary_sensor.comfortzone_ex_additional_heater_active
+                  name: Zusatzheizung
+                - entity: sensor.comfortzone_ex_additional_heater_power
+                  name: Zusatzleistung
+                - entity: sensor.comfortzone_ex_fan_speed
+                  name: Lüfter
+
+        - type: grid
+          columns: 2
+          square: false
+          cards:
+            - type: entities
+              title: Energie
+              show_header_toggle: false
+              entities:
+                - entity: sensor.comfortzone_ex_compressor_energy
+                  name: Kompressor
+                - entity: sensor.comfortzone_ex_additional_heater_energy
+                  name: Zusatzheizung
+                - entity: sensor.comfortzone_ex_hot_water_energy
+                  name: Warmwasser
+
+            - type: entities
+              title: Laufzeit und Verbindung
+              show_header_toggle: false
+              entities:
+                - entity: sensor.comfortzone_ex_compressor_runtime
+                  name: Kompressor
+                - entity: sensor.comfortzone_ex_total_runtime
+                  name: Gesamt
+                - entity: binary_sensor.comfortzone_ex_rs485_bus_online
+                  name: RS485
+  - type: conditional
+    conditions:
+      - condition: screen
+        media_query: "(max-width: 599px)"
+    card:
+      type: vertical-stack
+      cards:
+        - type: picture
+          image: /local/comfortzone/comfortzone-ex-schema.png
+          tap_action:
+            action: none
+          hold_action:
+            action: none
+
+        - type: glance
+          title: Übersicht
+          columns: 3
+          show_name: true
+          show_icon: true
+          show_state: true
+          entities:
+            - entity: sensor.comfortzone_ex_indoor_temperature
+              name: Raum
+            - entity: sensor.comfortzone_ex_flow_temperature
+              name: Vorlauf
+            - entity: sensor.comfortzone_ex_hot_water_temperature
+              name: Warmwasser
+            - entity: sensor.comfortzone_ex_outdoor_temperature
+              name: Außen
+            - entity: binary_sensor.comfortzone_ex_compressor_running
+              name: Kompressor
+            - entity: sensor.comfortzone_ex_total_output_power
+              name: Heizleistung
+
+        - type: entities
+          title: Temperaturen
+          show_header_toggle: false
+          entities:
+            - entity: sensor.comfortzone_ex_outdoor_temperature
+              name: Außen
+            - entity: sensor.comfortzone_ex_indoor_temperature
+              name: Raum
+            - entity: sensor.comfortzone_ex_room_setpoint
+              name: Raum Soll
+            - entity: sensor.comfortzone_ex_exhaust_air_temperature
+              name: Abluft
+            - entity: sensor.comfortzone_ex_evaporator_inlet_temperature
+              name: Verdampfer Eingang
+            - entity: sensor.comfortzone_ex_hot_gas_temperature
+              name: Heißgas
+            - entity: sensor.comfortzone_ex_exchanger_outlet_temperature
+              name: Wärmetauscher Ausgang
+            - entity: sensor.comfortzone_ex_flow_temperature
+              name: Vorlauf
+            - entity: sensor.comfortzone_ex_return_temperature
+              name: Rücklauf
+            - entity: sensor.comfortzone_ex_hot_water_temperature
+              name: Warmwasser
+            - entity: sensor.comfortzone_ex_hot_water_target
+              name: Warmwasser Soll
+
+        - type: entities
+          title: Betrieb
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.comfortzone_ex_compressor_running
+              name: Kompressor
+            - entity: sensor.comfortzone_ex_compressor_frequency
+              name: Frequenz
+            - entity: sensor.comfortzone_ex_compressor_input_power
+              name: Aufnahmeleistung
+            - entity: sensor.comfortzone_ex_compressor_output_power
+              name: Abgabeleistung
+            - entity: sensor.comfortzone_ex_total_output_power
+              name: Heizleistung
+            - entity: binary_sensor.comfortzone_ex_additional_heater_active
+              name: Zusatzheizung
+            - entity: sensor.comfortzone_ex_additional_heater_power
+              name: Zusatzleistung
+            - entity: sensor.comfortzone_ex_fan_speed
+              name: Lüfter
+
+        - type: entities
+          title: Energie und Laufzeit
+          show_header_toggle: false
+          entities:
+            - entity: sensor.comfortzone_ex_compressor_energy
+              name: Energie Kompressor
+            - entity: sensor.comfortzone_ex_additional_heater_energy
+              name: Energie Zusatzheizung
+            - entity: sensor.comfortzone_ex_hot_water_energy
+              name: Energie Warmwasser
+            - entity: sensor.comfortzone_ex_compressor_runtime
+              name: Laufzeit Kompressor
+            - entity: sensor.comfortzone_ex_total_runtime
+              name: Laufzeit gesamt
+            - entity: binary_sensor.comfortzone_ex_rs485_bus_online
+              name: RS485

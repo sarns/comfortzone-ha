@@ -61,19 +61,23 @@ Unknown registers are counted but never published under speculative names.
 
 ## Grafana dashboard
 
-Import `grafana/comfortzone-ex-dashboard.json` in Grafana and map the
-**InfluxDB** input to the Home Assistant InfluxDB datasource in the import
-wizard. The datasource must use InfluxQL. Queries use Grafana's `$timeFilter` and
+Import `grafana/comfortzone-ex-dashboard.json` as a Grafana
+`dashboard.grafana.app/v2` resource. It was exported by Grafana 13.2.1 and
+contains the datasource UID from that installation. Replace the datasource
+name in the JSON before importing it into another Grafana installation. The
+datasource must use InfluxQL. Queries use Grafana's `$timeFilter` and
 `$__interval` macros with a 20-second minimum interval; the dashboard refreshes
 once per minute.
 
-The dashboard contains all 32 entities. Temperature measurements and setpoints
-share one panel, while power, frequency, energy, runtime, operating states, and
-RS485 diagnostics are grouped by compatible units. Enable the diagnostic
-entities that are disabled by default in Home Assistant if you want the RS485
-counter panel to contain data.
+The dashboard contains all Comfortzone entities plus the added Shelly heat-pump
+energy counter. Temperature measurements and setpoints share one panel, while
+power, frequency, energy, runtime, operating states, and RS485 diagnostics are
+grouped by compatible units. Enable the diagnostic entities that are disabled
+by default in Home Assistant if you want the RS485 counter panel to contain
+data.
 
-Regenerate the dashboard after changing its source definitions with:
+Reapply the rolling seven-day energy-panel calculation after editing the JSON
+with:
 
 ```powershell
 .\.esphome-venv\Scripts\python.exe tools\generate_grafana_dashboard.py
