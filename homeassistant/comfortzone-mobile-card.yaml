@@ -18,6 +18,8 @@ cards:
         name: Raum
       - entity: sensor.comfortzone_ex_flow_temperature
         name: Vorlauf
+      - entity: sensor.technikkeller_comfortzone_ex_calculated_flow_temperature
+        name: Vorlauf berechnet
       - entity: sensor.comfortzone_ex_hot_water_temperature
         name: Warmwasser
       - entity: sensor.comfortzone_ex_outdoor_temperature
@@ -74,6 +76,19 @@ cards:
         name: Zusatzleistung
       - entity: sensor.comfortzone_ex_fan_speed
         name: Lüfter
+
+  - type: entities
+    title: Luft und Durchfluss
+    show_header_toggle: false
+    entities:
+      - entity: sensor.technikkeller_comfortzone_ex_fan_power
+        name: Ventilatorleistung
+      - entity: sensor.technikkeller_comfortzone_ex_filter_change_time
+        name: Filterwechselzeit
+      - entity: sensor.technikkeller_comfortzone_ex_heating_flow
+        name: Heizungsdurchfluss
+      - entity: sensor.technikkeller_comfortzone_ex_hot_water_flow
+        name: Warmwasserdurchfluss
 
   - type: entities
     title: Energie und Laufzeit

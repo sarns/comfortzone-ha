@@ -27,6 +27,22 @@ async def main() -> None:
     names = {entity.key: entity.name for entity in entities}
     print(f"connected entities={len(entities)} heat_pump_time_present={any(e.name == 'Heat Pump Time' for e in entities)}")
 
+    new_names = {
+        "Calculated Flow Temperature",
+        "Fan Power",
+        "Filter Change Time",
+        "Heating Flow",
+        "Hot Water Flow",
+    }
+    for entity in entities:
+        if entity.name in new_names:
+            print(
+                "entity "
+                f"name={entity.name!r} object_id={getattr(entity, 'object_id', None)!r} "
+                f"unique_id={getattr(entity, 'unique_id', None)!r} "
+                f"force_update={getattr(entity, 'force_update', None)!r}"
+            )
+
     start = time.monotonic()
     events: dict[str, list[float]] = defaultdict(list)
 
@@ -46,6 +62,11 @@ async def main() -> None:
         "Compressor Frequency",
         "Compressor Input Power",
         "Total Runtime",
+        "Calculated Flow Temperature",
+        "Fan Power",
+        "Filter Change Time",
+        "Heating Flow",
+        "Hot Water Flow",
         "RS485 Bus Online",
     )
     for name in tracked:

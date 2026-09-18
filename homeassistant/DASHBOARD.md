@@ -31,10 +31,13 @@ Diese Karten-Datei beginnt direkt mit `type: picture-elements`; die vollständig
 Dashboard-Datei beginnt dagegen mit `title:` und `views:`.
 
 Ein Klick auf einen Messwert öffnet dessen Home-Assistant-Detailansicht mit dem
-Verlauf. Die Darstellung enthält 25 der 27 exportierten Entities. Die rein
+Verlauf. Die Darstellung enthält 30 der 32 exportierten Entities. Die rein
 technischen Werte `last_decoded_frame_age` und `protocol_coverage` sind bewusst
 ausgeblendet. Live-Werte liegen direkt bei ihren Bauteilen; Energie, Laufzeiten
 und der RS485-Status stehen im freien unteren Bildbereich.
+
+Die fünf nachträglich ergänzten Messwerte verwenden die von Home Assistant
+vergebenen Entity-IDs mit dem Präfix `sensor.technikkeller_comfortzone_ex_`.
 
 ## Hinweise
 

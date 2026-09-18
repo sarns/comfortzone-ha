@@ -57,6 +57,15 @@ hot-water production, but it still needs confirmation during active space
 heating. The hot-water-flow field is already matched to the controller's
 displayed hot-water flow during a hot-water cycle.
 
+The five additional measurements use ESPHome's default change-based state
+handling (`force_update: false`). They are evaluated once per minute, while
+Home Assistant only records a new state when the value changes.
+
+Home Assistant assigned these newly discovered entities the area-prefixed IDs
+`sensor.technikkeller_comfortzone_ex_*`. The Grafana queries use those actual
+InfluxDB measurement names; the older entities retain their original IDs
+without the area prefix.
+
 Measurements are decoded continuously and published to Home Assistant once per
 minute. Bus connectivity changes are published immediately.
 
@@ -124,10 +133,12 @@ once per minute.
 
 The dashboard contains all Comfortzone entities plus the added Shelly heat-pump
 energy counter. Temperature measurements and setpoints share one panel, while
-power, frequency, energy, runtime, operating states, and RS485 diagnostics are
-grouped by compatible units. Enable the diagnostic entities that are disabled
-by default in Home Assistant if you want the RS485 counter panel to contain
-data.
+power, frequency, energy, runtime, fan and flow values, operating states, and
+RS485 diagnostics are grouped into separate panels. Heating and hot-water flow
+share one panel, fan power has its own percentage panel, and the remaining
+filter time is displayed as a single value. Enable the diagnostic entities that
+are disabled by default in Home Assistant if you want the RS485 counter panel
+to contain data.
 
 Reapply the rolling seven-day energy-panel calculation after editing the JSON
 with:

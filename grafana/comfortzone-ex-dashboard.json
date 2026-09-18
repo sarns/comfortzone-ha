@@ -267,6 +267,27 @@
                     },
                     "refId": "K"
                   }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Calculated Flow",
+                        "query": "SELECT distinct(\"value\") FROM \"sensor.technikkeller_comfortzone_ex_calculated_flow_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "L"
+                  }
                 }
               ],
               "queryOptions": {
@@ -355,6 +376,340 @@
                   "mode": "multi",
                   "sort": "none"
                 }
+              }
+            },
+            "version": "13.2.1"
+          }
+        }
+      },
+      "panel-10": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Heating Flow",
+                        "query": "SELECT distinct(\"value\") FROM \"sensor.technikkeller_comfortzone_ex_heating_flow\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Hot Water Flow",
+                        "query": "SELECT distinct(\"value\") FROM \"sensor.technikkeller_comfortzone_ex_hot_water_flow\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Heating and hot-water flow. The heating-flow mapping is provisional.",
+          "id": 10,
+          "links": [],
+          "title": "Flow",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": 3600000,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "flowlpm"
+                },
+                "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.2.1"
+          }
+        }
+      },
+      "panel-11": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Fan Power",
+                        "query": "SELECT distinct(\"value\") FROM \"sensor.technikkeller_comfortzone_ex_fan_power\" WHERE $timeFilter GROUP BY time($__interval) fill(null) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Ventilation fan duty percentage.",
+          "id": 11,
+          "links": [],
+          "title": "Fan Power",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": 3600000,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "percent"
+                },
+                "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.2.1"
+          }
+        }
+      },
+      "panel-12": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Time Remaining",
+                        "query": "SELECT last(\"value\") FROM \"sensor.technikkeller_comfortzone_ex_filter_change_time\" WHERE $timeFilter",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Remaining time until the next filter change.",
+          "id": 12,
+          "links": [],
+          "title": "Filter Change",
+          "vizConfig": {
+            "group": "stat",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "d"
+                },
+                "overrides": []
+              },
+              "options": {
+                "colorMode": "value",
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "value_and_name",
+                "wideLayout": true
               }
             },
             "version": "13.2.1"
@@ -637,6 +992,7 @@
                       "group": "influxdb",
                       "kind": "DataQuery",
                       "spec": {
+                        "alias": "Waermepumpe Input",
                         "groupBy": [
                           {
                             "params": [
@@ -1682,89 +2038,6 @@
             "version": "13.2.1"
           }
         }
-      },
-      "panel-9": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Coverage",
-                        "query": "SELECT last(\"state\") FROM \"text_sensor.comfortzone_ex_protocol_coverage\" WHERE $timeFilter GROUP BY time($__interval) fill(previous) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "interval": "20s"
-              },
-              "transformations": []
-            }
-          },
-          "description": "Decoder coverage reported by the ESPHome component.",
-          "id": 9,
-          "links": [],
-          "title": "Protocol Coverage",
-          "vizConfig": {
-            "group": "stat",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  },
-                  "unit": "string"
-                },
-                "overrides": []
-              },
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              }
-            },
-            "version": "13.2.1"
-          }
-        }
       }
     },
     "layout": {
@@ -1815,7 +2088,7 @@
             "spec": {
               "element": {
                 "kind": "ElementReference",
-                "name": "panel-4"
+                "name": "panel-10"
               },
               "height": 9,
               "width": 12,
@@ -1828,7 +2101,7 @@
             "spec": {
               "element": {
                 "kind": "ElementReference",
-                "name": "panel-5"
+                "name": "panel-11"
               },
               "height": 9,
               "width": 12,
@@ -1841,12 +2114,38 @@
             "spec": {
               "element": {
                 "kind": "ElementReference",
+                "name": "panel-4"
+              },
+              "height": 9,
+              "width": 12,
+              "x": 0,
+              "y": 39
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-5"
+              },
+              "height": 9,
+              "width": 12,
+              "x": 12,
+              "y": 39
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
                 "name": "panel-6"
               },
               "height": 8,
               "width": 24,
               "x": 0,
-              "y": 39
+              "y": 48
             }
           },
           {
@@ -1859,7 +2158,7 @@
               "height": 9,
               "width": 16,
               "x": 0,
-              "y": 47
+              "y": 56
             }
           },
           {
@@ -1872,7 +2171,7 @@
               "height": 9,
               "width": 4,
               "x": 16,
-              "y": 47
+              "y": 56
             }
           },
           {
@@ -1880,12 +2179,12 @@
             "spec": {
               "element": {
                 "kind": "ElementReference",
-                "name": "panel-9"
+                "name": "panel-12"
               },
               "height": 9,
               "width": 4,
               "x": 20,
-              "y": 47
+              "y": 56
             }
           }
         ]
@@ -1915,10 +2214,10 @@
         "1d"
       ],
       "fiscalYearStartMonth": 0,
-      "from": "2026-09-17T23:39:55.581Z",
+      "from": "now-12h",
       "hideTimepicker": false,
       "timezone": "browser",
-      "to": "2026-09-18T11:39:55.581Z"
+      "to": "now"
     },
     "title": "Comfortzone EX Heat Pump",
     "variables": []

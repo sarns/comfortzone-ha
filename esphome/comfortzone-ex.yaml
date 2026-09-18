@@ -8,7 +8,7 @@ esphome:
   min_version: 2026.9.0
   project:
     name: local.comfortzone_ex
-    version: "0.3.0"
+    version: "0.3.2"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -111,18 +111,23 @@ comfortzone_ex:
 
   calculated_flow_temperature:
     name: Calculated Flow Temperature
+    force_update: false
   fan_power:
     name: Fan Power
     icon: mdi:fan
+    force_update: false
   filter_change_time:
     name: Filter Change Time
     icon: mdi:air-filter
+    force_update: false
   heating_flow:
     name: Heating Flow
     icon: mdi:water-pump
+    force_update: false
   hot_water_flow:
     name: Hot Water Flow
     icon: mdi:water-pump
+    force_update: false
 
   compressor_running:
     name: Compressor Running

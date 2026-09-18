@@ -195,9 +195,33 @@ cards:
           color: "#ffad93"
           background: "rgba(5, 18, 32, 0.9)"
           border: "1px solid rgba(255, 100, 75, 0.5)"
-          border-radius: 7px
-          padding: 4px 6px
+          border-radius: "8px 8px 0 0"
+          box-sizing: border-box
+          width: 19%
+          padding: 4px 7px
           font-size: "clamp(9px, 1.4vw, 14px)"
+          text-align: left
+          white-space: nowrap
+
+      - type: state-label
+        entity: sensor.technikkeller_comfortzone_ex_calculated_flow_temperature
+        prefix: "Berechnet: "
+        tap_action:
+          action: more-info
+        style:
+          left: 68%
+          top: 43%
+          color: "#ffd4c9"
+          background: "rgba(5, 18, 32, 0.94)"
+          border-left: "1px solid rgba(255, 100, 75, 0.5)"
+          border-right: "1px solid rgba(255, 100, 75, 0.5)"
+          border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+          border-radius: "0 0 8px 8px"
+          box-sizing: border-box
+          width: 19%
+          padding: 4px 7px
+          font-size: "clamp(9px, 1.4vw, 14px)"
+          text-align: left
           white-space: nowrap
 
       - type: state-label
@@ -248,6 +272,27 @@ cards:
           border-left: "1px solid rgba(255, 100, 75, 0.5)"
           border-right: "1px solid rgba(255, 100, 75, 0.5)"
           border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+          border-radius: 0
+          box-sizing: border-box
+          width: 18%
+          padding: 4px 7px
+          font-size: "clamp(9px, 1.4vw, 14px)"
+          text-align: left
+          white-space: nowrap
+
+      - type: state-label
+        entity: sensor.technikkeller_comfortzone_ex_hot_water_flow
+        prefix: "WW-Fluss: "
+        tap_action:
+          action: more-info
+        style:
+          left: 88%
+          top: 39%
+          color: "#ffd4c9"
+          background: "rgba(5, 18, 32, 0.94)"
+          border-left: "1px solid rgba(255, 100, 75, 0.5)"
+          border-right: "1px solid rgba(255, 100, 75, 0.5)"
+          border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
           border-radius: "0 0 8px 8px"
           box-sizing: border-box
           width: 18%
@@ -267,6 +312,22 @@ cards:
           color: "#ffd166"
           background: "rgba(5, 18, 32, 0.9)"
           border: "1px solid rgba(255, 209, 102, 0.45)"
+          border-radius: 7px
+          padding: 4px 6px
+          font-size: "clamp(9px, 1.4vw, 14px)"
+          white-space: nowrap
+
+      - type: state-label
+        entity: sensor.technikkeller_comfortzone_ex_heating_flow
+        prefix: "Heizfluss: "
+        tap_action:
+          action: more-info
+        style:
+          left: 83%
+          top: 81%
+          color: "#79ceff"
+          background: "rgba(5, 18, 32, 0.9)"
+          border: "1px solid rgba(67, 170, 255, 0.5)"
           border-radius: 7px
           padding: 4px 6px
           font-size: "clamp(9px, 1.4vw, 14px)"
@@ -336,6 +397,8 @@ cards:
             name: Wärmetauscher Ausgang
           - entity: sensor.comfortzone_ex_flow_temperature
             name: Vorlauf
+          - entity: sensor.technikkeller_comfortzone_ex_calculated_flow_temperature
+            name: Vorlauf berechnet
           - entity: sensor.comfortzone_ex_return_temperature
             name: Rücklauf
           - entity: sensor.comfortzone_ex_hot_water_temperature
@@ -363,6 +426,14 @@ cards:
             name: Zusatzleistung
           - entity: sensor.comfortzone_ex_fan_speed
             name: Lüfter
+          - entity: sensor.technikkeller_comfortzone_ex_fan_power
+            name: Ventilatorleistung
+          - entity: sensor.technikkeller_comfortzone_ex_heating_flow
+            name: Heizungsdurchfluss
+          - entity: sensor.technikkeller_comfortzone_ex_hot_water_flow
+            name: Warmwasserdurchfluss
+          - entity: sensor.technikkeller_comfortzone_ex_filter_change_time
+            name: Filterwechselzeit
 
   - type: grid
     columns: 2
