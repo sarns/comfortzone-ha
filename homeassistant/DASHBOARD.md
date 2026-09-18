@@ -40,6 +40,10 @@ und der RS485-Status stehen im freien unteren Bildbereich.
 
 - Die Desktop-, Tablet- und Mobilkarten liegen getrennt vor und werden mit
   `tools/generate_ha_dashboard.py` zur vollständigen Konfiguration kombiniert.
+- Wenn Positionen direkt im Rohkonfigurationseditor angepasst wurden, zuerst
+  `python tools/generate_ha_dashboard.py --import-dashboard` ausführen. Dadurch
+  werden die manuellen Änderungen in die drei Quelldateien übernommen. Danach
+  erzeugt `python tools/generate_ha_dashboard.py` wieder die Gesamtdatei.
 - Die kumulierten Energiezähler zeigen zunächst die Gesamtstände. Wochen- und
   Tagesverbrauch lassen sich anschließend mit Home-Assistant-Helfern vom Typ
   `utility_meter` ergänzen.

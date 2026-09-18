@@ -521,14 +521,38 @@ views:
                       tap_action:
                         action: more-info
                       style:
-                        left: 13%
+                        left: 10%
                         top: 33%
                         color: "#ffffff"
-                        background: "rgba(5, 18, 32, 0.9)"
+                        background: "rgba(5, 18, 32, 0.94)"
                         border: "1px solid rgba(255, 255, 255, 0.35)"
-                        border-radius: 7px
-                        padding: 4px 6px
+                        border-radius: "8px 8px 0 0"
+                        box-sizing: border-box
+                        width: 16%
+                        padding: 4px 7px
                         font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: sensor.comfortzone_ex_room_setpoint
+                      prefix: "Soll: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 10%
+                        top: 38%
+                        color: "#d9e8f5"
+                        background: "rgba(5, 18, 32, 0.94)"
+                        border-left: "1px solid rgba(255, 255, 255, 0.35)"
+                        border-right: "1px solid rgba(255, 255, 255, 0.35)"
+                        border-bottom: "1px solid rgba(255, 255, 255, 0.35)"
+                        border-radius: "0 0 8px 8px"
+                        box-sizing: border-box
+                        width: 16%
+                        padding: 4px 7px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
                         white-space: nowrap
 
                     - type: state-label
@@ -548,6 +572,54 @@ views:
                         white-space: nowrap
 
                     - type: state-label
+                      entity: sensor.comfortzone_ex_evaporator_inlet_temperature
+                      prefix: "Verdampfer: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 33%
+                        top: 36%
+                        color: "#72dcff"
+                        background: "rgba(5, 18, 32, 0.9)"
+                        border: "1px solid rgba(114, 220, 255, 0.45)"
+                        border-radius: 7px
+                        padding: 4px 6px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: sensor.comfortzone_ex_hot_gas_temperature
+                      prefix: "Heißgas: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 57%
+                        top: 66%
+                        color: "#ff9675"
+                        background: "rgba(5, 18, 32, 0.9)"
+                        border: "1px solid rgba(255, 150, 117, 0.45)"
+                        border-radius: 7px
+                        padding: 4px 6px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: sensor.comfortzone_ex_exchanger_outlet_temperature
+                      prefix: "WT-Ausgang: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 55%
+                        top: 30%
+                        color: "#ffad8e"
+                        background: "rgba(5, 18, 32, 0.9)"
+                        border: "1px solid rgba(255, 173, 142, 0.45)"
+                        border-radius: 7px
+                        padding: 4px 6px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        white-space: nowrap
+
+                    - type: state-label
                       entity: binary_sensor.comfortzone_ex_compressor_running
                       prefix: "Kompressor: "
                       tap_action:
@@ -556,11 +628,56 @@ views:
                         left: 48%
                         top: 75%
                         color: "#ffad93"
-                        background: "rgba(5, 18, 32, 0.92)"
+                        background: "rgba(5, 18, 32, 0.94)"
                         border: "1px solid rgba(255, 100, 75, 0.5)"
-                        border-radius: 7px
-                        padding: 4px 6px
+                        border-radius: "8px 8px 0 0"
+                        box-sizing: border-box
+                        width: 19%
+                        padding: 4px 7px
                         font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: sensor.comfortzone_ex_compressor_input_power
+                      prefix: "Aufnahme: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 48%
+                        top: 80%
+                        color: "#ffad93"
+                        background: "rgba(5, 18, 32, 0.94)"
+                        border-left: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-right: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-radius: 0
+                        box-sizing: border-box
+                        width: 19%
+                        padding: 4px 7px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: sensor.comfortzone_ex_compressor_output_power
+                      prefix: "Abgabe: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 48%
+                        top: 85%
+                        color: "#ffad93"
+                        background: "rgba(5, 18, 32, 0.94)"
+                        border-left: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-right: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-radius: "0 0 8px 8px"
+                        box-sizing: border-box
+                        width: 19%
+                        padding: 4px 7px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
                         white-space: nowrap
 
                     - type: state-label
@@ -604,11 +721,35 @@ views:
                         left: 88%
                         top: 29%
                         color: "#ffad93"
-                        background: "rgba(5, 18, 32, 0.9)"
+                        background: "rgba(5, 18, 32, 0.94)"
                         border: "1px solid rgba(255, 100, 75, 0.5)"
-                        border-radius: 7px
-                        padding: 4px 6px
+                        border-radius: "8px 8px 0 0"
+                        box-sizing: border-box
+                        width: 18%
+                        padding: 4px 7px
                         font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: sensor.comfortzone_ex_hot_water_target
+                      prefix: "WW-Soll: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 88%
+                        top: 34%
+                        color: "#ffd4c9"
+                        background: "rgba(5, 18, 32, 0.94)"
+                        border-left: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-right: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+                        border-radius: "0 0 8px 8px"
+                        box-sizing: border-box
+                        width: 18%
+                        padding: 4px 7px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
                         white-space: nowrap
 
                     - type: state-label
@@ -625,6 +766,46 @@ views:
                         border-radius: 7px
                         padding: 4px 6px
                         font-size: "clamp(9px, 1.4vw, 14px)"
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: binary_sensor.comfortzone_ex_additional_heater_active
+                      prefix: "Zusatzheizung: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 83%
+                        top: 85%
+                        color: "#ffc778"
+                        background: "rgba(5, 18, 32, 0.94)"
+                        border: "1px solid rgba(255, 199, 120, 0.45)"
+                        border-radius: "8px 8px 0 0"
+                        box-sizing: border-box
+                        width: 19%
+                        padding: 4px 7px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
+                        white-space: nowrap
+
+                    - type: state-label
+                      entity: sensor.comfortzone_ex_additional_heater_power
+                      prefix: "Zusatzleistung: "
+                      tap_action:
+                        action: more-info
+                      style:
+                        left: 83%
+                        top: 90%
+                        color: "#ffd166"
+                        background: "rgba(5, 18, 32, 0.94)"
+                        border-left: "1px solid rgba(255, 199, 120, 0.45)"
+                        border-right: "1px solid rgba(255, 199, 120, 0.45)"
+                        border-bottom: "1px solid rgba(255, 199, 120, 0.45)"
+                        border-radius: "0 0 8px 8px"
+                        box-sizing: border-box
+                        width: 19%
+                        padding: 4px 7px
+                        font-size: "clamp(9px, 1.4vw, 14px)"
+                        text-align: left
                         white-space: nowrap
 
                 - type: grid

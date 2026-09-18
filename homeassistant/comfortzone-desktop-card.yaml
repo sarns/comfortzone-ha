@@ -121,8 +121,8 @@ elements:
     tap_action:
       action: more-info
     style:
-      left: 50%
-      top: 36%
+      left: 57%
+      top: 59%
       color: "#ff9675"
       background: "rgba(5, 18, 32, 0.9)"
       border: "1px solid rgba(255, 150, 117, 0.45)"
@@ -138,7 +138,7 @@ elements:
       action: more-info
     style:
       left: 57%
-      top: 59%
+      top: 36%
       color: "#ffad8e"
       background: "rgba(5, 18, 32, 0.9)"
       border: "1px solid rgba(255, 173, 142, 0.45)"
@@ -237,7 +237,7 @@ elements:
       action: more-info
     style:
       left: 68%
-      top: 43%
+      top: 40%
       color: "#ffad93"
       background: "rgba(5, 18, 32, 0.9)"
       border: "1px solid rgba(255, 100, 75, 0.5)"
@@ -253,7 +253,7 @@ elements:
       action: more-info
     style:
       left: 68%
-      top: 51%
+      top: 52%
       color: "#79ceff"
       background: "rgba(5, 18, 32, 0.9)"
       border: "1px solid rgba(67, 170, 255, 0.5)"

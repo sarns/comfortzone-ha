@@ -1,10 +1,18 @@
-"""Compose the responsive Home Assistant dashboard from its device cards."""
+"""Import or compose the responsive Home Assistant dashboard device cards."""
+
+import argparse
 
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 HA_DIR = ROOT / "homeassistant"
+
+CARD_BREAKPOINTS = {
+    "desktop": "(min-width: 1400px)",
+    "tablet": "(min-width: 600px)",
+    "mobile": "(max-width: 599px)",
+}
 
 
 def indent(text: str, spaces: int) -> str:
@@ -30,7 +38,32 @@ def as_list_item(mapping: str) -> str:
     return "\n".join([lines[0], *("  " + line if line else "" for line in lines[1:])])
 
 
-def main() -> None:
+def import_dashboard_cards() -> None:
+    """Preserve manual card edits made in the combined dashboard file."""
+    dashboard_path = HA_DIR / "comfortzone-dashboard.yaml"
+    lines = dashboard_path.read_text(encoding="utf-8-sig").splitlines()
+
+    for name, marker in CARD_BREAKPOINTS.items():
+        marker_index = next(index for index, line in enumerate(lines) if marker in line)
+        card_index = next(
+            index
+            for index in range(marker_index + 1, len(lines))
+            if lines[index].lstrip() == "card:"
+        )
+        content_indent = len(lines[card_index + 1]) - len(lines[card_index + 1].lstrip())
+        content = []
+        for line in lines[card_index + 1 :]:
+            indentation = len(line) - len(line.lstrip())
+            if line.strip() and indentation < content_indent:
+                break
+            content.append(line[content_indent:] if len(line) >= content_indent else "")
+
+        (HA_DIR / f"comfortzone-{name}-card.yaml").write_text(
+            "\n".join(content).rstrip() + "\n", encoding="utf-8"
+        )
+
+
+def generate_dashboard() -> None:
     desktop = (HA_DIR / "comfortzone-desktop-card.yaml").read_text(encoding="utf-8-sig").strip()
     tablet = (HA_DIR / "comfortzone-tablet-card.yaml").read_text(encoding="utf-8-sig").strip()
     mobile = (HA_DIR / "comfortzone-mobile-card.yaml").read_text(encoding="utf-8-sig").strip()
@@ -61,4 +94,14 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--import-dashboard",
+        action="store_true",
+        help="copy manual edits from the combined dashboard back to the device cards",
+    )
+    args = parser.parse_args()
+    if args.import_dashboard:
+        import_dashboard_cards()
+    else:
+        generate_dashboard()
