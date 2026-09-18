@@ -59,6 +59,36 @@ coverage. Counter diagnostics are disabled by default in Home Assistant.
 `Protocol Coverage` describes the implemented decoder, not current bus health.
 Unknown registers are counted but never published under speculative names.
 
+## Long-term raw capture
+
+To correlate currently unknown fields with values shown on the heat-pump
+display, temporarily add this option below `comfortzone_ex:` and install the
+firmware through OTA:
+
+```yaml
+  raw_frame_logging: true
+```
+
+The native API and all regular Home Assistant entities continue to work while
+capture logging is enabled. Connect the ESP32 USB port to a Raspberry Pi and
+record a timestamped, compressed capture for twelve hours:
+
+```text
+python3 tools/capture_usb_serial.py /dev/ttyACM0 --seconds 43200 \
+  --timestamp-lines --output captures/comfortzone-long.log.gz
+```
+
+Photograph the heat-pump measurement screen at several known times, including
+idle operation and active hot-water or heating cycles. Ensure that each photo
+shows or records the exact local time and both displayed flow readings. Disable
+`raw_frame_logging` and install the normal firmware again after the capture.
+
+The compressed and legacy capture formats can both be summarized with:
+
+```text
+python3 tools/analyze_capture.py captures/comfortzone-long.log.gz --samples
+```
+
 ## Grafana dashboard
 
 Import `grafana/comfortzone-ex-dashboard.json` as a Grafana

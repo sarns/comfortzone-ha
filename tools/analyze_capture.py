@@ -3,6 +3,7 @@
 
 import argparse
 import collections
+import gzip
 import pathlib
 import re
 
@@ -40,14 +41,32 @@ def extract_frames(data: bytes) -> list[bytes]:
     return frames
 
 
+def read_capture(path: pathlib.Path) -> bytes:
+    if path.suffix == ".gz":
+        with gzip.open(path, "rt", encoding="utf-8", errors="replace") as capture:
+            text = capture.read()
+    else:
+        text = path.read_text(encoding="utf-8", errors="replace")
+
+    raw_log_frames = re.findall(r"\bCZRAW\b[^\r\n]*\bframe=([0-9A-Fa-f]+)", text)
+    if raw_log_frames:
+        return b"".join(bytes.fromhex(frame) for frame in raw_log_frames)
+
+    return bytes(
+        int(value, 16)
+        for value in re.findall(
+            r"(?<![0-9A-Fa-f])[0-9A-Fa-f]{2}(?![0-9A-Fa-f])", text
+        )
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("capture", type=pathlib.Path)
     parser.add_argument("--samples", action="store_true")
     args = parser.parse_args()
 
-    text = args.capture.read_text(encoding="utf-8", errors="replace")
-    byte_values = bytes(int(value, 16) for value in re.findall(r"(?<![0-9A-Fa-f])[0-9A-Fa-f]{2}(?![0-9A-Fa-f])", text))
+    byte_values = read_capture(args.capture)
     frames = extract_frames(byte_values)
 
     groups: dict[tuple[str, int, str], list[bytes]] = collections.defaultdict(list)

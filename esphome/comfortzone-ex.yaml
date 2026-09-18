@@ -61,6 +61,7 @@ comfortzone_ex:
   id: comfortzone_monitor
   uart_id: comfortzone_bus
   receiver_enable_pin: GPIO21
+  raw_frame_logging: true
 
   outdoor_temperature:
     name: Outdoor Temperature

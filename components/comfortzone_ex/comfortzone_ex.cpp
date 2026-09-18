@@ -17,6 +17,7 @@ void ComfortzoneExComponent::setup() {
   this->bus_online_binary_sensor_->publish_state(false);
   this->protocol_coverage_text_sensor_->publish_state("6 of 22 read registers decoded");
   ESP_LOGI(TAG, "RS485 receiver enabled; transmitter remains disabled");
+  ESP_LOGI(TAG, "Raw frame logging: %s", this->raw_frame_logging_ ? "enabled" : "disabled");
 }
 
 void ComfortzoneExComponent::loop() {
@@ -45,6 +46,7 @@ void ComfortzoneExComponent::dump_config() {
   LOG_PIN("  Receiver enable pin: ", this->receiver_enable_pin_);
   ESP_LOGCONFIG(TAG, "  Protocol family: EX 0B10");
   ESP_LOGCONFIG(TAG, "  Supported read registers: 6 of 22 observed");
+  ESP_LOGCONFIG(TAG, "  Raw frame logging: %s", this->raw_frame_logging_ ? "enabled" : "disabled");
 }
 
 void ComfortzoneExComponent::consume_byte_(uint8_t value) {
@@ -98,12 +100,28 @@ void ComfortzoneExComponent::process_frame_() {
   }
 
   this->valid_frames_++;
+  if (this->raw_frame_logging_)
+    this->log_raw_frame_();
+
   if (this->decode_frame_()) {
     this->decoded_frames_++;
     this->last_decoded_frame_ms_ = millis();
   } else {
     this->unsupported_frames_++;
   }
+}
+
+void ComfortzoneExComponent::log_raw_frame_() const {
+  static constexpr char HEX[] = "0123456789ABCDEF";
+  char encoded[BUFFER_SIZE * 2 + 1];
+  for (size_t i = 0; i < this->frame_size_; i++) {
+    encoded[i * 2] = HEX[this->frame_[i] >> 4];
+    encoded[i * 2 + 1] = HEX[this->frame_[i] & 0x0F];
+  }
+  encoded[this->frame_size_ * 2] = '\0';
+
+  ESP_LOGI(TAG, "CZRAW uptime_ms=%lu frame=%s",
+           static_cast<unsigned long>(millis()), encoded);
 }
 
 bool ComfortzoneExComponent::decode_frame_() {

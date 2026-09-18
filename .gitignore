@@ -8,3 +8,4 @@ esphome/.esphome/
 esphome/secrets.yaml
 __pycache__/
 *.pyc
+pictures/

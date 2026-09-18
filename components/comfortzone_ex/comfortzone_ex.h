@@ -21,6 +21,7 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   float get_setup_priority() const override { return setup_priority::BUS; }
 
   void set_receiver_enable_pin(InternalGPIOPin *pin) { this->receiver_enable_pin_ = pin; }
+  void set_raw_frame_logging(bool enabled) { this->raw_frame_logging_ = enabled; }
 
 #define CZ_SENSOR_SETTER(name) \
   void set_##name##_sensor(sensor::Sensor *value) { this->name##_sensor_ = value; }
@@ -92,6 +93,7 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   void consume_byte_(uint8_t value);
   bool header_valid_() const;
   void process_frame_();
+  void log_raw_frame_() const;
   bool decode_frame_();
   bool register_is_(uint8_t a, uint8_t b, uint8_t c) const;
   bool should_publish_(PublishGroup group);
@@ -117,6 +119,7 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   uint32_t last_diagnostic_ms_{0};
   uint32_t last_publish_ms_[PUBLISH_GROUP_COUNT]{};
   bool bus_online_state_{false};
+  bool raw_frame_logging_{false};
 
   uint16_t compressor_frequency_x10_{0};
   uint16_t compressor_input_power_w_{0};
