@@ -38,7 +38,7 @@ cards:
             border: "1px solid rgba(255, 255, 255, 0.35)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 15%
+            width: 11%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -59,7 +59,7 @@ cards:
             border-bottom: "1px solid rgba(255, 255, 255, 0.35)"
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 15%
+            width: 11%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -78,7 +78,7 @@ cards:
             border: "1px solid rgba(139, 220, 255, 0.45)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 18%
+            width: 11%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -99,7 +99,7 @@ cards:
             border-bottom: "1px solid rgba(139, 220, 255, 0.45)"
             border-radius: 0
             box-sizing: border-box
-            width: 18%
+            width: 11%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -120,7 +120,7 @@ cards:
             border-bottom: "1px solid rgba(139, 220, 255, 0.45)"
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 18%
+            width: 11%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -188,7 +188,7 @@ cards:
             border: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 18%
+            width: 13%
             padding: 6px 10px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -209,7 +209,7 @@ cards:
             border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: 0
             box-sizing: border-box
-            width: 18%
+            width: 13%
             padding: 6px 10px
             font-size: "clamp(9px, 0.9vw, 14px)"
             text-align: left
@@ -230,7 +230,7 @@ cards:
             border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: 0
             box-sizing: border-box
-            width: 18%
+            width: 13%
             padding: 6px 10px
             font-size: "clamp(9px, 0.9vw, 14px)"
             text-align: left
@@ -251,7 +251,7 @@ cards:
             border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 18%
+            width: 13%
             padding: 6px 10px
             font-size: "clamp(9px, 0.9vw, 14px)"
             text-align: left
@@ -271,7 +271,7 @@ cards:
             border: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 17%
+            width: 11%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -292,7 +292,7 @@ cards:
             border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 17%
+            width: 11%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -327,7 +327,7 @@ cards:
             border: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 15%
+            width: 10%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -348,7 +348,7 @@ cards:
             border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: 0
             box-sizing: border-box
-            width: 15%
+            width: 10%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -369,7 +369,7 @@ cards:
             border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 15%
+            width: 10%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -420,7 +420,7 @@ cards:
             border: "1px solid rgba(255, 199, 120, 0.45)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 17%
+            width: 12%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -441,7 +441,7 @@ cards:
             border-bottom: "1px solid rgba(255, 199, 120, 0.45)"
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 17%
+            width: 12%
             padding: 7px 11px
             font-size: "clamp(9px, 1vw, 15px)"
             text-align: left
@@ -461,7 +461,7 @@ cards:
             border: "1px solid rgba(170, 205, 230, 0.35)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 22%
+            width: 15%
             padding: 7px 11px
             font-size: "clamp(9px, 0.95vw, 14px)"
             text-align: left
@@ -482,7 +482,7 @@ cards:
             border-bottom: "1px solid rgba(170, 205, 230, 0.35)"
             border-radius: 0
             box-sizing: border-box
-            width: 22%
+            width: 15%
             padding: 7px 11px
             font-size: "clamp(9px, 0.95vw, 14px)"
             text-align: left
@@ -502,7 +502,7 @@ cards:
             border-top: none
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 22%
+            width: 15%
             padding: 7px 11px
             font-size: "clamp(9px, 0.95vw, 14px)"
             text-align: left
@@ -521,7 +521,7 @@ cards:
             border: "1px solid rgba(170, 205, 230, 0.35)"
             border-radius: "10px 10px 0 0"
             box-sizing: border-box
-            width: 22%
+            width: 15%
             padding: 7px 11px
             font-size: "clamp(9px, 0.95vw, 14px)"
             text-align: left
@@ -542,7 +542,7 @@ cards:
             border-bottom: "1px solid rgba(170, 205, 230, 0.35)"
             border-radius: "0 0 10px 10px"
             box-sizing: border-box
-            width: 22%
+            width: 15%
             padding: 7px 11px
             font-size: "clamp(9px, 0.95vw, 14px)"
             text-align: left
@@ -619,7 +619,7 @@ cards:
                 border: "1px solid rgba(255, 255, 255, 0.35)"
                 border-radius: "8px 8px 0 0"
                 box-sizing: border-box
-                width: 16%
+                width: 11%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -640,7 +640,7 @@ cards:
                 border-bottom: "1px solid rgba(255, 255, 255, 0.35)"
                 border-radius: "0 0 8px 8px"
                 box-sizing: border-box
-                width: 16%
+                width: 11%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -723,7 +723,7 @@ cards:
                 border: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: "8px 8px 0 0"
                 box-sizing: border-box
-                width: 19%
+                width: 13%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -744,7 +744,7 @@ cards:
                 border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: 0
                 box-sizing: border-box
-                width: 19%
+                width: 13%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -765,7 +765,7 @@ cards:
                 border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: "0 0 8px 8px"
                 box-sizing: border-box
-                width: 19%
+                width: 13%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -784,7 +784,7 @@ cards:
                 border: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: "8px 8px 0 0"
                 box-sizing: border-box
-                width: 19%
+                width: 12%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -805,7 +805,7 @@ cards:
                 border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: "0 0 8px 8px"
                 box-sizing: border-box
-                width: 19%
+                width: 12%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -840,7 +840,7 @@ cards:
                 border: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: "8px 8px 0 0"
                 box-sizing: border-box
-                width: 18%
+                width: 12%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -861,7 +861,7 @@ cards:
                 border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: 0
                 box-sizing: border-box
-                width: 18%
+                width: 12%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -882,7 +882,7 @@ cards:
                 border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
                 border-radius: "0 0 8px 8px"
                 box-sizing: border-box
-                width: 18%
+                width: 12%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -933,7 +933,7 @@ cards:
                 border: "1px solid rgba(255, 199, 120, 0.45)"
                 border-radius: "8px 8px 0 0"
                 box-sizing: border-box
-                width: 19%
+                width: 13%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
@@ -954,7 +954,7 @@ cards:
                 border-bottom: "1px solid rgba(255, 199, 120, 0.45)"
                 border-radius: "0 0 8px 8px"
                 box-sizing: border-box
-                width: 19%
+                width: 13%
                 padding: 4px 7px
                 font-size: "clamp(9px, 1.4vw, 14px)"
                 text-align: left
