@@ -136,7 +136,7 @@ cards:
           border: "1px solid rgba(255, 100, 75, 0.5)"
           border-radius: "8px 8px 0 0"
           box-sizing: border-box
-          width: 13%
+          width: 16%
           padding: 4px 7px
           font-size: "clamp(9px, 1.4vw, 14px)"
           text-align: left
@@ -157,7 +157,7 @@ cards:
           border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
           border-radius: 0
           box-sizing: border-box
-          width: 13%
+          width: 16%
           padding: 4px 7px
           font-size: "clamp(9px, 1.4vw, 14px)"
           text-align: left
@@ -178,7 +178,7 @@ cards:
           border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
           border-radius: "0 0 8px 8px"
           box-sizing: border-box
-          width: 13%
+          width: 16%
           padding: 4px 7px
           font-size: "clamp(9px, 1.4vw, 14px)"
           text-align: left
@@ -253,7 +253,7 @@ cards:
           border: "1px solid rgba(255, 100, 75, 0.5)"
           border-radius: "8px 8px 0 0"
           box-sizing: border-box
-          width: 12%
+          width: 14%
           padding: 4px 7px
           font-size: "clamp(9px, 1.4vw, 14px)"
           text-align: left
@@ -274,7 +274,7 @@ cards:
           border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
           border-radius: 0
           box-sizing: border-box
-          width: 12%
+          width: 14%
           padding: 4px 7px
           font-size: "clamp(9px, 1.4vw, 14px)"
           text-align: left
@@ -295,7 +295,7 @@ cards:
           border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
           border-radius: "0 0 8px 8px"
           box-sizing: border-box
-          width: 12%
+          width: 14%
           padding: 4px 7px
           font-size: "clamp(9px, 1.4vw, 14px)"
           text-align: left
