@@ -16,15 +16,29 @@ def weekly_consumption_query(measurement: str) -> str:
     )
 
 
-def measurement_query(measurement: str) -> str:
+# Home Assistant only writes to InfluxDB when a state changes, so slow-moving
+# entities often have no point inside the selected range. Each series therefore
+# also carries the last value recorded before the range, which keeps the line
+# and the legend's last value populated.
+LAST_KNOWN_LOOKBACK = "365d"
+
+
+def measurement_query(measurement: str, field: str = "value") -> str:
     return (
-        f'SELECT distinct("value") FROM "{measurement}" WHERE $timeFilter '
-        'GROUP BY time($__interval) fill(null) ORDER BY time ASC'
+        f'SELECT "{field}" FROM '
+        f'(SELECT last("{field}") AS "{field}" FROM "{measurement}" '
+        f"WHERE time < ${{__from}}ms AND time >= ${{__from}}ms - {LAST_KNOWN_LOOKBACK}), "
+        f'(SELECT last("{field}") AS "{field}" FROM "{measurement}" '
+        "WHERE $timeFilter GROUP BY time($__interval) fill(previous)) "
+        "ORDER BY time ASC"
     )
 
 
 def last_value_query(measurement: str) -> str:
-    return f'SELECT last("value") FROM "{measurement}" WHERE $timeFilter'
+    return (
+        f'SELECT last("value") FROM "{measurement}" '
+        f"WHERE time <= ${{__to}}ms AND time > ${{__to}}ms - {LAST_KNOWN_LOOKBACK}"
+    )
 
 
 dashboard = json.loads(DASHBOARD_PATH.read_text(encoding="utf-8"))
@@ -158,6 +172,177 @@ def build_filter_panel(template_panel: dict) -> dict:
     return {"kind": "Panel", "spec": panel}
 
 
+ENERGY_TIMEZONE = "Europe/Berlin"
+
+
+def daily_consumption_query(measurement: str) -> str:
+    # The extra day before the range supplies the baseline for the first
+    # daily difference in the range.
+    return (
+        'SELECT NON_NEGATIVE_DIFFERENCE(LAST("value")) AS "consumption" '
+        f'FROM "{measurement}" '
+        "WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms "
+        f"GROUP BY time(1d) fill(none) tz('{ENERGY_TIMEZONE}')"
+    )
+
+
+def daily_integrated_power_query(measurement: str) -> str:
+    # Home Assistant only records changes, so the power is first resampled to a
+    # held per-minute value; each minute then contributes W / 60 / 1000 kWh.
+    return (
+        'SELECT sum("power") / 60000 AS "energy" FROM '
+        f'(SELECT mean("value") AS "power" FROM "{measurement}" '
+        "GROUP BY time(1m) fill(previous)) "
+        "WHERE time >= ${__from}ms AND time <= ${__to}ms "
+        f"GROUP BY time(1d) fill(none) tz('{ENERGY_TIMEZONE}')"
+    )
+
+
+power_aliases = {
+    "sensor.comfortzone_ex_compressor_output_power": "Compressor Output",
+    "sensor.comfortzone_ex_additional_heater_power": "Additional Heater",
+    "sensor.comfortzone_ex_total_output_power": "Total Output",
+    "sensor.comfortzone_ex_compressor_input_power": "Compressor Input",
+    "sensor.shellypro3em_waermepumpe_power": "Shelly Heat Pump",
+}
+
+
+def build_energy_bar_panel(
+    template_panel: dict,
+    panel_id: int,
+    title: str,
+    description: str,
+    time_from: str,
+    label: str,
+    label_format: str,
+    series: dict[str, str] = aliases,
+    series_query=daily_consumption_query,
+) -> dict:
+    # Daily energy values are labelled with label_format and summed per label.
+    panel = deepcopy(template_panel)
+    panel["id"] = panel_id
+    panel["title"] = title
+    panel["description"] = description
+
+    query_template = template_panel["data"]["spec"]["queries"][0]
+    panel["data"]["spec"]["queries"] = []
+    for ref_id, (measurement, alias) in zip("ABCDEFGH", series.items()):
+        query = deepcopy(query_template)
+        query["spec"]["refId"] = ref_id
+        query["spec"]["query"]["spec"]["alias"] = alias
+        query["spec"]["query"]["spec"]["query"] = series_query(measurement)
+        panel["data"]["spec"]["queries"].append(query)
+
+    panel["data"]["spec"]["queryOptions"] = {
+        "hideTimeOverride": False,
+        "timeFrom": time_from,
+    }
+    panel["data"]["spec"]["transformations"] = [
+        {
+            "kind": "Transformation",
+            "group": "joinByField",
+            "spec": {
+                "id": "joinByField",
+                "options": {"byField": "Time", "mode": "outer"},
+            },
+        },
+        {
+            "kind": "Transformation",
+            "group": "formatTime",
+            "spec": {
+                "id": "formatTime",
+                "options": {
+                    "outputFormat": label_format,
+                    "timeField": "Time",
+                    "useTimezone": True,
+                },
+            },
+        },
+        {
+            "kind": "Transformation",
+            "group": "groupBy",
+            "spec": {
+                "id": "groupBy",
+                "options": {
+                    "fields": {
+                        "Time": {"aggregations": [], "operation": "groupby"},
+                        **{
+                            alias: {"aggregations": ["sum"], "operation": "aggregate"}
+                            for alias in series.values()
+                        },
+                    }
+                },
+            },
+        },
+        {
+            "kind": "Transformation",
+            "group": "organize",
+            "spec": {
+                "id": "organize",
+                "options": {
+                    "renameByName": {
+                        "Time": label,
+                        **{f"{alias} (sum)": alias for alias in series.values()},
+                    }
+                },
+            },
+        },
+    ]
+
+    panel["vizConfig"] = {
+        "group": "barchart",
+        "kind": "VizConfig",
+        "spec": {
+            "fieldConfig": {
+                "defaults": {
+                    "color": {"mode": "palette-classic"},
+                    "custom": {
+                        "axisBorderShow": False,
+                        "axisCenteredZero": False,
+                        "axisColorMode": "text",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "fillOpacity": 80,
+                        "gradientMode": "none",
+                        "hideFrom": {"legend": False, "tooltip": False, "viz": False},
+                        "lineWidth": 1,
+                        "scaleDistribution": {"type": "linear"},
+                        "thresholdsStyle": {"mode": "off"},
+                    },
+                    "decimals": 1,
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [{"color": "green", "value": 0}],
+                    },
+                    "unit": "kwh",
+                },
+                "overrides": [],
+            },
+            "options": {
+                "barRadius": 0,
+                "barWidth": 0.9,
+                "fullHighlight": False,
+                "groupWidth": 0.75,
+                "legend": {
+                    "calcs": ["sum"],
+                    "displayMode": "table",
+                    "placement": "right",
+                    "showLegend": True,
+                },
+                "orientation": "vertical",
+                "showValue": "auto",
+                "stacking": "none",
+                "tooltip": {"hideZeros": False, "mode": "multi", "sort": "none"},
+                "xField": label,
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 0,
+            },
+        },
+        "version": template_panel["vizConfig"]["version"],
+    }
+    return {"kind": "Panel", "spec": panel}
+
+
 elements = dashboard["spec"]["elements"]
 elements["panel-10"] = build_timeseries_panel(
     elements["panel-3"]["spec"],
@@ -183,13 +368,43 @@ elements["panel-11"] = build_timeseries_panel(
     "percent",
 )
 elements["panel-12"] = build_filter_panel(elements["panel-8"]["spec"])
+elements["panel-13"] = build_energy_bar_panel(
+    energy_panel,
+    13,
+    "Monthly Energy Consumption — This Year",
+    "Daily counter increases summed per calendar month for the current year.",
+    "now/y",
+    "Month",
+    "MMM",
+)
+elements["panel-14"] = build_energy_bar_panel(
+    energy_panel,
+    14,
+    "Daily Energy Consumption — Last 7 Days",
+    "Counter increase per calendar day for today and the six days before.",
+    "now-6d/d",
+    "Day",
+    "ddd DD.MM.",
+)
+elements["panel-15"] = build_energy_bar_panel(
+    energy_panel,
+    15,
+    "Daily Energy from Power Readings — Last 7 Days",
+    "Power readings held per minute and integrated per calendar day, "
+    "for comparison with the energy counters above.",
+    "now-6d/d",
+    "Day",
+    "ddd DD.MM.",
+    power_aliases,
+    daily_integrated_power_query,
+)
 
 layout_items = dashboard["spec"]["layout"]["spec"]["items"]
 layout_items[:] = [
     item
     for item in layout_items
     if item["spec"]["element"]["name"]
-    not in {"panel-10", "panel-11", "panel-12"}
+    not in {"panel-10", "panel-11", "panel-12", "panel-13", "panel-14", "panel-15"}
 ]
 layout_items.extend(
     [
@@ -223,8 +438,57 @@ layout_items.extend(
             "y": 56,
         },
     },
+    {
+        "kind": "GridLayoutItem",
+        "spec": {
+            "element": {"kind": "ElementReference", "name": "panel-13"},
+            "height": 10,
+            "width": 24,
+            "x": 0,
+            "y": 65,
+        },
+    },
+    {
+        "kind": "GridLayoutItem",
+        "spec": {
+            "element": {"kind": "ElementReference", "name": "panel-14"},
+            "height": 10,
+            "width": 24,
+            "x": 0,
+            "y": 75,
+        },
+    },
+    {
+        "kind": "GridLayoutItem",
+        "spec": {
+            "element": {"kind": "ElementReference", "name": "panel-15"},
+            "height": 10,
+            "width": 24,
+            "x": 0,
+            "y": 85,
+        },
+    },
     ]
 )
 
-DASHBOARD_PATH.write_text(json.dumps(dashboard, indent=2) + "\n", encoding="utf-8")
+# Rewrite every per-entity query so all panels carry the last known value.
+ENTITY_QUERY = re.compile(
+    r'^SELECT (?:distinct|last)\("(value|state)"\) FROM "([^"]+)" WHERE \$timeFilter'
+    r"(?P<grouped> GROUP BY time\(\$__interval\) fill\(\w+\))?(?: ORDER BY time ASC)?$"
+)
+for element in elements.values():
+    for panel_query in element["spec"]["data"]["spec"]["queries"]:
+        query_spec = panel_query["spec"]["query"]["spec"]
+        match = ENTITY_QUERY.match(query_spec.get("query", ""))
+        if match is None:
+            continue
+        field, measurement = match.group(1, 2)
+        if match.group("grouped"):
+            query_spec["query"] = measurement_query(measurement, field)
+        else:
+            query_spec["query"] = last_value_query(measurement)
+
+DASHBOARD_PATH.write_text(
+    json.dumps(dashboard, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+)
 print(DASHBOARD_PATH)
