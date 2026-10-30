@@ -8,7 +8,7 @@ esphome:
   min_version: 2026.9.0
   project:
     name: local.comfortzone_ex
-    version: "0.3.2"
+    version: "0.4.0"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -129,11 +129,39 @@ comfortzone_ex:
     icon: mdi:water-pump
     force_update: false
 
+  compressor_target_frequency:
+    name: Compressor Target Frequency
+  condenser_temperature:
+    name: Condenser Temperature
+  high_pressure:
+    name: High Pressure
+  low_pressure:
+    name: Low Pressure
+  pressure_ratio:
+    name: Pressure Ratio
+    icon: mdi:gauge
+  expansion_valve_position:
+    name: Expansion Valve Position
+    icon: mdi:valve
+  superheat:
+    name: Superheat
+    icon: mdi:thermometer-chevron-up
+  target_superheat:
+    name: Target Superheat
+    icon: mdi:thermometer-chevron-up
+  required_heating_power:
+    name: Required Heating Power
+  active_hot_water_target:
+    name: Active Hot Water Target
+
   compressor_running:
     name: Compressor Running
   additional_heater_active:
     name: Additional Heater Active
     icon: mdi:radiator
+  hot_water_boost:
+    name: Hot Water Boost
+    icon: mdi:water-boiler-alert
   fan_speed:
     name: Fan Speed
 

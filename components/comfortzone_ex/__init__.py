@@ -9,6 +9,7 @@ from esphome.const import (
     DEVICE_CLASS_ENERGY,
     DEVICE_CLASS_FREQUENCY,
     DEVICE_CLASS_POWER,
+    DEVICE_CLASS_PRESSURE,
     DEVICE_CLASS_RUNNING,
     DEVICE_CLASS_TEMPERATURE,
     ENTITY_CATEGORY_DIAGNOSTIC,
@@ -65,6 +66,19 @@ AUXILIARY_KEYS = (
     "hot_water_flow",
 )
 
+REFRIGERANT_KEYS = (
+    "compressor_target_frequency",
+    "condenser_temperature",
+    "high_pressure",
+    "low_pressure",
+    "pressure_ratio",
+    "expansion_valve_position",
+    "superheat",
+    "target_superheat",
+    "required_heating_power",
+    "active_hot_water_target",
+)
+
 DIAGNOSTIC_COUNTER_KEYS = (
     "rs485_bytes",
     "valid_frames",
@@ -97,10 +111,20 @@ def power_schema():
     )
 
 
-def auxiliary_schema(unit, accuracy_decimals=1):
+def auxiliary_schema(unit, accuracy_decimals=1, entity_category=cv.UNDEFINED):
     return sensor.sensor_schema(
         unit_of_measurement=unit,
         accuracy_decimals=accuracy_decimals,
+        state_class=STATE_CLASS_MEASUREMENT,
+        entity_category=entity_category,
+    )
+
+
+def pressure_schema():
+    return sensor.sensor_schema(
+        unit_of_measurement="bar",
+        accuracy_decimals=1,
+        device_class=DEVICE_CLASS_PRESSURE,
         state_class=STATE_CLASS_MEASUREMENT,
     )
 
@@ -148,6 +172,28 @@ CONFIG_SCHEMA = (
             ),
             cv.Required("heating_flow"): auxiliary_schema("L/min"),
             cv.Required("hot_water_flow"): auxiliary_schema("L/min"),
+            cv.Required("compressor_target_frequency"): sensor.sensor_schema(
+                unit_of_measurement=UNIT_HERTZ,
+                accuracy_decimals=1,
+                device_class=DEVICE_CLASS_FREQUENCY,
+                state_class=STATE_CLASS_MEASUREMENT,
+                entity_category=ENTITY_CATEGORY_DIAGNOSTIC,
+            ),
+            cv.Required("condenser_temperature"): temperature_schema(),
+            cv.Required("high_pressure"): pressure_schema(),
+            cv.Required("low_pressure"): pressure_schema(),
+            cv.Required("pressure_ratio"): sensor.sensor_schema(
+                accuracy_decimals=1,
+                state_class=STATE_CLASS_MEASUREMENT,
+                entity_category=ENTITY_CATEGORY_DIAGNOSTIC,
+            ),
+            cv.Required("expansion_valve_position"): auxiliary_schema("%"),
+            cv.Required("superheat"): auxiliary_schema("K"),
+            cv.Required("target_superheat"): auxiliary_schema(
+                "K", entity_category=ENTITY_CATEGORY_DIAGNOSTIC
+            ),
+            cv.Required("required_heating_power"): power_schema(),
+            cv.Required("active_hot_water_target"): temperature_schema(),
             cv.Required("last_decoded_frame_age"): sensor.sensor_schema(
                 unit_of_measurement=UNIT_SECOND,
                 accuracy_decimals=0,
@@ -167,6 +213,9 @@ CONFIG_SCHEMA = (
                 device_class=DEVICE_CLASS_RUNNING,
             ),
             cv.Required("additional_heater_active"): binary_sensor.binary_sensor_schema(),
+            cv.Required("hot_water_boost"): binary_sensor.binary_sensor_schema(
+                device_class=DEVICE_CLASS_RUNNING,
+            ),
             cv.Required("bus_online"): binary_sensor.binary_sensor_schema(
                 device_class=DEVICE_CLASS_CONNECTIVITY,
                 entity_category=ENTITY_CATEGORY_DIAGNOSTIC,
@@ -198,6 +247,7 @@ async def to_code(config):
         + ENERGY_KEYS
         + RUNTIME_KEYS
         + AUXILIARY_KEYS
+        + REFRIGERANT_KEYS
     ):
         entity = await sensor.new_sensor(config[key])
         cg.add(getattr(var, f"set_{key}_sensor")(entity))
@@ -206,7 +256,7 @@ async def to_code(config):
         entity = await sensor.new_sensor(config[key])
         cg.add(getattr(var, f"set_{key}_sensor")(entity))
 
-    for key in ("compressor_running", "additional_heater_active", "bus_online"):
+    for key in ("compressor_running", "additional_heater_active", "hot_water_boost", "bus_online"):
         entity = await binary_sensor.new_binary_sensor(config[key])
         cg.add(getattr(var, f"set_{key}_binary_sensor")(entity))
 

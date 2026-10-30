@@ -52,6 +52,16 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   CZ_SENSOR_SETTER(filter_change_time)
   CZ_SENSOR_SETTER(heating_flow)
   CZ_SENSOR_SETTER(hot_water_flow)
+  CZ_SENSOR_SETTER(compressor_target_frequency)
+  CZ_SENSOR_SETTER(condenser_temperature)
+  CZ_SENSOR_SETTER(high_pressure)
+  CZ_SENSOR_SETTER(low_pressure)
+  CZ_SENSOR_SETTER(pressure_ratio)
+  CZ_SENSOR_SETTER(expansion_valve_position)
+  CZ_SENSOR_SETTER(superheat)
+  CZ_SENSOR_SETTER(target_superheat)
+  CZ_SENSOR_SETTER(required_heating_power)
+  CZ_SENSOR_SETTER(active_hot_water_target)
   CZ_SENSOR_SETTER(last_decoded_frame_age)
   CZ_SENSOR_SETTER(rs485_bytes)
   CZ_SENSOR_SETTER(valid_frames)
@@ -69,6 +79,9 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   }
   void set_bus_online_binary_sensor(binary_sensor::BinarySensor *value) {
     this->bus_online_binary_sensor_ = value;
+  }
+  void set_hot_water_boost_binary_sensor(binary_sensor::BinarySensor *value) {
+    this->hot_water_boost_binary_sensor_ = value;
   }
 
   void set_fan_speed_text_sensor(text_sensor::TextSensor *value) {
@@ -92,7 +105,7 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
     PUBLISH_FAN_AND_COMPRESSOR,
     PUBLISH_POWER,
     PUBLISH_COUNTERS,
-    PUBLISH_CALCULATED_FLOW,
+    PUBLISH_HEATING,
     PUBLISH_FILTER,
     PUBLISH_FLOW_RATES,
     PUBLISH_GROUP_COUNT,
@@ -131,9 +144,9 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
 
   uint16_t compressor_frequency_x10_{0};
   uint16_t compressor_input_power_w_{0};
-  uint16_t current_flow_x10_{0};
-  uint16_t heating_flow_x10_{0};
-  bool heating_flow_known_{false};
+  // 010400 byte 28 bit 0x08: the single flow meter currently serves the hot-water circuit.
+  bool hot_water_mode_{false};
+  bool operating_mode_known_{false};
 
 #define CZ_SENSOR_MEMBER(name) sensor::Sensor *name##_sensor_{nullptr};
 
@@ -163,6 +176,16 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   CZ_SENSOR_MEMBER(filter_change_time)
   CZ_SENSOR_MEMBER(heating_flow)
   CZ_SENSOR_MEMBER(hot_water_flow)
+  CZ_SENSOR_MEMBER(compressor_target_frequency)
+  CZ_SENSOR_MEMBER(condenser_temperature)
+  CZ_SENSOR_MEMBER(high_pressure)
+  CZ_SENSOR_MEMBER(low_pressure)
+  CZ_SENSOR_MEMBER(pressure_ratio)
+  CZ_SENSOR_MEMBER(expansion_valve_position)
+  CZ_SENSOR_MEMBER(superheat)
+  CZ_SENSOR_MEMBER(target_superheat)
+  CZ_SENSOR_MEMBER(required_heating_power)
+  CZ_SENSOR_MEMBER(active_hot_water_target)
   CZ_SENSOR_MEMBER(last_decoded_frame_age)
   CZ_SENSOR_MEMBER(rs485_bytes)
   CZ_SENSOR_MEMBER(valid_frames)
@@ -175,6 +198,7 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   binary_sensor::BinarySensor *compressor_running_binary_sensor_{nullptr};
   binary_sensor::BinarySensor *additional_heater_active_binary_sensor_{nullptr};
   binary_sensor::BinarySensor *bus_online_binary_sensor_{nullptr};
+  binary_sensor::BinarySensor *hot_water_boost_binary_sensor_{nullptr};
   text_sensor::TextSensor *fan_speed_text_sensor_{nullptr};
   text_sensor::TextSensor *protocol_coverage_text_sensor_{nullptr};
 };

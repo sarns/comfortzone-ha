@@ -10,7 +10,7 @@ namespace esphome {
 namespace comfortzone_ex {
 
 static const char *const TAG = "comfortzone_ex";
-static constexpr const char *const PROTOCOL_COVERAGE = "9 of 22 read registers decoded";
+static constexpr const char *const PROTOCOL_COVERAGE = "8 of 22 read registers decoded";
 
 void ComfortzoneExComponent::setup() {
   this->receiver_enable_pin_->setup();
@@ -46,7 +46,7 @@ void ComfortzoneExComponent::dump_config() {
   ESP_LOGCONFIG(TAG, "Comfortzone EX receive-only monitor:");
   LOG_PIN("  Receiver enable pin: ", this->receiver_enable_pin_);
   ESP_LOGCONFIG(TAG, "  Protocol family: EX 0B10");
-  ESP_LOGCONFIG(TAG, "  Implemented read registers: 9 of 22 observed");
+  ESP_LOGCONFIG(TAG, "  Implemented read registers: 8 of 22 observed");
   ESP_LOGCONFIG(TAG, "  Raw frame logging: %s", this->raw_frame_logging_ ? "enabled" : "disabled");
 }
 
@@ -144,12 +144,16 @@ bool ComfortzoneExComponent::decode_frame_() {
         this->evaporator_in_temperature_sensor_, this->exhaust_air_temperature_sensor_,
         this->hot_water_temperature_sensor_,
     };
+    this->hot_water_mode_ = (payload[28] & 0x08) != 0;
+    this->operating_mode_known_ = true;
     if (this->should_publish_(PUBLISH_TEMPERATURES)) {
       for (size_t i = 0; i < 9; i++) {
         const int16_t raw = static_cast<int16_t>(
             read_u16_le_(payload + SENSOR_OFFSET + SENSOR_INDICES[i] * 2));
         entities[i]->publish_state(raw / 10.0f);
       }
+      // Status word bit 0x0020 is set while "WW Extra" / immediate legionella prevention runs.
+      this->hot_water_boost_binary_sensor_->publish_state((read_u16_le_(payload + 18) & 0x0020) != 0);
     }
     return true;
   }
@@ -162,18 +166,12 @@ bool ComfortzoneExComponent::decode_frame_() {
     return true;
   }
 
-  if (this->register_is_(0x00, 0x45, 0x03) && payload_size >= 2) {
+  // Full reply only: the panel also reads back 2-byte fragments after its own writes.
+  if (this->register_is_(0x00, 0x45, 0x03) && payload_size >= 152) {
     if (this->should_publish_(PUBLISH_HOT_WATER_TARGET)) {
       const int16_t raw = static_cast<int16_t>(read_u16_le_(payload));
       this->hot_water_target_sensor_->publish_state(raw / 10.0f);
-    }
-    return true;
-  }
-
-  if (this->register_is_(0x00, 0x28, 0x04) && payload_size >= 72) {
-    if (this->should_publish_(PUBLISH_CALCULATED_FLOW)) {
-      const int16_t raw = static_cast<int16_t>(read_u16_le_(payload + 70));
-      this->calculated_flow_temperature_sensor_->publish_state(raw / 10.0f);
+      this->fan_speed_text_sensor_->publish_state(fan_speed_name_(payload[151]));
     }
     return true;
   }
@@ -185,36 +183,43 @@ bool ComfortzoneExComponent::decode_frame_() {
     return true;
   }
 
-  if (this->register_is_(0x01, 0xD1, 0x02) && payload_size >= 35) {
-    this->compressor_frequency_x10_ = read_u16_le_(payload + 33);
-    this->current_flow_x10_ = read_u16_le_(payload + 10);
+  if (this->register_is_(0x01, 0xD1, 0x02) && payload_size >= 47) {
+    // Offset 45 is the actual inverter frequency; offset 33 is the frequency setpoint.
+    this->compressor_frequency_x10_ = read_u16_le_(payload + 45);
     if (this->should_publish_(PUBLISH_FAN_AND_COMPRESSOR)) {
-      this->fan_speed_text_sensor_->publish_state(fan_speed_name_(payload[3]));
       this->fan_power_sensor_->publish_state(read_u16_le_(payload + 2) / 10.0f);
-      if (this->heating_flow_known_) {
-        this->hot_water_flow_sensor_->publish_state(
-            this->heating_flow_x10_ == 0 ? this->current_flow_x10_ / 10.0f : 0.0f);
-      }
       this->compressor_frequency_sensor_->publish_state(
           this->compressor_frequency_x10_ / 10.0f);
+      this->compressor_target_frequency_sensor_->publish_state(read_u16_le_(payload + 33) / 10.0f);
+      this->condenser_temperature_sensor_->publish_state(
+          static_cast<int16_t>(read_u16_le_(payload + 15)) / 10.0f);
+      this->high_pressure_sensor_->publish_state(read_u16_le_(payload + 17) / 10.0f);
+      this->low_pressure_sensor_->publish_state(read_u16_le_(payload + 19) / 10.0f);
+      this->pressure_ratio_sensor_->publish_state(read_u16_le_(payload + 21) / 10.0f);
       this->update_compressor_state_();
     }
-    return true;
-  }
-
-  if (this->register_is_(0x01, 0xF9, 0x01) && payload_size >= 20) {
-    // Provisional mapping: confirm against a display photo while space heating is active.
-    this->heating_flow_x10_ = read_u16_le_(payload + 18);
-    this->heating_flow_known_ = true;
-    if (this->should_publish_(PUBLISH_FLOW_RATES)) {
-      this->heating_flow_sensor_->publish_state(this->heating_flow_x10_ / 10.0f);
-      this->hot_water_flow_sensor_->publish_state(
-          this->heating_flow_x10_ == 0 ? this->current_flow_x10_ / 10.0f : 0.0f);
+    // One flow meter serves both circuits; the controller shows 0 for the inactive one.
+    if (this->operating_mode_known_ && this->should_publish_(PUBLISH_FLOW_RATES)) {
+      const float flow = read_u16_le_(payload + 10) / 10.0f;
+      this->heating_flow_sensor_->publish_state(this->hot_water_mode_ ? 0.0f : flow);
+      this->hot_water_flow_sensor_->publish_state(this->hot_water_mode_ ? flow : 0.0f);
     }
     return true;
   }
 
-  if (this->register_is_(0x01, 0x40, 0x03) && payload_size >= 16) {
+  if (this->register_is_(0x01, 0xF9, 0x01) && payload_size >= 99) {
+    if (this->should_publish_(PUBLISH_HEATING)) {
+      this->calculated_flow_temperature_sensor_->publish_state(
+          static_cast<int16_t>(read_u16_le_(payload)) / 10.0f);
+      this->required_heating_power_sensor_->publish_state(
+          static_cast<int16_t>(read_u16_le_(payload + 22)));
+      this->active_hot_water_target_sensor_->publish_state(
+          static_cast<int16_t>(read_u16_le_(payload + 97)) / 10.0f);
+    }
+    return true;
+  }
+
+  if (this->register_is_(0x01, 0x40, 0x03) && payload_size >= 90) {
     const uint16_t compressor_output = read_u16_le_(payload);
     const uint32_t additional_heater = read_u32_le_(payload + 2);
     const uint32_t total_output = read_u32_le_(payload + 6);
@@ -226,6 +231,12 @@ bool ComfortzoneExComponent::decode_frame_() {
       this->total_output_power_sensor_->publish_state(total_output);
       this->compressor_input_power_sensor_->publish_state(this->compressor_input_power_w_);
       this->additional_heater_active_binary_sensor_->publish_state(additional_heater > 0);
+      this->target_superheat_sensor_->publish_state(
+          static_cast<int16_t>(read_u16_le_(payload + 82)) / 10.0f);
+      this->superheat_sensor_->publish_state(
+          static_cast<int16_t>(read_u16_le_(payload + 86)) / 10.0f);
+      this->expansion_valve_position_sensor_->publish_state(
+          static_cast<int16_t>(read_u16_le_(payload + 88)) / 10.0f);
     }
     return true;
   }

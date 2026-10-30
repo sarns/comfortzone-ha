@@ -16,7 +16,7 @@ https://github.com/qix67/comfortzone_heatpump
 - RS485 receiver enable: GPIO21, held LOW
 - Serial format: 19200 baud, 8N1
 - Observed register family: `0B 10`
-- Implemented read registers: 9 of 22 recurring groups
+- Implemented read registers: 8 of 22 recurring groups
 
 ## ESPHome installation
 
@@ -49,20 +49,34 @@ https://github.com/qix67/comfortzone_heatpump
 ## Published entities
 
 The component exposes nine named temperatures, room and hot-water targets,
-calculated flow temperature, fan duty percentage, filter time remaining, the
-two flow readings, compressor frequency, four instantaneous power readings,
-three lifetime energy counters, two runtime counters, compressor/heater state,
-and fan speed.
+the active hot-water target, calculated flow temperature, required heating
+power, fan duty percentage, filter time remaining, the two flow readings,
+actual and target compressor frequency, condenser temperature, high and low
+pressure, pressure ratio, expansion-valve position, superheat and target
+superheat, four instantaneous power readings, three lifetime energy counters,
+two runtime counters, compressor/heater/hot-water-boost state, and fan speed.
 
-The heating-flow register is included as a provisional mapping. It currently
-matches the small idle flow shown by the controller and falls to zero during
-hot-water production, but it still needs confirmation during active space
-heating. The hot-water-flow field is already matched to the controller's
-displayed hot-water flow during a hot-water cycle.
+The heat pump has a single flow meter. The controller shows its value as
+heating flow in space-heating mode and as hot-water flow in hot-water mode, and
+0 for the inactive circuit; the component does the same, using the hot-water
+mode bit (`010400` byte 28, bit `0x08`).
 
-The five additional measurements use ESPHome's default change-based state
-handling (`force_update: false`). They are evaluated once per minute, while
-Home Assistant only records a new state when the value changes.
+`Hot Water Boost` is on while "WW Extra" or the immediate legionella
+prevention runs. Both menu entries switch the same function: the heat pump
+heats to 65 °C and then holds that temperature until "WW Extra Zeit" (180 min)
+expires.
+
+All register mappings were confirmed against display photos; see
+`doc/variablen-uebersicht.md` and `doc/capture-analyse-2026-10-30-tests.md`.
+Version 0.4.0 corrected five earlier mappings: compressor frequency (it was
+the setpoint), calculated flow temperature (it was a constant 15 °C setting),
+heating and hot-water flow, and fan speed. Their history before the update is
+not comparable.
+
+The flow measurements and calculated flow temperature use ESPHome's default
+change-based state handling (`force_update: false`). They are evaluated once
+per minute, while Home Assistant only records a new state when the value
+changes.
 
 Home Assistant assigned these newly discovered entities the area-prefixed IDs
 `sensor.technikkeller_comfortzone_ex_*`. The Grafana queries use those actual
@@ -78,21 +92,6 @@ coverage. Counter diagnostics are disabled by default in Home Assistant.
 
 `Protocol Coverage` describes the implemented decoder, not current bus health.
 Unknown registers are counted but never published under speculative names.
-
-## Confirm the heating-flow mapping later
-
-When outdoor temperatures are low enough for space heating:
-
-1. Leave the ESP32 connected and let the normal firmware run.
-2. When the display shows a non-zero **Heizungsdurchfluss**, photograph the
-   screen and note the exact local time to the nearest second.
-3. Repeat once while space heating is idle or off, and once during an active
-   hot-water cycle if possible.
-4. Compare the photo with the ESP32 capture at those timestamps. The
-   `Heating Flow` entity should match the display during space heating, while
-   `Hot Water Flow` should match the hot-water value during the hot-water cycle.
-5. If the values do not match, enable `raw_frame_logging` temporarily, repeat
-   the timed photos, and adjust only the provisional heating-flow offset.
 
 ## Long-term raw capture
 
