@@ -53,9 +53,9 @@ energy_panel = next(
 )
 
 aliases = {
-    "sensor.comfortzone_ex_compressor_energy": "Compressor",
-    "sensor.comfortzone_ex_additional_heater_energy": "Additional Heater",
-    "sensor.comfortzone_ex_hot_water_energy": "Hot Water",
+    "sensor.technikkeller_comfortzone_ex_compressor_energy": "Compressor",
+    "sensor.technikkeller_comfortzone_ex_additional_heater_energy": "Additional Heater",
+    "sensor.technikkeller_comfortzone_ex_hot_water_energy": "Hot Water",
     "sensor.shellypro3em_waermepumpe_energy": "Shelly Heat Pump",
 }
 
@@ -199,10 +199,10 @@ def daily_integrated_power_query(measurement: str) -> str:
 
 
 power_aliases = {
-    "sensor.comfortzone_ex_compressor_output_power": "Compressor Output",
-    "sensor.comfortzone_ex_additional_heater_power": "Additional Heater",
-    "sensor.comfortzone_ex_total_output_power": "Total Output",
-    "sensor.comfortzone_ex_compressor_input_power": "Compressor Input",
+    "sensor.technikkeller_comfortzone_ex_compressor_output_power": "Compressor Output",
+    "sensor.technikkeller_comfortzone_ex_additional_heater_power": "Additional Heater",
+    "sensor.technikkeller_comfortzone_ex_total_output_power": "Total Output",
+    "sensor.technikkeller_comfortzone_ex_compressor_input_power": "Compressor Input",
     "sensor.shellypro3em_waermepumpe_power": "Shelly Heat Pump",
 }
 

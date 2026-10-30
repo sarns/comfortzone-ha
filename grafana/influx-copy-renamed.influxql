@@ -1,0 +1,40 @@
+-- Copy the InfluxDB history of the Comfortzone EX entities renamed on 2026-10-30
+-- (*.comfortzone_ex_* -> *.technikkeller_comfortzone_ex_*) to the new measurement names.
+-- Run each statement once against the Home Assistant database ("home"), e.g. in the InfluxDB 1.x CLI
+--   (influx -database home) or in Grafana Explore with a raw InfluxQL query.
+-- GROUP BY * keeps all tags.
+-- Note: compressor_frequency and fan_speed history before 2026-10-30 15:36 holds
+-- the old (wrong) mapping: the setpoint frequency and a byte of the fan power.
+
+SELECT * INTO "binary_sensor.technikkeller_comfortzone_ex_additional_heater_active" FROM "binary_sensor.comfortzone_ex_additional_heater_active" GROUP BY *;
+SELECT * INTO "binary_sensor.technikkeller_comfortzone_ex_compressor_running" FROM "binary_sensor.comfortzone_ex_compressor_running" GROUP BY *;
+SELECT * INTO "binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online" FROM "binary_sensor.comfortzone_ex_rs485_bus_online" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_additional_heater_energy" FROM "sensor.comfortzone_ex_additional_heater_energy" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_additional_heater_power" FROM "sensor.comfortzone_ex_additional_heater_power" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_compressor_energy" FROM "sensor.comfortzone_ex_compressor_energy" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_compressor_frequency" FROM "sensor.comfortzone_ex_compressor_frequency" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_compressor_input_power" FROM "sensor.comfortzone_ex_compressor_input_power" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_compressor_output_power" FROM "sensor.comfortzone_ex_compressor_output_power" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_compressor_runtime" FROM "sensor.comfortzone_ex_compressor_runtime" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_crc_errors" FROM "sensor.comfortzone_ex_crc_errors" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_decoded_frames" FROM "sensor.comfortzone_ex_decoded_frames" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_evaporator_inlet_temperature" FROM "sensor.comfortzone_ex_evaporator_inlet_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_exchanger_outlet_temperature" FROM "sensor.comfortzone_ex_exchanger_outlet_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_exhaust_air_temperature" FROM "sensor.comfortzone_ex_exhaust_air_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_fan_speed" FROM "sensor.comfortzone_ex_fan_speed" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_flow_temperature" FROM "sensor.comfortzone_ex_flow_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_hot_gas_temperature" FROM "sensor.comfortzone_ex_hot_gas_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_hot_water_energy" FROM "sensor.comfortzone_ex_hot_water_energy" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_hot_water_target" FROM "sensor.comfortzone_ex_hot_water_target" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_hot_water_temperature" FROM "sensor.comfortzone_ex_hot_water_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_indoor_temperature" FROM "sensor.comfortzone_ex_indoor_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_last_decoded_frame_age" FROM "sensor.comfortzone_ex_last_decoded_frame_age" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_outdoor_temperature" FROM "sensor.comfortzone_ex_outdoor_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_protocol_coverage" FROM "sensor.comfortzone_ex_protocol_coverage" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_return_temperature" FROM "sensor.comfortzone_ex_return_temperature" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_room_setpoint" FROM "sensor.comfortzone_ex_room_setpoint" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_rs485_bytes" FROM "sensor.comfortzone_ex_rs485_bytes" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_total_output_power" FROM "sensor.comfortzone_ex_total_output_power" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_total_runtime" FROM "sensor.comfortzone_ex_total_runtime" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_unsupported_frames" FROM "sensor.comfortzone_ex_unsupported_frames" GROUP BY *;
+SELECT * INTO "sensor.technikkeller_comfortzone_ex_valid_frames" FROM "sensor.comfortzone_ex_valid_frames" GROUP BY *;

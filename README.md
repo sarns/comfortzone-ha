@@ -78,10 +78,11 @@ change-based state handling (`force_update: false`). They are evaluated once
 per minute, while Home Assistant only records a new state when the value
 changes.
 
-Home Assistant assigned these newly discovered entities the area-prefixed IDs
-`sensor.technikkeller_comfortzone_ex_*`. The Grafana queries use those actual
-InfluxDB measurement names; the older entities retain their original IDs
-without the area prefix.
+All entities use the area-prefixed IDs `sensor.technikkeller_comfortzone_ex_*`
+and `binary_sensor.technikkeller_comfortzone_ex_*`. Entities created before
+2026-10-30 were renamed from `*.comfortzone_ex_*` with
+`tools/ha_rename_entities.py`; their earlier InfluxDB history was copied to
+the new measurement names (see `grafana/influx-copy-renamed.influxql`).
 
 Measurements are decoded continuously and published to Home Assistant once per
 minute. Bus connectivity changes are published immediately.
@@ -138,7 +139,11 @@ energy counter. Temperature measurements and setpoints share one panel, while
 power, frequency, energy, runtime, fan and flow values, operating states, and
 RS485 diagnostics are grouped into separate panels. Heating and hot-water flow
 share one panel, fan power has its own percentage panel, and the remaining
-filter time is displayed as a single value. Enable the diagnostic entities that
+filter time is displayed as a single value. The refrigerant panels show high
+and low pressure with the pressure ratio, and expansion-valve position with
+superheat, target superheat and condenser temperature; the compressor panel
+also shows the target frequency, and the operating-state timeline includes the
+hot-water boost. Enable the diagnostic entities that
 are disabled by default in Home Assistant if you want the RS485 counter panel
 to contain data.
 

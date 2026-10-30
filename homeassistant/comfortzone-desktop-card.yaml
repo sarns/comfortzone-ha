@@ -3,7 +3,7 @@ image: /local/comfortzone/comfortzone-ex-schema.png
 elements:
   # Haus und Abluft
   - type: state-label
-    entity: sensor.comfortzone_ex_outdoor_temperature
+    entity: sensor.technikkeller_comfortzone_ex_outdoor_temperature
     prefix: "Außen: "
     tap_action:
       action: more-info
@@ -19,7 +19,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_indoor_temperature
+    entity: sensor.technikkeller_comfortzone_ex_indoor_temperature
     prefix: "Ist: "
     tap_action:
       action: more-info
@@ -38,7 +38,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_room_setpoint
+    entity: sensor.technikkeller_comfortzone_ex_room_setpoint
     prefix: "Soll: "
     tap_action:
       action: more-info
@@ -59,7 +59,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_exhaust_air_temperature
+    entity: sensor.technikkeller_comfortzone_ex_exhaust_air_temperature
     prefix: "Temperatur: "
     tap_action:
       action: more-info
@@ -78,7 +78,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_fan_speed
+    entity: sensor.technikkeller_comfortzone_ex_fan_speed
     prefix: "Lüfter: "
     tap_action:
       action: more-info
@@ -121,7 +121,7 @@ elements:
 
   # Kältekreis und Kompressor
   - type: state-label
-    entity: sensor.comfortzone_ex_evaporator_inlet_temperature
+    entity: sensor.technikkeller_comfortzone_ex_evaporator_inlet_temperature
     prefix: "Verdampfer ein: "
     tap_action:
       action: more-info
@@ -137,7 +137,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_hot_gas_temperature
+    entity: sensor.technikkeller_comfortzone_ex_hot_gas_temperature
     prefix: "Heißgas: "
     tap_action:
       action: more-info
@@ -153,7 +153,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_exchanger_outlet_temperature
+    entity: sensor.technikkeller_comfortzone_ex_exchanger_outlet_temperature
     prefix: "WT-Ausgang: "
     tap_action:
       action: more-info
@@ -169,7 +169,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: binary_sensor.comfortzone_ex_compressor_running
+    entity: binary_sensor.technikkeller_comfortzone_ex_compressor_running
     prefix: "Kompressor: "
     tap_action:
       action: more-info
@@ -188,7 +188,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_compressor_frequency
+    entity: sensor.technikkeller_comfortzone_ex_compressor_frequency
     prefix: "Frequenz: "
     tap_action:
       action: more-info
@@ -209,7 +209,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_compressor_input_power
+    entity: sensor.technikkeller_comfortzone_ex_compressor_input_power
     prefix: "Aufnahme: "
     tap_action:
       action: more-info
@@ -230,7 +230,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_compressor_output_power
+    entity: sensor.technikkeller_comfortzone_ex_compressor_output_power
     prefix: "Abgabe: "
     tap_action:
       action: more-info
@@ -252,7 +252,7 @@ elements:
 
   # Heizkreis und Warmwasser
   - type: state-label
-    entity: sensor.comfortzone_ex_flow_temperature
+    entity: sensor.technikkeller_comfortzone_ex_flow_temperature
     prefix: "Vorlauf: "
     tap_action:
       action: more-info
@@ -292,7 +292,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_return_temperature
+    entity: sensor.technikkeller_comfortzone_ex_return_temperature
     prefix: "Rücklauf: "
     tap_action:
       action: more-info
@@ -308,7 +308,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_hot_water_temperature
+    entity: sensor.technikkeller_comfortzone_ex_hot_water_temperature
     prefix: "Warmwasser: "
     tap_action:
       action: more-info
@@ -327,7 +327,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_hot_water_target
+    entity: sensor.technikkeller_comfortzone_ex_hot_water_target
     prefix: "WW-Soll: "
     tap_action:
       action: more-info
@@ -369,7 +369,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_total_output_power
+    entity: sensor.technikkeller_comfortzone_ex_total_output_power
     prefix: "Heizleistung: "
     tap_action:
       action: more-info
@@ -401,7 +401,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: binary_sensor.comfortzone_ex_additional_heater_active
+    entity: binary_sensor.technikkeller_comfortzone_ex_additional_heater_active
     prefix: "Zusatzheizung: "
     tap_action:
       action: more-info
@@ -420,7 +420,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_additional_heater_power
+    entity: sensor.technikkeller_comfortzone_ex_additional_heater_power
     prefix: "Zusatzleistung: "
     tap_action:
       action: more-info
@@ -442,7 +442,7 @@ elements:
 
   # Zähler und Laufzeiten im freien unteren Bildbereich
   - type: state-label
-    entity: sensor.comfortzone_ex_compressor_energy
+    entity: sensor.technikkeller_comfortzone_ex_compressor_energy
     prefix: "Kompressor: "
     tap_action:
       action: more-info
@@ -461,7 +461,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_additional_heater_energy
+    entity: sensor.technikkeller_comfortzone_ex_additional_heater_energy
     prefix: "Zusatzheizung: "
     tap_action:
       action: more-info
@@ -482,7 +482,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_hot_water_energy
+    entity: sensor.technikkeller_comfortzone_ex_hot_water_energy
     prefix: "Warmwasser: "
     tap_action:
       action: more-info
@@ -502,7 +502,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_compressor_runtime
+    entity: sensor.technikkeller_comfortzone_ex_compressor_runtime
     prefix: "Kompressor: "
     tap_action:
       action: more-info
@@ -521,7 +521,7 @@ elements:
       white-space: nowrap
 
   - type: state-label
-    entity: sensor.comfortzone_ex_total_runtime
+    entity: sensor.technikkeller_comfortzone_ex_total_runtime
     prefix: "Gesamt: "
     tap_action:
       action: more-info
@@ -543,7 +543,7 @@ elements:
 
   # Schnittstellenstatus
   - type: state-label
-    entity: binary_sensor.comfortzone_ex_rs485_bus_online
+    entity: binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online
     prefix: "RS485: "
     tap_action:
       action: more-info

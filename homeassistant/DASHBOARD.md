@@ -36,8 +36,8 @@ technischen Werte `last_decoded_frame_age` und `protocol_coverage` sind bewusst
 ausgeblendet. Live-Werte liegen direkt bei ihren Bauteilen; Energie, Laufzeiten
 und der RS485-Status stehen im freien unteren Bildbereich.
 
-Die fünf nachträglich ergänzten Messwerte verwenden die von Home Assistant
-vergebenen Entity-IDs mit dem Präfix `sensor.technikkeller_comfortzone_ex_`.
+Alle Entity-IDs tragen das Bereichspräfix `technikkeller_comfortzone_ex_`
+(seit 2026-10-30 einheitlich, siehe `tools/ha_rename_entities.py`).
 
 ## Hinweise
 

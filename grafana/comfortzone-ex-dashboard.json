@@ -49,7 +49,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Outdoor",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_outdoor_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_outdoor_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_outdoor_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_outdoor_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -70,7 +70,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Flow",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_flow_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_flow_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_flow_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_flow_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -91,7 +91,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Return",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_return_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_return_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_return_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_return_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -112,7 +112,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Indoor",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_indoor_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_indoor_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_indoor_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_indoor_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -133,7 +133,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Hot Gas",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_hot_gas_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_hot_gas_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_hot_gas_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_hot_gas_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -154,7 +154,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Exchanger Outlet",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_exchanger_outlet_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_exchanger_outlet_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_exchanger_outlet_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_exchanger_outlet_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -175,7 +175,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Evaporator Inlet",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_evaporator_inlet_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_evaporator_inlet_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_evaporator_inlet_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_evaporator_inlet_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -196,7 +196,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Exhaust Air",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_exhaust_air_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_exhaust_air_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_exhaust_air_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_exhaust_air_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -217,7 +217,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Hot Water",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_hot_water_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_hot_water_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -238,7 +238,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Room Setpoint",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_room_setpoint\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_room_setpoint\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_room_setpoint\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_room_setpoint\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -259,7 +259,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Hot Water Target",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_hot_water_target\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_hot_water_target\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_target\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_target\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -287,6 +287,27 @@
                       "version": "v0"
                     },
                     "refId": "L"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Active Hot Water Target",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_active_hot_water_target\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_active_hot_water_target\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "M"
                   }
                 }
               ],
@@ -735,7 +756,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_compressor_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -756,7 +777,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Additional Heater",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_additional_heater_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -777,7 +798,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Hot Water",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -987,7 +1008,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_compressor_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1008,7 +1029,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Additional Heater",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_additional_heater_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1029,7 +1050,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Hot Water",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1239,7 +1260,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor Output",
-                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.comfortzone_ex_compressor_output_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_output_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1260,7 +1281,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Additional Heater",
-                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.comfortzone_ex_additional_heater_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1281,7 +1302,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Total Output",
-                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.comfortzone_ex_total_output_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.technikkeller_comfortzone_ex_total_output_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1302,7 +1323,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor Input",
-                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.comfortzone_ex_compressor_input_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT sum(\"power\") / 60000 AS \"energy\" FROM (SELECT mean(\"value\") AS \"power\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_input_power\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1880,7 +1901,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Hot Water",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1901,7 +1922,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Additional Heater",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_additional_heater_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -2162,7 +2183,7 @@
                         ],
                         "orderByTime": "ASC",
                         "policy": "default",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_output_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_output_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_output_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_output_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series",
                         "select": [
@@ -2214,7 +2235,7 @@
                         ],
                         "orderByTime": "ASC",
                         "policy": "default",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_additional_heater_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_additional_heater_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series",
                         "select": [
@@ -2266,7 +2287,7 @@
                         ],
                         "orderByTime": "ASC",
                         "policy": "default",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_total_output_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_total_output_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_output_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_output_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series",
                         "select": [
@@ -2318,7 +2339,7 @@
                         ],
                         "orderByTime": "ASC",
                         "policy": "default",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_input_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_input_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_input_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_input_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series",
                         "select": [
@@ -2444,6 +2465,58 @@
                     },
                     "refId": "F"
                   }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Required Heating Power",
+                        "groupBy": [
+                          {
+                            "params": [
+                              "$__interval"
+                            ],
+                            "type": "time"
+                          },
+                          {
+                            "params": [
+                              "null"
+                            ],
+                            "type": "fill"
+                          }
+                        ],
+                        "orderByTime": "ASC",
+                        "policy": "default",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_required_heating_power\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_required_heating_power\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series",
+                        "select": [
+                          [
+                            {
+                              "params": [
+                                "value"
+                              ],
+                              "type": "field"
+                            },
+                            {
+                              "params": [],
+                              "type": "mean"
+                            }
+                          ]
+                        ],
+                        "tags": []
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "G"
+                  }
                 }
               ],
               "queryOptions": {
@@ -2551,13 +2624,34 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor Frequency",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_frequency\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_frequency\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_frequency\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_frequency\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
                       "version": "v0"
                     },
                     "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Compressor Target Frequency",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_target_frequency\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_target_frequency\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
                   }
                 }
               ],
@@ -2666,7 +2760,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.comfortzone_ex_compressor_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -2687,7 +2781,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Additional Heater",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.comfortzone_ex_additional_heater_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -2708,7 +2802,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Hot Water",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.comfortzone_ex_hot_water_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -2878,7 +2972,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor Runtime",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_compressor_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -2899,7 +2993,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Total Runtime",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_total_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_total_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -2983,7 +3077,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Compressor Running",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.comfortzone_ex_compressor_running\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.comfortzone_ex_compressor_running\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_compressor_running\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_compressor_running\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3004,7 +3098,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Additional Heater Active",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.comfortzone_ex_additional_heater_active\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.comfortzone_ex_additional_heater_active\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_additional_heater_active\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_additional_heater_active\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3025,7 +3119,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "RS485 Bus Online",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.comfortzone_ex_rs485_bus_online\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.comfortzone_ex_rs485_bus_online\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3046,13 +3140,34 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Fan Speed",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"text_sensor.comfortzone_ex_fan_speed\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"text_sensor.comfortzone_ex_fan_speed\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"sensor.technikkeller_comfortzone_ex_fan_speed\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"sensor.technikkeller_comfortzone_ex_fan_speed\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
                       "version": "v0"
                     },
                     "refId": "D"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Hot Water Boost",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_hot_water_boost\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_hot_water_boost\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "E"
                   }
                 }
               ],
@@ -3156,7 +3271,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "RS485 Bytes",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_rs485_bytes\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_rs485_bytes\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_rs485_bytes\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_rs485_bytes\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3177,7 +3292,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Valid Frames",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_valid_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_valid_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_valid_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_valid_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3198,7 +3313,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Decoded Frames",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_decoded_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_decoded_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_decoded_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_decoded_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3219,7 +3334,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Unsupported Frames",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_unsupported_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_unsupported_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_unsupported_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_unsupported_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3240,7 +3355,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "CRC Errors",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_crc_errors\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_crc_errors\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_crc_errors\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_crc_errors\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3355,7 +3470,7 @@
                       "kind": "DataQuery",
                       "spec": {
                         "alias": "Age",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_last_decoded_frame_age\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.comfortzone_ex_last_decoded_frame_age\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_last_decoded_frame_age\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_last_decoded_frame_age\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -3413,6 +3528,407 @@
                 "showPercentChange": false,
                 "textMode": "auto",
                 "wideLayout": true
+              }
+            },
+            "version": "13.2.4"
+          }
+        }
+      },
+      "panel-19": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "High Pressure",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_high_pressure\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_high_pressure\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Low Pressure",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_low_pressure\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_low_pressure\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Pressure Ratio",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_pressure_ratio\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_pressure_ratio\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Condenser (high) and evaporator (low) pressure; pressure ratio on the right axis.",
+          "id": 19,
+          "links": [],
+          "title": "Refrigerant Pressures",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": 3600000,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "pressurebar"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Pressure Ratio"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.axisPlacement",
+                        "value": "right"
+                      },
+                      {
+                        "id": "unit",
+                        "value": "none"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.2.4"
+          }
+        }
+      },
+      "panel-20": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Expansion Valve Position",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_expansion_valve_position\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_expansion_valve_position\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Superheat",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_superheat\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_superheat\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Target Superheat",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_target_superheat\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_target_superheat\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Condenser Temperature",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_condenser_temperature\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_condenser_temperature\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Expansion valve opening; superheat and its target on the right axis. Condenser temperature in °C.",
+          "id": 20,
+          "links": [],
+          "title": "Expansion Valve and Superheat",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": 3600000,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "percent"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Superheat"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.axisPlacement",
+                        "value": "right"
+                      },
+                      {
+                        "id": "unit",
+                        "value": "kelvin"
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Target Superheat"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.axisPlacement",
+                        "value": "right"
+                      },
+                      {
+                        "id": "unit",
+                        "value": "kelvin"
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Condenser Temperature"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.axisPlacement",
+                        "value": "right"
+                      },
+                      {
+                        "id": "unit",
+                        "value": "celsius"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
               }
             },
             "version": "13.2.4"
@@ -3494,12 +4010,38 @@
             "spec": {
               "element": {
                 "kind": "ElementReference",
-                "name": "panel-17"
+                "name": "panel-19"
               },
               "height": 9,
               "width": 12,
               "x": 0,
               "y": 39
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-20"
+              },
+              "height": 9,
+              "width": 12,
+              "x": 12,
+              "y": 39
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-17"
+              },
+              "height": 9,
+              "width": 12,
+              "x": 0,
+              "y": 48
             }
           },
           {
@@ -3512,7 +4054,7 @@
               "height": 9,
               "width": 12,
               "x": 12,
-              "y": 39
+              "y": 48
             }
           },
           {
@@ -3525,7 +4067,7 @@
               "height": 10,
               "width": 24,
               "x": 0,
-              "y": 48
+              "y": 57
             }
           },
           {
@@ -3538,7 +4080,7 @@
               "height": 10,
               "width": 24,
               "x": 0,
-              "y": 58
+              "y": 67
             }
           },
           {
@@ -3551,7 +4093,7 @@
               "height": 12,
               "width": 24,
               "x": 0,
-              "y": 68
+              "y": 77
             }
           },
           {
@@ -3564,7 +4106,7 @@
               "height": 11,
               "width": 24,
               "x": 0,
-              "y": 80
+              "y": 89
             }
           },
           {
@@ -3577,7 +4119,7 @@
               "height": 9,
               "width": 12,
               "x": 0,
-              "y": 91
+              "y": 100
             }
           },
           {
@@ -3590,7 +4132,7 @@
               "height": 9,
               "width": 12,
               "x": 12,
-              "y": 91
+              "y": 100
             }
           },
           {
@@ -3603,7 +4145,7 @@
               "height": 8,
               "width": 24,
               "x": 0,
-              "y": 100
+              "y": 109
             }
           },
           {
@@ -3616,7 +4158,7 @@
               "height": 9,
               "width": 16,
               "x": 0,
-              "y": 108
+              "y": 117
             }
           },
           {
@@ -3629,7 +4171,7 @@
               "height": 9,
               "width": 4,
               "x": 16,
-              "y": 108
+              "y": 117
             }
           },
           {
@@ -3642,7 +4184,7 @@
               "height": 9,
               "width": 4,
               "x": 20,
-              "y": 108
+              "y": 117
             }
           }
         ]
