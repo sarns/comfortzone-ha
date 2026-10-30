@@ -135,9 +135,10 @@ Zuordnung der Fotos.
 
 Vorbereitung:
 
-- [ ] `tools/capture_usb_serial.py` so ändern, dass die gzip-Datei beim Abbruch
-      sauber geschlossen und regelmäßig weggeschrieben wird.
-- [ ] Protokollvorlage bereitstellen (siehe unten).
+- [x] `tools/capture_usb_serial.py` so ändern, dass die gzip-Datei beim Abbruch
+      sauber geschlossen und regelmäßig weggeschrieben wird
+      (`--flush-seconds`, Standard 10 s).
+- [x] Protokollvorlage bereitstellen: `doc/capture-protokoll-vorlage.md`.
 - [ ] `raw_frame_logging: true` setzen und die Firmware per OTA installieren.
 - [ ] Die Handyuhr genau stellen, damit die Fotozeiten zum Mitschnitt passen.
 
@@ -165,7 +166,10 @@ Uhrzeit (hh:mm:ss) | Aktion / Menüseite             | Foto (Dateiname)
 
 ## Phase 2 – Auswertung
 
-- [ ] `tools/correlate_photos.py` erstellen. Eingabe ist eine CSV mit Zeit,
+- [x] Werkzeuge erstellt: `tools/correlate_photos.py` (Fotowerte zuordnen) und
+      `tools/analyze_writes.py` (Schreibzugriffe, `--around`,
+      `--diff-register --bits`, `--timing`).
+- [ ] Fotowerte mit `tools/correlate_photos.py` auswerten. Eingabe ist eine CSV mit Zeit,
       Bezeichnung und angezeigtem Wert. Das Werkzeug durchsucht alle Register
       und Offsets in mehreren Kodierungen (u8, s16/1, /10, /100, u32) und
       bewertet Kandidaten nur dann, wenn sie über mehrere Fotos hinweg passen.
@@ -185,9 +189,16 @@ Uhrzeit (hh:mm:ss) | Aktion / Menüseite             | Foto (Dateiname)
 - [ ] Heizungsdurchfluss (`01F901` Byte 18) im Heizbetrieb bestätigen.
 - [ ] Offene Punkte aus der Analyse vom 2026-09-18 prüfen: `014003` Byte 10,
       `fan_speed` als High-Byte von `fan_power`.
-- [ ] Busvergabe aus den Zeitstempeln vermessen: Lücke nach der WP-Antwort,
-      Länge des Abfragezyklus und lange Pausen. Mit den Upstream-Werten
-      vergleichen.
+- [x] Busvergabe aus den Zeitstempeln vermessen (`tools/analyze_writes.py
+      --timing`, Mitschnitt 2026-09-18). Ergebnis, nur grob, weil
+      Log-Zeitstempel und nicht Leitungszeit:
+      - Abfragezyklus ~2,9 s, 45 verschiedene Leseregister.
+      - Nächste Anfrage des Bedienteils ~40 ms (Median) nach einer
+        WP-Antwort. Upstream nennt 2–10 ms.
+      - Keine regelmäßige 1,1-s-Pause wie bei upstream. Nur 2 Lücken
+        > 300 ms in 2,3 h, beide vor der Antwort auf `R 050000`.
+      - Folgerung: Eine feste Wartezeit von 40 ms reicht nicht. Die genauen
+        Lücken müssen auf dem ESP gemessen werden (siehe Phase 4).
 
 ## Phase 3 – Neue Sensoren, weiterhin nur lesend
 
@@ -208,6 +219,10 @@ Bis hierher wird nichts gesendet. Vor dem ersten Senden zu klären:
 - [ ] **Sendeseite:** den TX-Pin des Waveshare ESP32-S3-RS485-CAN (vermutlich
       GPIO17) prüfen. GPIO21 ist wahrscheinlich die gemeinsame DE/RE-Leitung
       wie bei upstream (LOW = empfangen, HIGH = senden).
+- [ ] **Timing auf dem ESP messen:** Die Firmware stempelt Anfang und Ende
+      jedes Rahmens mit `micros()` direkt am UART und gibt eine Statistik
+      der Lücken aus (Diagnose-Modus, weiterhin ohne Senden). Erst danach
+      wird die Ruhezeit vor dem Senden festgelegt.
 - [ ] **Sendelogik in ESPHome:** den Ablauf von upstream `push_settings` als
       **nicht blockierenden** Zustandsautomaten in `loop()` umsetzen. Upstream
       blockiert bis zu 5 s, ESPHome verträgt nur wenige Millisekunden.

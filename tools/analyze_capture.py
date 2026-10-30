@@ -6,6 +6,7 @@ import collections
 import gzip
 import pathlib
 import re
+import sys
 
 
 def crc8_maxim(data: bytes) -> int:
@@ -41,10 +42,28 @@ def extract_frames(data: bytes) -> list[bytes]:
     return frames
 
 
+def read_gzip_text(path: pathlib.Path) -> str:
+    """Read a gzip capture, keeping what is readable if the stream is truncated."""
+    chunks = []
+    with gzip.open(path, "rt", encoding="utf-8", errors="replace") as capture:
+        try:
+            while True:
+                chunk = capture.read(1 << 20)
+                if not chunk:
+                    break
+                chunks.append(chunk)
+        except (EOFError, gzip.BadGzipFile, OSError) as exc:
+            print(
+                f"warning: {path} is truncated or damaged ({exc}); "
+                "using data read so far",
+                file=sys.stderr,
+            )
+    return "".join(chunks)
+
+
 def read_capture(path: pathlib.Path) -> bytes:
     if path.suffix == ".gz":
-        with gzip.open(path, "rt", encoding="utf-8", errors="replace") as capture:
-            text = capture.read()
+        text = read_gzip_text(path)
     else:
         text = path.read_text(encoding="utf-8", errors="replace")
 
