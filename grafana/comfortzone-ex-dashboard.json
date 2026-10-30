@@ -378,7 +378,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -514,7 +514,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -629,7 +629,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -712,7 +712,7 @@
                 "wideLayout": true
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -964,7 +964,7 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -1216,7 +1216,7 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -1496,7 +1496,634 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
+          }
+        }
+      },
+      "panel-16": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "groupBy": [
+                          {
+                            "params": [
+                              "$__interval"
+                            ],
+                            "type": "time"
+                          },
+                          {
+                            "params": [
+                              "null"
+                            ],
+                            "type": "fill"
+                          }
+                        ],
+                        "measurement": "sensor.shellyplugmg3_zirkulationspumpe_power",
+                        "orderByTime": "ASC",
+                        "policy": "default",
+                        "resultFormat": "time_series",
+                        "select": [
+                          [
+                            {
+                              "params": [
+                                "value"
+                              ],
+                              "type": "field"
+                            },
+                            {
+                              "params": [],
+                              "type": "distinct"
+                            }
+                          ]
+                        ],
+                        "tags": []
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 16,
+          "links": [],
+          "title": "Zirkulationspumpe",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "points",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": 3600000,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "watt"
+                },
+                "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.2.4"
+          }
+        }
+      },
+      "panel-17": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Heating Flow",
+                        "query": "SELECT sum(\"flow\") AS \"volume\" FROM (SELECT mean(\"value\") AS \"flow\" FROM \"sensor.technikkeller_comfortzone_ex_heating_flow\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Hot Water Flow",
+                        "query": "SELECT sum(\"flow\") AS \"volume\" FROM (SELECT mean(\"value\") AS \"flow\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_flow\" GROUP BY time(1m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "hideTimeOverride": false,
+                "timeFrom": "now-6d/d"
+              },
+              "transformations": [
+                {
+                  "group": "joinByField",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "byField": "Time",
+                      "mode": "outer"
+                    }
+                  }
+                },
+                {
+                  "group": "formatTime",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "outputFormat": "ddd DD.MM.",
+                      "timeField": "Time",
+                      "useTimezone": true
+                    }
+                  }
+                },
+                {
+                  "group": "groupBy",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "fields": {
+                        "Heating Flow": {
+                          "aggregations": [
+                            "sum"
+                          ],
+                          "operation": "aggregate"
+                        },
+                        "Hot Water Flow": {
+                          "aggregations": [
+                            "sum"
+                          ],
+                          "operation": "aggregate"
+                        },
+                        "Time": {
+                          "aggregations": [],
+                          "operation": "groupby"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "group": "organize",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "renameByName": {
+                        "Heating Flow (sum)": "Heating Flow",
+                        "Hot Water Flow (sum)": "Hot Water Flow",
+                        "Time": "Day"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "description": "Flow readings (l/min) held per minute and summed per calendar day, giving litres per day. The heating-flow mapping is provisional.",
+          "id": 17,
+          "links": [],
+          "title": "Daily Flow Volume — Last 7 Days",
+          "vizConfig": {
+            "group": "barchart",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "fillOpacity": 80,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineWidth": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "decimals": 0,
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "litre"
+                },
+                "overrides": []
+              },
+              "options": {
+                "barRadius": 0,
+                "barWidth": 0.9,
+                "fullHighlight": false,
+                "groupWidth": 0.75,
+                "legend": {
+                  "calcs": [
+                    "sum"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
+                },
+                "orientation": "vertical",
+                "showValue": "auto",
+                "stacking": "none",
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                },
+                "xField": "Day",
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 0
+              }
+            },
+            "version": "13.2.4"
+          }
+        }
+      },
+      "panel-18": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Electric Input",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.shellypro3em_waermepumpe_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Hot Water",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Additional Heater",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.comfortzone_ex_additional_heater_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "hideTimeOverride": false,
+                "timeFrom": "now/y"
+              },
+              "transformations": [
+                {
+                  "group": "joinByField",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "byField": "Time",
+                      "mode": "outer"
+                    }
+                  }
+                },
+                {
+                  "group": "filterByValue",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "filters": [
+                        {
+                          "config": {
+                            "id": "isNotNull",
+                            "options": {}
+                          },
+                          "fieldName": "Hot Water"
+                        }
+                      ],
+                      "match": "all",
+                      "type": "include"
+                    }
+                  }
+                },
+                {
+                  "group": "calculateField",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "alias": "Heat Output",
+                      "mode": "reduceRow",
+                      "reduce": {
+                        "include": [
+                          "Hot Water",
+                          "Additional Heater"
+                        ],
+                        "reducer": "sum"
+                      }
+                    }
+                  }
+                },
+                {
+                  "group": "formatTime",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "outputFormat": "MMM",
+                      "timeField": "Time",
+                      "useTimezone": true
+                    }
+                  }
+                },
+                {
+                  "group": "groupBy",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "fields": {
+                        "Electric Input": {
+                          "aggregations": [
+                            "sum"
+                          ],
+                          "operation": "aggregate"
+                        },
+                        "Heat Output": {
+                          "aggregations": [
+                            "sum"
+                          ],
+                          "operation": "aggregate"
+                        },
+                        "Time": {
+                          "aggregations": [],
+                          "operation": "groupby"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "group": "calculateField",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "alias": "COP",
+                      "binary": {
+                        "left": {
+                          "matcher": {
+                            "id": "byName",
+                            "options": "Heat Output (sum)"
+                          }
+                        },
+                        "operator": "/",
+                        "right": {
+                          "matcher": {
+                            "id": "byName",
+                            "options": "Electric Input (sum)"
+                          }
+                        }
+                      },
+                      "mode": "binary"
+                    }
+                  }
+                },
+                {
+                  "group": "organize",
+                  "kind": "Transformation",
+                  "spec": {
+                    "options": {
+                      "excludeByName": {
+                        "Electric Input (sum)": true,
+                        "Heat Output (sum)": true
+                      },
+                      "renameByName": {
+                        "Time": "Month"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "description": "COP = (hot-water heat output + additional heater) / electrical input of the heat pump (Shelly), daily counter increases summed per calendar month. Includes standby consumption. Only days with hot-water energy data are counted; only hot-water production is metered as heat output so far.",
+          "id": 18,
+          "links": [],
+          "title": "Monthly COP — This Year",
+          "vizConfig": {
+            "group": "barchart",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "fillOpacity": 80,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineWidth": 1,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "decimals": 2,
+                  "min": 0,
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "red",
+                        "value": 0
+                      },
+                      {
+                        "color": "orange",
+                        "value": 2
+                      },
+                      {
+                        "color": "green",
+                        "value": 3
+                      }
+                    ]
+                  },
+                  "unit": "none"
+                },
+                "overrides": []
+              },
+              "options": {
+                "barRadius": 0,
+                "barWidth": 0.9,
+                "fullHighlight": false,
+                "groupWidth": 0.75,
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": false
+                },
+                "orientation": "vertical",
+                "showValue": "always",
+                "stacking": "none",
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                },
+                "xField": "Month",
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 0
+              }
+            },
+            "version": "13.2.4"
           }
         }
       },
@@ -1901,7 +2528,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -2016,7 +2643,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -2228,7 +2855,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -2293,47 +2920,14 @@
           "links": [],
           "title": "Runtime",
           "vizConfig": {
-            "group": "timeseries",
+            "group": "stat",
             "kind": "VizConfig",
             "spec": {
               "fieldConfig": {
                 "defaults": {
                   "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisBorderShow": false,
-                    "axisCenteredZero": false,
-                    "axisColorMode": "text",
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "barWidthFactor": 0.6,
-                    "drawStyle": "line",
-                    "fillOpacity": 8,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": false,
-                    "lineInterpolation": "linear",
-                    "lineWidth": 2,
-                    "pointSize": 4,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "showValues": false,
-                    "spanNulls": false,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
+                    "fixedColor": "#ad46ff",
+                    "mode": "thresholds"
                   },
                   "thresholds": {
                     "mode": "absolute",
@@ -2349,22 +2943,24 @@
                 "overrides": []
               },
               "options": {
-                "legend": {
+                "colorMode": "value",
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
                   "calcs": [
                     "lastNotNull"
                   ],
-                  "displayMode": "table",
-                  "placement": "bottom",
-                  "showLegend": true
+                  "fields": "",
+                  "values": false
                 },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "multi",
-                  "sort": "none"
-                }
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -2537,7 +3133,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -2736,7 +3332,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       },
@@ -2819,7 +3415,7 @@
                 "wideLayout": true
               }
             },
-            "version": "13.2.1"
+            "version": "13.2.4"
           }
         }
       }
@@ -2898,12 +3494,38 @@
             "spec": {
               "element": {
                 "kind": "ElementReference",
+                "name": "panel-17"
+              },
+              "height": 9,
+              "width": 12,
+              "x": 0,
+              "y": 39
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-16"
+              },
+              "height": 9,
+              "width": 12,
+              "x": 12,
+              "y": 39
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
                 "name": "panel-15"
               },
               "height": 10,
               "width": 24,
               "x": 0,
-              "y": 39
+              "y": 48
             }
           },
           {
@@ -2916,7 +3538,7 @@
               "height": 10,
               "width": 24,
               "x": 0,
-              "y": 49
+              "y": 58
             }
           },
           {
@@ -2926,10 +3548,23 @@
                 "kind": "ElementReference",
                 "name": "panel-13"
               },
-              "height": 10,
+              "height": 12,
               "width": 24,
               "x": 0,
-              "y": 59
+              "y": 68
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-18"
+              },
+              "height": 11,
+              "width": 24,
+              "x": 0,
+              "y": 80
             }
           },
           {
@@ -2942,7 +3577,7 @@
               "height": 9,
               "width": 12,
               "x": 0,
-              "y": 69
+              "y": 91
             }
           },
           {
@@ -2955,7 +3590,7 @@
               "height": 9,
               "width": 12,
               "x": 12,
-              "y": 69
+              "y": 91
             }
           },
           {
@@ -2968,7 +3603,7 @@
               "height": 8,
               "width": 24,
               "x": 0,
-              "y": 78
+              "y": 100
             }
           },
           {
@@ -2981,7 +3616,7 @@
               "height": 9,
               "width": 16,
               "x": 0,
-              "y": 86
+              "y": 108
             }
           },
           {
@@ -2994,7 +3629,7 @@
               "height": 9,
               "width": 4,
               "x": 16,
-              "y": 86
+              "y": 108
             }
           },
           {
@@ -3007,7 +3642,7 @@
               "height": 9,
               "width": 4,
               "x": 20,
-              "y": 86
+              "y": 108
             }
           }
         ]
