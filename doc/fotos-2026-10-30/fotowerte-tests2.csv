@@ -1,0 +1,100 @@
+timestamp,label,value,unit
+2026-10-30T11:34:08,Inverter/Steuerfrequenz,40.00,Hz
+2026-10-30T11:34:08,Inverter/Ausgangsfrequenz,40.00,Hz
+2026-10-30T11:34:08,Inverter/Ausgangsstrom,7.3,Arms
+2026-10-30T11:34:08,Inverter/Leistungsteiltemp.,44.4,°C
+2026-10-30T11:34:08,Inverter/Fehlerstatus,0,
+2026-10-30T11:34:40,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T11:34:40,Warmwasser/Warmwassertemp.,53.5,°C
+2026-10-30T11:34:40,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T11:34:40,Warmwasser/Warmwasserdurchfluss,10.8,l/min
+2026-10-30T11:34:56,Heizung/Erforderliche Leistung,462,W
+2026-10-30T11:34:56,Heizung/Gewuenschte Raumtemp.,22.0,°C
+2026-10-30T11:34:56,Heizung/Raumtemperatur,22.4,°C
+2026-10-30T11:34:56,Heizung/Berechnete Vorlauftemp.,21.6,°C
+2026-10-30T11:34:56,Heizung/Vorlauftemperatur,27.3,°C
+2026-10-30T11:34:56,Heizung/Heizungsdurchfluss,0.0,l/min
+2026-10-30T11:35:51,Heizung/Erforderliche Leistung,462,W
+2026-10-30T11:35:51,Heizung/Gewuenschte Raumtemp.,24.0,°C
+2026-10-30T11:35:51,Heizung/Raumtemperatur,22.4,°C
+2026-10-30T11:35:51,Heizung/Berechnete Vorlauftemp.,25.6,°C
+2026-10-30T11:35:51,Heizung/Vorlauftemperatur,27.5,°C
+2026-10-30T11:35:51,Heizung/Heizungsdurchfluss,0.0,l/min
+2026-10-30T11:37:38,Inverter/Steuerfrequenz,36.10,Hz
+2026-10-30T11:37:38,Inverter/Ausgangsfrequenz,36.10,Hz
+2026-10-30T11:37:38,Inverter/Ausgangsstrom,7.6,Arms
+2026-10-30T11:37:38,Inverter/Leistungsteiltemp.,45.2,°C
+2026-10-30T11:37:38,Inverter/Fehlerstatus,0,
+2026-10-30T11:38:00,Waermepumpe/Kompressorfrequenz,34.4,Hz
+2026-10-30T11:38:00,Waermepumpe/Kompressorleistung,2614,W
+2026-10-30T11:38:00,Waermepumpe/Zusatzleistung,3000,W
+2026-10-30T11:38:00,Waermepumpe/Gesamtleistung,5614,W
+2026-10-30T11:38:00,Waermepumpe/Kompr.aufnahmeleist.,1476,W
+2026-10-30T11:38:00,Waermepumpe/Kondensatortemp.,58.3,°C
+2026-10-30T11:38:08,Waermepumpe/Kondensatortemp.,58.2,°C
+2026-10-30T11:38:08,Waermepumpe/Kondensatordruck,37.7,bar
+2026-10-30T11:38:08,Waermepumpe/Verdampferdruck,8.7,bar
+2026-10-30T11:38:08,Waermepumpe/Druckverhältnis,4.3,
+2026-10-30T11:38:08,Waermepumpe/Kompressorene...,14143.44,kWh
+2026-10-30T11:38:08,Waermepumpe/Zusatzenergie,124.94,kWh
+2026-10-30T11:38:08,Waermepumpe/Warmwasserener...,4783.35,kWh
+2026-10-30T11:39:02,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T11:39:02,Warmwasser/Warmwassertemp.,54.6,°C
+2026-10-30T11:39:02,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T11:39:02,Warmwasser/Warmwasserdurchfluss,10.8,l/min
+2026-10-30T11:41:47,Expansionsventil/Position Ex Ventil,15.6,%
+2026-10-30T11:41:47,Expansionsventil/Soll Temperaturdiff.,30.6,K
+2026-10-30T11:41:47,Expansionsventil/Temperaturdiff.,30.3,K
+2026-10-30T11:44:22,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T11:44:22,Warmwasser/Warmwassertemp.,55.9,°C
+2026-10-30T11:44:22,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T11:44:22,Warmwasser/Warmwasserdurchfluss,11.0,l/min
+2026-10-30T12:13:18,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T12:13:18,Warmwasser/Warmwassertemp.,61.6,°C
+2026-10-30T12:13:18,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T12:13:18,Warmwasser/Warmwasserdurchfluss,10.7,l/min
+2026-10-30T12:32:05,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T12:32:05,Warmwasser/Warmwassertemp.,65.1,°C
+2026-10-30T12:32:05,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T12:32:05,Warmwasser/Warmwasserdurchfluss,0.0,l/min
+2026-10-30T12:32:33,Heizung/Erforderliche Leistung,462,W
+2026-10-30T12:32:33,Heizung/Gewuenschte Raumtemp.,24.0,°C
+2026-10-30T12:32:33,Heizung/Raumtemperatur,22.6,°C
+2026-10-30T12:32:33,Heizung/Berechnete Vorlauftemp.,24.1,°C
+2026-10-30T12:32:33,Heizung/Vorlauftemperatur,66.4,°C
+2026-10-30T12:32:33,Heizung/Heizungsdurchfluss,0.4,l/min
+2026-10-30T12:32:53,Heizung/Erforderliche Leistung,462,W
+2026-10-30T12:32:53,Heizung/Gewuenschte Raumtemp.,24.0,°C
+2026-10-30T12:32:53,Heizung/Raumtemperatur,22.6,°C
+2026-10-30T12:32:53,Heizung/Berechnete Vorlauftemp.,24.1,°C
+2026-10-30T12:32:53,Heizung/Vorlauftemperatur,64.8,°C
+2026-10-30T12:32:53,Heizung/Heizungsdurchfluss,0.4,l/min
+2026-10-30T12:33:07,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T12:33:07,Warmwasser/Warmwassertemp.,65.3,°C
+2026-10-30T12:33:07,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T12:33:07,Warmwasser/Warmwasserdurchfluss,0.0,l/min
+2026-10-30T12:36:08,Heizung/Erforderliche Leistung,789,W
+2026-10-30T12:36:08,Heizung/Gewuenschte Raumtemp.,24.0,°C
+2026-10-30T12:36:08,Heizung/Raumtemperatur,22.7,°C
+2026-10-30T12:36:08,Heizung/Berechnete Vorlauftemp.,23.8,°C
+2026-10-30T12:36:08,Heizung/Vorlauftemperatur,37.5,°C
+2026-10-30T12:36:08,Heizung/Heizungsdurchfluss,10.3,l/min
+2026-10-30T12:36:15,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T12:36:15,Warmwasser/Warmwassertemp.,65.4,°C
+2026-10-30T12:36:15,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T12:36:15,Warmwasser/Warmwasserdurchfluss,0.0,l/min
+2026-10-30T12:36:29,Heizung/Erforderliche Leistung,1235,W
+2026-10-30T12:36:29,Heizung/Gewuenschte Raumtemp.,24.0,°C
+2026-10-30T12:36:29,Heizung/Raumtemperatur,22.7,°C
+2026-10-30T12:36:29,Heizung/Berechnete Vorlauftemp.,23.8,°C
+2026-10-30T12:36:29,Heizung/Vorlauftemperatur,31.1,°C
+2026-10-30T12:36:29,Heizung/Heizungsdurchfluss,10.2,l/min
+2026-10-30T12:36:38,Warmwasser/Soll Temperaturdiff.,65.0,°C
+2026-10-30T12:36:38,Warmwasser/Warmwassertemp.,65.5,°C
+2026-10-30T12:36:38,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T12:36:38,Warmwasser/Warmwasserdurchfluss,0.0,l/min
+2026-10-30T12:36:46,Inverter/Steuerfrequenz,15.20,Hz
+2026-10-30T12:36:46,Inverter/Ausgangsfrequenz,15.20,Hz
+2026-10-30T12:36:46,Inverter/Ausgangsstrom,2.5,Arms
+2026-10-30T12:36:46,Inverter/Leistungsteiltemp.,28.0,°C
+2026-10-30T12:36:46,Inverter/Fehlerstatus,0,

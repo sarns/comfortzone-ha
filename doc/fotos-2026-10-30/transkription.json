@@ -1,0 +1,2682 @@
+[
+ {
+  "img": 5783,
+  "time": "2026-10-30T08:57:14",
+  "title": "Grundlegende einstellungen ▼",
+  "breadcrumb": "Hauptmenue > Grundlegende einstellungen (top of list)",
+  "rows": [
+   {
+    "label": "Grundlegende einstellungen ▼",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "Heizungsmodus",
+    "value": "Fußbodenhzg.",
+    "selected": false
+   },
+   {
+    "label": "HZG Betriebsart",
+    "value": "Außen & Innen",
+    "selected": false
+   },
+   {
+    "label": "HZG Heizkurve",
+    "value": "4.0",
+    "selected": false
+   },
+   {
+    "label": "HZG Umwaelzpumpe",
+    "value": "76.0%",
+    "selected": false
+   },
+   {
+    "label": "Vent. normale leistung",
+    "value": "65.0%",
+    "selected": false
+   },
+   {
+    "label": "Zusatz Leistungsgrenze",
+    "value": "5000 W",
+    "selected": false
+   }
+  ],
+  "notes": "Selected row is the title row (red text in blue frame, down arrow). Back arrow at left. Scrollbar at top. Page continues below (cut after Zusatz Leistungsgrenze).",
+  "uncertain": []
+ },
+ {
+  "img": 5784,
+  "time": "2026-10-30T08:57:24",
+  "title": null,
+  "breadcrumb": "Hauptmenue > Grundlegende einstellungen (scrolled to bottom)",
+  "rows": [
+   {
+    "label": "Vent. normale leistung",
+    "value": "65.0%",
+    "selected": false
+   },
+   {
+    "label": "Zusatz Leistungsgrenze",
+    "value": "5000 W",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Zusatzheizung Funktion",
+    "value": "Normal",
+    "selected": false
+   },
+   {
+    "label": "Zeit",
+    "value": "Fr 30.10.2026 8:57",
+    "selected": false
+   },
+   {
+    "label": "Heizung Einstellungen ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen ▶",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "No title row visible (scrolled). Selected: Warmwasser Einstellungen (submenu, right arrow). Scrollbar near bottom.",
+  "uncertain": []
+ },
+ {
+  "img": 5785,
+  "time": "2026-10-30T08:57:29",
+  "title": "Heizung Einstellungen ▼",
+  "breadcrumb": "Hauptmenue > Heizung Einstellungen (top)",
+  "rows": [
+   {
+    "label": "Heizung Einstellungen ▼",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "Urlaubszeit",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Heizungsmodus",
+    "value": "Fußbodenhzg.",
+    "selected": false
+   },
+   {
+    "label": "HZG Betriebsart",
+    "value": "Außen & Innen",
+    "selected": false
+   },
+   {
+    "label": "HZG Heizkurve",
+    "value": "4.0",
+    "selected": false
+   },
+   {
+    "label": "HZG Referenztemp.",
+    "value": "21.5°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Raumfaktor",
+    "value": "2.0",
+    "selected": false
+   }
+  ],
+  "notes": "Title row selected. Scrollbar at top.",
+  "uncertain": []
+ },
+ {
+  "img": 5786,
+  "time": "2026-10-30T08:57:41",
+  "title": null,
+  "breadcrumb": "Hauptmenue > Heizung Einstellungen (scrolled down)",
+  "rows": [
+   {
+    "label": "HZG Raumfaktor",
+    "value": "2.0",
+    "selected": false
+   },
+   {
+    "label": "E-Heizung Erlaubt",
+    "value": "(19.5) -2.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG 2 Heizkreise",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "HZG Vorlauf Einstellungen ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "HZG Bodentrocknungsprogr. ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "HZG Sommermodus ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "HZG Andere Einstellungen ▶",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "Selected: HZG Andere Einstellungen. Scrollbar lower part.",
+  "uncertain": [
+   "E-Heizung Erlaubt value '(19.5) -2.0°C' parse of parentheses/sign"
+  ]
+ },
+ {
+  "img": 5787,
+  "time": "2026-10-30T08:57:51",
+  "title": "HZG Vorlauf Einstellungen ▼",
+  "breadcrumb": "Heizung Einstellungen > HZG Vorlauf Einstellungen",
+  "rows": [
+   {
+    "label": "HZG Vorlauf Einstellungen ▼",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "HZG Just bei A Temp 10",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Just bei A Temp 5",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Just bei A Temp 0",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Just bei A Temp -5",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Just bei A Temp -10",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Just bei A Temp -15",
+    "value": "0.0°C",
+    "selected": false
+   }
+  ],
+  "notes": "Title row selected. Scrollbar upper-middle; list continues. Labels for -10/-15 run tight against value.",
+  "uncertain": []
+ },
+ {
+  "img": 5788,
+  "time": "2026-10-30T08:58:04",
+  "title": null,
+  "breadcrumb": "Heizung Einstellungen > HZG Sommermodus (expanded)",
+  "rows": [
+   {
+    "label": "HZG Bodentrocknungsprogr. ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "HZG Sommermodus ▼",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "HZG Sommermodus",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "HZG Andere Einstellungen ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Ventilator ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Waermepumpe Einstellungen ▶",
+    "value": null,
+    "selected": false
+   }
+  ],
+  "notes": "Submenu HZG Sommermodus is opened inline (down arrow, selected, red) with child row HZG Sommermodus = Nein, indented. The following rows are the main menu continuing (Warmwasser, Ventilator, Waermepumpe Einstellungen), so this is the main menu with an inline-expanded entry. Scrollbar lower. Reflection over display.",
+  "uncertain": []
+ },
+ {
+  "img": 5789,
+  "time": "2026-10-30T08:58:14",
+  "title": "HZG Andere Einstellungen ▼",
+  "breadcrumb": "Heizung Einstellungen > HZG Andere Einstellungen",
+  "rows": [
+   {
+    "label": "HZG Andere Einstellungen ▼",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "HZG Urlaubsreduzierung",
+    "value": "10.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Minimum",
+    "value": "15.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Max.FB.Heizung",
+    "value": "45.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Max.Radiator",
+    "value": "70.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Ueberhitz. Hyst.",
+    "value": "20.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Ruecklauftemp.Max",
+    "value": "60.0°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Title row in white (not selected, down arrow). Selected row: HZG Ruecklauftemp.Max, value in green = edit mode. Heavy reflection.",
+  "uncertain": []
+ },
+ {
+  "img": 5790,
+  "time": "2026-10-30T08:58:27",
+  "title": null,
+  "breadcrumb": "Heizung Einstellungen > HZG Andere Einstellungen (scrolled to end)",
+  "rows": [
+   {
+    "label": "HZG Ueberhitz. Hyst.",
+    "value": "20.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Ruecklauftemp.Max",
+    "value": "60.0°C",
+    "selected": false
+   },
+   {
+    "label": "HZG Umwaelzpumpe",
+    "value": "76.0%",
+    "selected": false
+   },
+   {
+    "label": "HZG Pumpe Stop bei 0W",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "HZG Pumpe Min bei 0W",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "HZG Nachlaufzeit",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen ▶",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "Selected: Warmwasser Einstellungen (next top-level entry, reached by scrolling past end of submenu). Display partly cut off at left edge of photo (back arrow clipped). Scrollbar near bottom.",
+  "uncertain": []
+ },
+ {
+  "img": 5791,
+  "time": "2026-10-30T08:58:33",
+  "title": "Warmwasser Einstellungen ▼",
+  "breadcrumb": "Hauptmenue > Warmwasser Einstellungen",
+  "rows": [
+   {
+    "label": "Warmwasser Einstellungen ▼",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "WW Extra",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "WW Einstellungen",
+    "value": "48.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Prioritaet",
+    "value": "Niedrig",
+    "selected": false
+   },
+   {
+    "label": "WW Smart Lernen",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "WW Smart Kontroll",
+    "value": "Nein",
+    "selected": false
+   }
+  ],
+  "notes": "Title row selected. Left edge slightly cut off. Scrollbar top. Label 'WW Prioritaet' appears as 'WW Priorität' with umlaut on display.",
+  "uncertain": [
+   "WW Prioritaet spelled with umlaut a (Priorität) as displayed"
+  ]
+ },
+ {
+  "img": 5792,
+  "time": "2026-10-30T08:58:43",
+  "title": null,
+  "breadcrumb": "Warmwasser Einstellungen (scrolled)",
+  "rows": [
+   {
+    "label": "WW Priorität",
+    "value": "Niedrig",
+    "selected": false
+   },
+   {
+    "label": "WW Smart Lernen",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "WW Smart Kontroll",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "WW temp. Min. freq.",
+    "value": "50.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Min. freq. Zeit",
+    "value": "5.0 min",
+    "selected": false
+   },
+   {
+    "label": "WW Stufe ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WW Max Zeit",
+    "value": "30 min",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Selected WW Max Zeit with value green (edit mode). Left edge cut off. Scrollbar middle.",
+  "uncertain": []
+ },
+ {
+  "img": 5793,
+  "time": "2026-10-30T08:58:50",
+  "title": "WW Stufe ▼",
+  "breadcrumb": "Warmwasser Einstellungen > WW Stufe",
+  "rows": [
+   {
+    "label": "WW Stufe ▼",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 1",
+    "value": "-11.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 2",
+    "value": "-11.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 3",
+    "value": "-12.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 4",
+    "value": "-12.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 5",
+    "value": "-13.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 6",
+    "value": "-13.5°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Title in white. Selected row Stufe 6 with green value (edit mode). Left edge cut off.",
+  "uncertain": []
+ },
+ {
+  "img": 5794,
+  "time": "2026-10-30T08:58:53",
+  "title": null,
+  "breadcrumb": "WW Stufe (scrolled)",
+  "rows": [
+   {
+    "label": "WW Normal Stufe 4",
+    "value": "-12.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 5",
+    "value": "-13.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 6",
+    "value": "-13.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 7",
+    "value": "-14.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 8",
+    "value": "-14.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 9",
+    "value": "-15.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 10",
+    "value": "-15.5°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Selected row Stufe 10 with green value (edit mode).",
+  "uncertain": []
+ },
+ {
+  "img": 5795,
+  "time": "2026-10-30T08:59:00",
+  "title": null,
+  "breadcrumb": "WW Stufe (scrolled)",
+  "rows": [
+   {
+    "label": "WW Normal Stufe 10",
+    "value": "-15.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 11",
+    "value": "-16.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Normal Stufe 12",
+    "value": "-16.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 1",
+    "value": "-5.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 2",
+    "value": "-5.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 3",
+    "value": "-5.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 4",
+    "value": "-5.5°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Selected Hoch Stufe 4 with green value (edit mode). Left edge cut off.",
+  "uncertain": []
+ },
+ {
+  "img": 5796,
+  "time": "2026-10-30T08:59:04",
+  "title": null,
+  "breadcrumb": "WW Stufe (scrolled)",
+  "rows": [
+   {
+    "label": "WW Hoch Stufe 5",
+    "value": "-6.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 6",
+    "value": "-6.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 7",
+    "value": "-6.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 8",
+    "value": "-6.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 9",
+    "value": "-7.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 10",
+    "value": "-7.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hoch Stufe 11",
+    "value": "-7.5°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Selected Hoch Stufe 11 with green value (edit mode). Left edge cut off.",
+  "uncertain": []
+ },
+ {
+  "img": 5797,
+  "time": "2026-10-30T08:59:07",
+  "title": null,
+  "breadcrumb": "WW Stufe (scrolled)",
+  "rows": [
+   {
+    "label": "WW Hoch Stufe 12",
+    "value": "-7.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 1",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 2",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 3",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 4",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 5",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 6",
+    "value": "0.0°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Selected Extra Stufe 6 with green value (edit mode). Scrollbar near bottom; Extra Stufe 7-12 presumably follow.",
+  "uncertain": []
+ },
+ {
+  "img": 5798,
+  "time": "2026-10-30T08:59:11",
+  "title": null,
+  "breadcrumb": "Hauptmenue > ... > Warmwasser (WW) Einstellungen",
+  "rows": [
+   {
+    "label": "WW Extra Stufe 7",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 8",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 9",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 10",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 11",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 12",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Max Zeit",
+    "value": "30 min",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Back arrow at left. No title bar visible; list scrolled. Scrollbar thumb near bottom-ish (lower part). 7 rows visible, last is selected (red label, blue frame, green value).",
+  "uncertain": []
+ },
+ {
+  "img": 5799,
+  "time": "2026-10-30T08:59:15",
+  "title": null,
+  "breadcrumb": "WW Einstellungen (same list, scrolled further)",
+  "rows": [
+   {
+    "label": "WW Extra Stufe 11",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Stufe 12",
+    "value": "0.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Max Zeit",
+    "value": "30 min",
+    "selected": false
+   },
+   {
+    "label": "WW Pausenzeit",
+    "value": "20 min",
+    "selected": false
+   },
+   {
+    "label": "WW Kompr.freq. min",
+    "value": "15.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "WW Kompr.freq. max",
+    "value": "40.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Einstellungen",
+    "value": "55.0°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Scrollbar thumb lower part. Selected row last, green value. Label 'WW Extra Einstellungen' with temperature value 55.0°C as displayed (probably row label truncated/odd).",
+  "uncertain": []
+ },
+ {
+  "img": 5800,
+  "time": "2026-10-30T08:59:18",
+  "title": null,
+  "breadcrumb": "WW Einstellungen (bottom of list)",
+  "rows": [
+   {
+    "label": "WW Kompr.freq. min",
+    "value": "15.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "WW Kompr.freq. max",
+    "value": "40.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Einstellungen",
+    "value": "55.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Extra Zeit",
+    "value": "180 min",
+    "selected": false
+   },
+   {
+    "label": "WW Kond.temp. zu hoch",
+    "value": "3.0 K",
+    "selected": false
+   },
+   {
+    "label": "WW Überhitzungsalarm",
+    "value": "73.0°C",
+    "selected": false
+   },
+   {
+    "label": "Per. Legionellenpräv.",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "Selected row has right-pointing triangle (submenu, orange/red). Scrollbar thumb near bottom.",
+  "uncertain": []
+ },
+ {
+  "img": 5801,
+  "time": "2026-10-30T08:59:31",
+  "title": "Per. Legionellenpräv. (down-triangle, selected/red, blue frame = open submenu header)",
+  "breadcrumb": "... > Per. Legionellenpräv.",
+  "rows": [
+   {
+    "label": "Per. Legionellenpräv.",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "Sofor. Legionellenpräv.Aufhören",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Legionellenprävention",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.tag",
+    "value": "Mo",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.Temp",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 1",
+    "value": "60°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 2",
+    "value": "65°C",
+    "selected": false
+   }
+  ],
+  "notes": "Expanded section marked with down triangle. Scrollbar thumb lower-middle. 'Sofor. Legionellenpräv.Aufhören' has no visible value (action row, label fills width).",
+  "uncertain": [
+   "'Sofor.' spelling as displayed (likely truncated 'Sofort')"
+  ]
+ },
+ {
+  "img": 5802,
+  "time": "2026-10-30T08:59:37",
+  "title": null,
+  "breadcrumb": "... > Per. Legionellenpräv. (scrolled to end) ; below it 'Ventilator' and 'Waermepumpe Einstellungen' submenus",
+  "rows": [
+   {
+    "label": "Legionellatemp. 1",
+    "value": "60°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 2",
+    "value": "65°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellenzeit 1",
+    "value": "60 min",
+    "selected": false
+   },
+   {
+    "label": "Legionellenalarm",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Protokol.Legionel.präv.",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ventilator",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Waermepumpe Einstellungen",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "Ventilator and Waermepumpe Einstellungen have right triangles (collapsed submenus). Scrollbar thumb at bottom. Display partly cut off at left edge of photo.",
+  "uncertain": [
+   "'Protokol.Legionel.präv.' exact dots/spelling"
+  ]
+ },
+ {
+  "img": 5803,
+  "time": "2026-10-30T08:59:42",
+  "title": "Ventilator (down-triangle, expanded)",
+  "breadcrumb": "Waermepumpe Einstellungen > Ventilator",
+  "rows": [
+   {
+    "label": "Ventilator",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Ventilator Einstellungen",
+    "value": "Normal",
+    "selected": true,
+    "value_color": "green"
+   },
+   {
+    "label": "Ventilator Kaminoption",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Normale Leistung",
+    "value": "65.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator min. Leistung",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator max. Leistung",
+    "value": "30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   }
+  ],
+  "notes": "Header row 'Ventilator' with white down triangle is a section header (not selected). Selected row is 'Ventilator Einstellungen' (green value 'Normal'). Scrollbar thumb near top.",
+  "uncertain": []
+ },
+ {
+  "img": 5804,
+  "time": "2026-10-30T08:59:47",
+  "title": null,
+  "breadcrumb": "Waermepumpe Einstellungen > Ventilator (scrolled)",
+  "rows": [
+   {
+    "label": "Ventilator min. Leistung",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator max. Leistung",
+    "value": "30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator Leistung aus",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Aussenluft",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Kaminoption Einstellen",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Ventilator Zeitsteuerung",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "Aussenluft, Kaminoption Einstellen, Ventilator Zeitsteuerung have right triangles (submenus). Scrollbar thumb middle-lower. Left edge of display cut off.",
+  "uncertain": []
+ },
+ {
+  "img": 5805,
+  "time": "2026-10-30T08:59:54",
+  "title": null,
+  "breadcrumb": "Ventilator > Aussenluft (expanded)",
+  "rows": [
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator Leistung aus",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Aussenluft",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Aussenluft",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Aussenl.Vent.Geschw.",
+    "value": "+20%",
+    "selected": false
+   },
+   {
+    "label": "Aussenl.Temp.Grenze",
+    "value": "5°C",
+    "selected": false
+   },
+   {
+    "label": "Kaminoption Einstellen",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "'Aussenluft' with down triangle = expanded section header (indented children below). Selected row is Kaminoption Einstellen (right triangle). Scrollbar thumb middle.",
+  "uncertain": [
+   "Aussenl.Vent.Geschw. letter 'c' partly obscured by reflection"
+  ]
+ },
+ {
+  "img": 5806,
+  "time": "2026-10-30T09:00:00",
+  "title": null,
+  "breadcrumb": "Ventilator > Kaminoption Einstellen (expanded)",
+  "rows": [
+   {
+    "label": "Aussenluft",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Kaminoption Einstellen",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "FS Zuluftvent Einstellen",
+    "value": "70.0%",
+    "selected": false
+   },
+   {
+    "label": "FS Nachlaufzeit",
+    "value": "5.0 min",
+    "selected": false
+   },
+   {
+    "label": "Kaminoption Zeit Ende",
+    "value": "120 min",
+    "selected": false
+   },
+   {
+    "label": "Ventilator Zeitsteuerung",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Filterwechsel zeit",
+    "value": "79 d",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "'Kaminoption Einstellen' shows down triangle (expanded section header; children indented). Aussenluft and Ventilator Zeitsteuerung right triangles. Scrollbar thumb near bottom. Left edge of display cut off.",
+  "uncertain": []
+ },
+ {
+  "img": 5807,
+  "time": "2026-10-30T09:00:05",
+  "title": null,
+  "breadcrumb": "Ventilator > Ventilator Zeitsteuerung (expanded)",
+  "rows": [
+   {
+    "label": "Aussenluft",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Kaminoption Einstellen",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Ventilator Zeitsteuerung",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "Niedrig an Wochentagen",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Niedrig an Wochenende",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Norm.Drehz. w. Kompr. ein",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "Filterwechsel zeit",
+    "value": "79 d",
+    "selected": false
+   }
+  ],
+  "notes": "Selected header 'Ventilator Zeitsteuerung' with orange down triangle (expanded). Scrollbar thumb at bottom. Left edge cut off.",
+  "uncertain": []
+ },
+ {
+  "img": 5808,
+  "time": "2026-10-30T09:00:25",
+  "title": "Waermepumpe Einstellungen (white down triangle, header)",
+  "breadcrumb": "Waermepumpe Einstellungen > WP Kompressor",
+  "rows": [
+   {
+    "label": "Waermepumpe Einstellungen",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WP Kompressor",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "Kompr.Freq.Max",
+    "value": "82.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Nachtfreq. max",
+    "value": "82.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Nacht Start",
+    "value": "22:00",
+    "selected": false
+   },
+   {
+    "label": "Nacht Stop",
+    "value": "07:00",
+    "selected": false
+   },
+   {
+    "label": "Kompr Freq. Block 1",
+    "value": "0.0 Hz",
+    "selected": false
+   }
+  ],
+  "notes": "WP Kompressor selected with orange down triangle (expanded). Scrollbar thumb near top.",
+  "uncertain": []
+ },
+ {
+  "img": 5809,
+  "time": "2026-10-30T09:00:37",
+  "title": null,
+  "breadcrumb": "Waermepumpe Einstellungen > WP Kompressor (scrolled)",
+  "rows": [
+   {
+    "label": "Kompr Freq. Block 1",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompr Freq. Block 2",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompr Freq. Block 3",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompr Freq. Block 4",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompr Freq. Block 5",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "WP Zusatzheizung",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WP Abtauung",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "WP Zusatzheizung and WP Abtauung have right triangles. Scrollbar thumb lower.",
+  "uncertain": [
+   "'Kompr Freq.' vs 'Kompr.Freq.' dot placement"
+  ]
+ },
+ {
+  "img": 5810,
+  "time": "2026-10-30T09:00:42",
+  "title": null,
+  "breadcrumb": "Waermepumpe Einstellungen > WP Zusatzheizung (expanded)",
+  "rows": [
+   {
+    "label": "WP Zusatzheizung",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "Zusatzheizung Funktion",
+    "value": "Normal",
+    "selected": false
+   },
+   {
+    "label": "Zusatz Leistungsgrenze",
+    "value": "5000 W",
+    "selected": false
+   },
+   {
+    "label": "WP Abtauung",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WP Test",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WP Andere",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Systemeinstellungen",
+    "value": null,
+    "selected": false
+   }
+  ],
+  "notes": "Selected header with orange down triangle. Other submenus with right triangles. Scrollbar thumb near bottom.",
+  "uncertain": []
+ },
+ {
+  "img": 5811,
+  "time": "2026-10-30T09:00:46",
+  "title": null,
+  "breadcrumb": "Waermepumpe Einstellungen > WP Abtauung (expanded)",
+  "rows": [
+   {
+    "label": "WP Zusatzheizung",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WP Abtauung",
+    "value": null,
+    "selected": true
+   },
+   {
+    "label": "Abtau. Block. Temp.",
+    "value": "5.0°C",
+    "selected": false
+   },
+   {
+    "label": "Abt. Verzoegerung",
+    "value": "50.0 min",
+    "selected": false
+   },
+   {
+    "label": "WP Test",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WP Andere",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Systemeinstellungen",
+    "value": null,
+    "selected": false
+   }
+  ],
+  "notes": "Selected header with orange down triangle (expanded). Scrollbar thumb bottom. Left edge of display cut off.",
+  "uncertain": []
+ },
+ {
+  "img": 5812,
+  "time": "2026-10-30T09:00:53",
+  "title": "WP Test (white down triangle, header)",
+  "breadcrumb": "Waermepumpe Einstellungen > WP Test",
+  "rows": [
+   {
+    "label": "WP Test",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "WP Test",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ventilator",
+    "value": "0.0%",
+    "selected": false
+   },
+   {
+    "label": "Umwälzpumpe",
+    "value": "0.0%",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "EEV",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "EEV",
+    "value": "0.0%",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Header 'WP Test' with down triangle; first row 'WP Test' is a Nein value row. Umwälzpumpe spelled with ä here. Selected last row EEV 0.0% (green). Two rows labeled EEV (first Nein, second 0.0%). Scrollbar thumb upper-middle.",
+  "uncertain": [
+   "Which EEV label is the first (Nein) may differ slightly in the real UI; both read as 'EEV'"
+  ]
+ },
+ {
+  "img": 5813,
+  "time": "2026-10-30T09:00:56",
+  "title": null,
+  "breadcrumb": "Service/Test-Menue (Komponententest; page above Leistungstest) - inferred",
+  "rows": [
+   {
+    "label": "EEV",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "EEV",
+    "value": "0.0%",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Kompressor",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Kompressor",
+    "value": "0.0 Hz",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizelement 1",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizelement 2",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizelement 3",
+    "value": "Nein",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "No title row visible (scrolled). Selected row has red label, green value (value green = editable/selected). Scrollbar in lower-middle. Back arrow at left. First EEV row/second EEV row labels identical (likely On/Off and position).",
+  "uncertain": []
+ },
+ {
+  "img": 5814,
+  "time": "2026-10-30T09:00:59",
+  "title": null,
+  "breadcrumb": "same test menu, scrolled to bottom",
+  "rows": [
+   {
+    "label": "Kompressor",
+    "value": "0.0 Hz",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizelement 1",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizelement 2",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizelement 3",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizelement 4",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Zuluftventilator",
+    "value": "0.0%",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Leistungstest",
+    "value": "Nein",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Scrollbar at bottom. Display left edge cut off by photo framing (first letters of labels slightly clipped). Selected row red label, green value.",
+  "uncertain": []
+ },
+ {
+  "img": 5815,
+  "time": "2026-10-30T09:01:11",
+  "title": "WP Andere",
+  "breadcrumb": "Service > WP Andere",
+  "rows": [
+   {
+    "label": "WP Andere",
+    "value": null,
+    "selected": true,
+    "value_color": null,
+    "arrow": "down (expanded)"
+   },
+   {
+    "label": "Umwälzpumpe iPWM im Ein...",
+    "value": "Ja",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Umwaelzp. Min",
+    "value": "0.0 l/min",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "EEV einstellen",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Externes Mischventil",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Sonnenkollektor",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Systemeinstellungen",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   }
+  ],
+  "notes": "Selected row is the title/section row 'WP Andere' (red, blue frame, down-triangle). Label 'Umwälzpumpe iPWM im Ein...' truncated with ellipsis (probably 'im Einsatz'). Scrollbar near top/upper-middle; left part of display cut off.",
+  "uncertain": [
+   "5815: 'Umwälzpumpe iPWM im Ein...' truncated; 'iPWM' lettering could be 'iPWM'"
+  ]
+ },
+ {
+  "img": 5816,
+  "time": "2026-10-30T09:01:15",
+  "title": "WP Andere",
+  "breadcrumb": "Service > WP Andere > EEV einstellen",
+  "rows": [
+   {
+    "label": "WP Andere",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down"
+   },
+   {
+    "label": "Umwälzpumpe iPWM im Ein...",
+    "value": "Ja",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Umwaelzp. Min",
+    "value": "0.0 l/min",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "EEV einstellen",
+    "value": null,
+    "selected": true,
+    "value_color": null,
+    "arrow": "down (expanded)"
+   },
+   {
+    "label": "EEV Max pos",
+    "value": "50.0%",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Externes Mischventil",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Sonnenkollektor",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   }
+  ],
+  "notes": "EEV einstellen submenu expanded inline showing one child row 'EEV Max pos 50.0%'. Selected row is 'EEV einstellen' (red, down-triangle). Scrollbar upper-middle.",
+  "uncertain": []
+ },
+ {
+  "img": 5817,
+  "time": "2026-10-30T09:01:18",
+  "title": "WP Andere",
+  "breadcrumb": "Service > WP Andere > Externes Mischventil",
+  "rows": [
+   {
+    "label": "WP Andere",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down"
+   },
+   {
+    "label": "Umwälzpumpe iPWM im Ein...",
+    "value": "Ja",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Umwaelzp. Min",
+    "value": "0.0 l/min",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "EEV einstellen",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Externes Mischventil",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down (expanded)"
+   },
+   {
+    "label": "Ext. Mischvent. im Einsatz",
+    "value": "Nein",
+    "selected": true,
+    "value_color": "green"
+   },
+   {
+    "label": "Sonnenkollektor",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   }
+  ],
+  "notes": "Photo blurry (motion). Externes Mischventil expanded, child row selected (red label, green value).",
+  "uncertain": [
+   "5817: 'Ext. Mischvent. im Einsatz' blurry, reading fairly confident; 'Umwaelzp. Min' blurry"
+  ]
+ },
+ {
+  "img": 5818,
+  "time": "2026-10-30T09:01:22",
+  "title": null,
+  "breadcrumb": "Service > WP Andere (scrolled down)",
+  "rows": [
+   {
+    "label": "EEV einstellen",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Externes Mischventil",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Sonnenkollektor",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down (expanded)"
+   },
+   {
+    "label": "Solar-Panel-Synchr",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Systemeinstellungen",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Messung",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Version Information",
+    "value": null,
+    "selected": true,
+    "value_color": null,
+    "arrow": "right"
+   }
+  ],
+  "notes": "Scrolled to bottom (scrollbar bottom). Sonnenkollektor expanded with child 'Solar-Panel-Synchr Nein'. Selected: 'Version Information' (last row).",
+  "uncertain": []
+ },
+ {
+  "img": 5819,
+  "time": "2026-10-30T09:01:50",
+  "title": "Messung",
+  "breadcrumb": "Service > Messung",
+  "rows": [
+   {
+    "label": "Messung",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down"
+   },
+   {
+    "label": "Zeit",
+    "value": "Fr 30.10.2026 9:01",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Ventilator",
+    "value": null,
+    "selected": true,
+    "value_color": null,
+    "arrow": "down (expanded)"
+   },
+   {
+    "label": "Ventilatorleistung",
+    "value": "65.0%",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Vent. einstellen",
+    "value": "Normal",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Zeit Filterwechsel",
+    "value": "79 d",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Heizung",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   }
+  ],
+  "notes": "Scrollbar upper part. Selected: 'Ventilator' section row (red, down-triangle). Display clock shows 9:01 consistent with EXIF.",
+  "uncertain": []
+ },
+ {
+  "img": 5820,
+  "time": "2026-10-30T09:01:59",
+  "title": "Heizung",
+  "breadcrumb": "Service > Messung > Heizung",
+  "rows": [
+   {
+    "label": "Heizung",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down"
+   },
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Gewuenschte Raumtemp.",
+    "value": "21.5°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "24.3°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "24.8°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.0 l/min",
+    "selected": true,
+    "value_color": "red/white"
+   }
+  ],
+  "notes": "Selected row Heizungsdurchfluss (red label; value appears reddish/white). Scrollbar middle. Long labels butt against values without space.",
+  "uncertain": [
+   "5820: value color of selected row (0.0 l/min) white-ish vs red"
+  ]
+ },
+ {
+  "img": 5821,
+  "time": "2026-10-30T09:02:07",
+  "title": "Warmwasser",
+  "breadcrumb": "Service > Messung > Warmwasser",
+  "rows": [
+   {
+    "label": "Warmwasser",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down"
+   },
+   {
+    "label": "Warmwasserproduktion",
+    "value": "Ja",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Soll Temperaturdiff.",
+    "value": "48.0°C",
+    "selected": true,
+    "value_color": "red"
+   },
+   {
+    "label": "Warmwassertemp.",
+    "value": "46.1°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Eingestell. Hysterese",
+    "value": "1.5°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Temporäre Hysterese",
+    "value": "Nein",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Warmwasserdurchfluss",
+    "value": "11.4 l/min",
+    "selected": false,
+    "value_color": "white"
+   }
+  ],
+  "notes": "Selected row red label and red value (not green). Scrollbar middle/upper-middle. Warmwasserdurchfluss was flowing 11.4 l/min (DHW draw).",
+  "uncertain": []
+ },
+ {
+  "img": 5822,
+  "time": "2026-10-30T09:02:14",
+  "title": "Expansionsventil",
+  "breadcrumb": "Service > Messung > Expansionsventil",
+  "rows": [
+   {
+    "label": "Expansionsventil",
+    "value": null,
+    "selected": true,
+    "value_color": null,
+    "arrow": "down (expanded)"
+   },
+   {
+    "label": "Position Ex Ventil",
+    "value": "15.1%",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Soll Temperaturdiff.",
+    "value": "29.7 K",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Temperaturdiff.",
+    "value": "17.9 K",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Waermepumpe",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Fühler",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Dig. Eingänge",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   }
+  ],
+  "notes": "Selected is the section row 'Expansionsventil' (top of visible list). Scrollbar lower-middle.",
+  "uncertain": []
+ },
+ {
+  "img": 5823,
+  "time": "2026-10-30T09:02:21",
+  "title": null,
+  "breadcrumb": "Service > Messung > Waermepumpe",
+  "rows": [
+   {
+    "label": "Expansionsventil",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "right"
+   },
+   {
+    "label": "Waermepumpe",
+    "value": null,
+    "selected": true,
+    "value_color": null,
+    "arrow": "down (expanded)"
+   },
+   {
+    "label": "Kompressorfrequenz",
+    "value": "23.3 Hz",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Kompressorleistung",
+    "value": "1923 W",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Zusatzleistung",
+    "value": "0 W",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Gesamtleistung",
+    "value": "1923 W",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   },
+   {
+    "label": "Kompr.aufnahmeleist.",
+    "value": "979 W",
+    "selected": false,
+    "value_color": "white",
+    "indent": "sub-item"
+   }
+  ],
+  "notes": "Compressor running (23.3 Hz). Scrollbar middle.",
+  "uncertain": []
+ },
+ {
+  "img": 5824,
+  "time": "2026-10-30T09:02:36",
+  "title": null,
+  "breadcrumb": "Service > Messung > Waermepumpe (scrolled)",
+  "rows": [
+   {
+    "label": "Kompr.aufnahmeleist.",
+    "value": "979 W",
+    "selected": true,
+    "value_color": "red"
+   },
+   {
+    "label": "Kondensatortemp.",
+    "value": "48.3°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Kondensatordruck",
+    "value": "30.2 bar",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Verdampferdruck",
+    "value": "9.5 bar",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Druckverhältnis",
+    "value": "3.1",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Kompressorener...",
+    "value": "14141.23 kWh",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Zusatzenergie",
+    "value": "122.64 kWh",
+    "selected": false,
+    "value_color": "white"
+   }
+  ],
+  "notes": "Selected row red label and red value. Label 'Kompressorener...' truncated (Kompressorenergie). Scrollbar middle-lower.",
+  "uncertain": []
+ },
+ {
+  "img": 5825,
+  "time": "2026-10-30T09:02:41",
+  "title": null,
+  "breadcrumb": "Service > Messung > Waermepumpe (scrolled to end)",
+  "rows": [
+   {
+    "label": "Druckverhältnis",
+    "value": "3.1",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Kompressorener...",
+    "value": "14141.23 kWh",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Zusatzenergie",
+    "value": "122.64 kWh",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Warmwasserene...",
+    "value": "4778.99 kWh",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Kompressorzeit",
+    "value": "5761:27",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Gesamtlaufzeit",
+    "value": "17325:46",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "Fühler",
+    "value": null,
+    "selected": true,
+    "value_color": null,
+    "arrow": "right"
+   }
+  ],
+  "notes": "Kompressorzeit and Gesamtlaufzeit in h:mm format (no unit shown). Warmwasserene... truncated (Warmwasserenergie). Photo slightly tilted/reflective. Selected: Fühler (next section).",
+  "uncertain": []
+ },
+ {
+  "img": 5826,
+  "time": "2026-10-30T09:02:45",
+  "title": "Fühler",
+  "breadcrumb": "Service > Messung > Fühler",
+  "rows": [
+   {
+    "label": "Fühler",
+    "value": null,
+    "selected": false,
+    "value_color": null,
+    "arrow": "down"
+   },
+   {
+    "label": "TE0 Außentemp.",
+    "value": "8.5°C",
+    "selected": true,
+    "value_color": "red"
+   },
+   {
+    "label": "TE1 Vorlauftemp.",
+    "value": "24.8°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "TE2 Rücklauftemp.",
+    "value": "46.7°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "TE3 Raumtemp.",
+    "value": "22.2°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "TE4 Heissgastemp.",
+    "value": "66.4°C",
+    "selected": false,
+    "value_color": "white"
+   },
+   {
+    "label": "TE5 Kondens. Ausg.",
+    "value": "47.4°C",
+    "selected": false,
+    "value_color": "white"
+   }
+  ],
+  "notes": "Scrollbar upper-middle. Left part of display slightly cut off by photo edge. Selected row red label and value.",
+  "uncertain": []
+ },
+ {
+  "img": 5827,
+  "time": "2026-10-30T09:02:52",
+  "title": null,
+  "breadcrumb": "Messung > (Temperaturen)",
+  "rows": [
+   {
+    "label": "TE3 Raumtemp.",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "TE4 Heissgastemp.",
+    "value": "66.5°C",
+    "selected": false
+   },
+   {
+    "label": "TE5 Kondens. Ausg.",
+    "value": "47.4°C",
+    "selected": false
+   },
+   {
+    "label": "TE6 Verdampfer Eing.",
+    "value": "5.2°C",
+    "selected": false
+   },
+   {
+    "label": "TE7 Fortlufttemp.",
+    "value": "3.4°C",
+    "selected": false
+   },
+   {
+    "label": "TE24 Warmwasser",
+    "value": "46.2°C",
+    "selected": false
+   },
+   {
+    "label": "Dig. Eingänge ▶",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "Blue back-arrow icon at left. 6 data rows + selected submenu row 'Dig. Eingänge' with right-pointing orange triangle; scrollbar near bottom. Selected row is a submenu, not a title.",
+  "uncertain": []
+ },
+ {
+  "img": 5828,
+  "time": "2026-10-30T09:02:55",
+  "title": "Dig. Eingänge ▼",
+  "breadcrumb": "Messung > Dig. Eingänge",
+  "rows": [
+   {
+    "label": "IN1 Hochdruck Alarm",
+    "value": "0 0",
+    "selected": false
+   },
+   {
+    "label": "IN2 Inverter Alarm",
+    "value": "0 0",
+    "selected": false
+   },
+   {
+    "label": "IN3 Heizung ueberhitzt",
+    "value": "1 1",
+    "selected": false
+   },
+   {
+    "label": "IN4 Niederdruck Alarm",
+    "value": "1 1",
+    "selected": false
+   },
+   {
+    "label": "IN5 EEV Fehler",
+    "value": "0 0",
+    "selected": false
+   },
+   {
+    "label": "IN6 Eingabe",
+    "value": "0",
+    "selected": false
+   }
+  ],
+  "notes": "Title row 'Dig. Eingänge' is the selected/highlighted row (red text, blue frame) with down-triangle (expanded). Two value columns (0 0 / 1 1) on IN1-IN5, single value on IN6. Back-arrow icon. Scrollbar near top.",
+  "uncertain": []
+ },
+ {
+  "img": 5829,
+  "time": "2026-10-30T09:02:59",
+  "title": null,
+  "breadcrumb": "Messung > Dig. Eingänge",
+  "rows": [
+   {
+    "label": "IN5 EEV Fehler",
+    "value": "0 0",
+    "selected": false
+   },
+   {
+    "label": "IN6 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "IN7 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "IN8 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "PI1 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "PI2 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "HL1 Eingabe",
+    "value": "0",
+    "selected": true,
+    "value_color": "red"
+   }
+  ],
+  "notes": "Scrolled down; HL1 Eingabe selected (red text, blue frame, value 0 red/orange). IN5 has two values, others one.",
+  "uncertain": []
+ },
+ {
+  "img": 5830,
+  "time": "2026-10-30T09:03:03",
+  "title": null,
+  "breadcrumb": "Messung",
+  "rows": [
+   {
+    "label": "IN8 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "PI1 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "PI2 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "HL1 Eingabe",
+    "value": "0",
+    "selected": false
+   },
+   {
+    "label": "HL2 Eingabe",
+    "value": "1",
+    "selected": false
+   },
+   {
+    "label": "Inverter ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Version Information ▶",
+    "value": null,
+    "selected": true
+   }
+  ],
+  "notes": "Bottom of Dig. Eingänge list, followed by submenu rows Inverter and Version Information (selected, red). Scrollbar near bottom.",
+  "uncertain": []
+ },
+ {
+  "img": 5831,
+  "time": "2026-10-30T09:03:06",
+  "title": "Inverter ▼",
+  "breadcrumb": "Messung > Inverter",
+  "rows": [
+   {
+    "label": "Steuerfrequenz",
+    "value": "23.30 Hz",
+    "selected": false
+   },
+   {
+    "label": "Ein/Aus-Signal",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "Ausgangsfrequenz",
+    "value": "23.30 Hz",
+    "selected": false
+   },
+   {
+    "label": "Ausgangsstrom",
+    "value": "6.3 Arms",
+    "selected": false
+   },
+   {
+    "label": "Leistungsteiltemp.",
+    "value": "36.2°C",
+    "selected": false
+   },
+   {
+    "label": "Fehlerstatus",
+    "value": "0",
+    "selected": false
+   }
+  ],
+  "notes": "Title row 'Inverter' selected (red, blue frame) with down-triangle. Scrollbar at bottom.",
+  "uncertain": []
+ },
+ {
+  "img": 5832,
+  "time": "2026-10-30T09:03:31",
+  "title": "Version Information ▼",
+  "breadcrumb": "Messung > Version Information",
+  "rows": [
+   {
+    "label": "Messung ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Version Information ▼",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "UI Software Version",
+    "value": "2.22.0",
+    "selected": false
+   },
+   {
+    "label": "UI Hardware Version",
+    "value": "H",
+    "selected": false
+   },
+   {
+    "label": "Steuerung Version",
+    "value": "2.50",
+    "selected": false
+   },
+   {
+    "label": "WP Box Version",
+    "value": "3",
+    "selected": false
+   },
+   {
+    "label": "Inverter",
+    "value": "4.1",
+    "selected": true,
+    "value_color": "orange/red"
+   }
+  ],
+  "notes": "Top row 'Messung ▶' is the parent menu entry; 'Version Information ▼' expanded header (white, not highlighted); last row Inverter 4.1 selected. Photo has strong reflection of a hand.",
+  "uncertain": [
+   "UI Software Version value '2.22.0' (dot position partly obscured)"
+  ]
+ },
+ {
+  "img": 5833,
+  "time": "2026-10-30T09:05:43",
+  "title": null,
+  "breadcrumb": "Grundlegende einstellungen > Heizung Einstellungen",
+  "rows": [
+   {
+    "label": "Grundlegende einstellungen ▶",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Heizung Einstellungen ▼",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Urlaubszeit",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Heizungsmodus",
+    "value": "Fußbodenhzg.",
+    "selected": false
+   },
+   {
+    "label": "HZG Betriebsart",
+    "value": "Außen & Innen",
+    "selected": false
+   },
+   {
+    "label": "HZG Heizkurve",
+    "value": "4.0",
+    "selected": false
+   },
+   {
+    "label": "HZG Referenztemp.",
+    "value": "22.0°C",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "HZG Referenztemp. selected (label red) and value 22.0°C in GREEN = edit mode, after setpoint change 21.5->22. Top two rows are parent/section headers. Scrollbar at top.",
+  "uncertain": []
+ },
+ {
+  "img": 5834,
+  "time": "2026-10-30T09:07:18",
+  "title": null,
+  "breadcrumb": "Warmwasser Einstellungen > Per. Legionellenpräv.",
+  "rows": [
+   {
+    "label": "Sofor. Legionellenpräv.Aufhören",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Legionellenprävention",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.tag",
+    "value": "Mo",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.Temp",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 1",
+    "value": "60°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 2",
+    "value": "65°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellenzeit 1",
+    "value": "60 min",
+    "selected": true,
+    "value_color": "green"
+   }
+  ],
+  "notes": "Legionellenzeit 1 selected, value 60 min green (edit mode/ highlighted). The first row's action label reads 'Aufhören' (stop) - i.e. the immediate-legionella row shows the action currently available; a legionella cycle appears to be active at this time. Scrollbar near bottom.",
+  "uncertain": [
+   "Whether first row label 'Aufhören' reflects active state: inference"
+  ]
+ },
+ {
+  "img": 5835,
+  "time": "2026-10-30T09:07:26",
+  "title": "Sofor. Legionellenpräv. Aufhören",
+  "breadcrumb": "Warmwasser Einstellungen > Per. Legionellenpräv. > Sofor. Legionellenpräv.",
+  "rows": [],
+  "notes": "Popup dialog: two-line text 'Sofor. Legionellenpräv.' / 'Aufhören' and an empty rounded button frame below (button text not visible; likely lost to reflection/glare).",
+  "uncertain": [
+   "button text not readable (empty)"
+  ]
+ },
+ {
+  "img": 5836,
+  "time": "2026-10-30T09:07:29",
+  "title": "Sofor. Legionellenpräv. Aufhören",
+  "breadcrumb": "same dialog",
+  "rows": [],
+  "notes": "Popup dialog: text 'Sofor. Legionellenpräv. / Aufhören' with a button in GREEN text 'Anfangen' (framed). Green = action to confirm.",
+  "uncertain": []
+ },
+ {
+  "img": 5837,
+  "time": "2026-10-30T09:07:34",
+  "title": null,
+  "breadcrumb": "Warmwasser Einstellungen > Per. Legionellenpräv.",
+  "rows": [
+   {
+    "label": "Sofor. Legionellenpräv.",
+    "value": "Anfangen",
+    "selected": true,
+    "value_color": "green"
+   },
+   {
+    "label": "Legionellenprävention",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.tag",
+    "value": "Mo",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.Temp",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 1",
+    "value": "60°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 2",
+    "value": "65°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellenzeit 1",
+    "value": "60 min",
+    "selected": false
+   }
+  ],
+  "notes": "Selected row 'Sofor. Legionellenpräv.' value 'Anfangen' (green), shown after the dialog; row now shows Anfangen (start) i.e. no cycle active. 6 rows visible with first being selected; scrollbar near bottom. (Row listed first of 7 incl. selected.)",
+  "uncertain": []
+ },
+ {
+  "img": 5838,
+  "time": "2026-10-30T09:09:23",
+  "title": null,
+  "breadcrumb": "Warmwasser Einstellungen > Per. Legionellenpräv.",
+  "rows": [
+   {
+    "label": "WW Extra Zeit",
+    "value": "180 min",
+    "selected": false
+   },
+   {
+    "label": "WW Kond.temp. zu hoch",
+    "value": "3.0 K",
+    "selected": false
+   },
+   {
+    "label": "WW Überhitzungsalarm",
+    "value": "73.0°C",
+    "selected": false
+   },
+   {
+    "label": "Per. Legionellenpräv. ▼",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Sofor. Legionellenpräv.",
+    "value": "Anfangen",
+    "selected": true,
+    "value_color": "green"
+   },
+   {
+    "label": "Legionellenprävention",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.tag",
+    "value": "Mo",
+    "selected": false
+   }
+  ],
+  "notes": "Scrolled up one page: shows rows above plus section header 'Per. Legionellenpräv.' with down-triangle. Selected row Sofor. Legionellenpräv. = Anfangen (green).",
+  "uncertain": []
+ },
+ {
+  "img": 5839,
+  "time": "2026-10-30T09:09:32",
+  "title": "Sofor. Legionellenpräv. Anfangen",
+  "breadcrumb": "same dialog",
+  "rows": [],
+  "notes": "Popup dialog: text 'Sofor. Legionellenpräv. / Anfangen' with green framed button 'Aufhören'. Note title text shows Anfangen while button shows Aufhören (dialog title = previous state/start action, button = new action) -- state seems toggled after pressing start.",
+  "uncertain": []
+ },
+ {
+  "img": 5840,
+  "time": "2026-10-30T09:09:35",
+  "title": null,
+  "breadcrumb": "Warmwasser Einstellungen > Per. Legionellenpräv.",
+  "rows": [
+   {
+    "label": "WW Extra Zeit",
+    "value": "180 min",
+    "selected": false
+   },
+   {
+    "label": "WW Kond.temp. zu hoch",
+    "value": "3.0 K",
+    "selected": false
+   },
+   {
+    "label": "WW Überhitzungsalarm",
+    "value": "73.0°C",
+    "selected": false
+   },
+   {
+    "label": "Per. Legionellenpräv. ▼",
+    "value": null,
+    "selected": false
+   },
+   {
+    "label": "Sofor. Legionellenpräv.",
+    "value": "Aufhören",
+    "selected": true,
+    "value_color": "green"
+   },
+   {
+    "label": "Legionellenprävention",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.tag",
+    "value": "Mo",
+    "selected": false
+   }
+  ],
+  "notes": "Selected row value now 'Aufhören' (green) => legionella immediate cycle running (stop offered). Legionellenprävention (periodic) still 'Nein'. No main status screen or icons were photographed in this set.",
+  "uncertain": []
+ }
+]

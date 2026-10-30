@@ -7,9 +7,12 @@ through the ESPHome native API.
 The implementation is receive-only. The RS485 transmitter-enable pin is held
 LOW, and the ESPHome UART is configured without a TX pin.
 
+Reference project
+https://github.com/qix67/comfortzone_heatpump
+
 ## Hardware and protocol
 
-- RS485 RX: GPIO18, inverted
+- RS485 RX: GPIO18, not inverted (bus A/B wired to board A/B)
 - RS485 receiver enable: GPIO21, held LOW
 - Serial format: 19200 baud, 8N1
 - Observed register family: `0B 10`

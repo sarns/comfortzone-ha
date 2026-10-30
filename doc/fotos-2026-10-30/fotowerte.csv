@@ -1,0 +1,166 @@
+timestamp,label,value,unit
+2026-10-30T08:57:14,Einst/HZG Heizkurve,4.0,
+2026-10-30T08:57:14,Einst/HZG Umwaelzpumpe,76.0,%
+2026-10-30T08:57:14,Einst/Vent. normale leistung,65.0,%
+2026-10-30T08:57:14,Einst/Zusatz Leistungsgrenze,5000,W
+2026-10-30T08:57:24,Einst/Vent. normale leistung,65.0,%
+2026-10-30T08:57:24,Einst/Zusatz Leistungsgrenze,5000,W
+2026-10-30T08:57:24,Einst/Ventil. Einstel. korr.,-30.0,%
+2026-10-30T08:57:29,Einst/HZG Heizkurve,4.0,
+2026-10-30T08:57:29,Einst/HZG Referenztemp.,21.5,°C
+2026-10-30T08:57:29,Einst/HZG Raumfaktor,2.0,
+2026-10-30T08:57:41,Einst/HZG Raumfaktor,2.0,
+2026-10-30T08:57:41,Einst/E-Heizung Erlaubt,19.5,-2.0°C
+2026-10-30T08:58:14,Einst/HZG Urlaubsreduzierung,10.0,°C
+2026-10-30T08:58:14,Einst/HZG Minimum,15.0,°C
+2026-10-30T08:58:14,Einst/HZG Max.FB.Heizung,45.0,°C
+2026-10-30T08:58:14,Einst/HZG Max.Radiator,70.0,°C
+2026-10-30T08:58:14,Einst/HZG Ueberhitz. Hyst.,20.0,°C
+2026-10-30T08:58:14,Einst/HZG Ruecklauftemp.Max,60.0,°C
+2026-10-30T08:58:27,Einst/HZG Ueberhitz. Hyst.,20.0,°C
+2026-10-30T08:58:27,Einst/HZG Ruecklauftemp.Max,60.0,°C
+2026-10-30T08:58:27,Einst/HZG Umwaelzpumpe,76.0,%
+2026-10-30T08:58:33,Einst/WW Einstellungen,48.0,°C
+2026-10-30T08:58:33,Einst/WW Hysterese,1.5,°C
+2026-10-30T08:58:43,Einst/WW temp. Min. freq.,50.0,°C
+2026-10-30T08:58:43,Einst/WW Min. freq. Zeit,5.0,min
+2026-10-30T08:58:43,Einst/WW Max Zeit,30,min
+2026-10-30T08:58:50,Einst/WW Normal Stufe 1,-11.0,°C
+2026-10-30T08:58:50,Einst/WW Normal Stufe 2,-11.5,°C
+2026-10-30T08:58:50,Einst/WW Normal Stufe 3,-12.0,°C
+2026-10-30T08:58:50,Einst/WW Normal Stufe 4,-12.5,°C
+2026-10-30T08:58:50,Einst/WW Normal Stufe 5,-13.0,°C
+2026-10-30T08:58:50,Einst/WW Normal Stufe 6,-13.5,°C
+2026-10-30T08:58:53,Einst/WW Normal Stufe 4,-12.5,°C
+2026-10-30T08:58:53,Einst/WW Normal Stufe 5,-13.0,°C
+2026-10-30T08:58:53,Einst/WW Normal Stufe 6,-13.5,°C
+2026-10-30T08:58:53,Einst/WW Normal Stufe 7,-14.0,°C
+2026-10-30T08:58:53,Einst/WW Normal Stufe 8,-14.5,°C
+2026-10-30T08:58:53,Einst/WW Normal Stufe 9,-15.0,°C
+2026-10-30T08:58:53,Einst/WW Normal Stufe 10,-15.5,°C
+2026-10-30T08:59:00,Einst/WW Normal Stufe 10,-15.5,°C
+2026-10-30T08:59:00,Einst/WW Normal Stufe 11,-16.0,°C
+2026-10-30T08:59:00,Einst/WW Normal Stufe 12,-16.5,°C
+2026-10-30T08:59:00,Einst/WW Hoch Stufe 1,-5.0,°C
+2026-10-30T08:59:00,Einst/WW Hoch Stufe 2,-5.0,°C
+2026-10-30T08:59:00,Einst/WW Hoch Stufe 3,-5.5,°C
+2026-10-30T08:59:00,Einst/WW Hoch Stufe 4,-5.5,°C
+2026-10-30T08:59:04,Einst/WW Hoch Stufe 5,-6.0,°C
+2026-10-30T08:59:04,Einst/WW Hoch Stufe 6,-6.0,°C
+2026-10-30T08:59:04,Einst/WW Hoch Stufe 7,-6.5,°C
+2026-10-30T08:59:04,Einst/WW Hoch Stufe 8,-6.5,°C
+2026-10-30T08:59:04,Einst/WW Hoch Stufe 9,-7.0,°C
+2026-10-30T08:59:04,Einst/WW Hoch Stufe 10,-7.0,°C
+2026-10-30T08:59:04,Einst/WW Hoch Stufe 11,-7.5,°C
+2026-10-30T08:59:07,Einst/WW Hoch Stufe 12,-7.5,°C
+2026-10-30T08:59:11,Einst/WW Max Zeit,30,min
+2026-10-30T08:59:15,Einst/WW Max Zeit,30,min
+2026-10-30T08:59:15,Einst/WW Pausenzeit,20,min
+2026-10-30T08:59:15,Einst/WW Kompr.freq. min,15.0,Hz
+2026-10-30T08:59:15,Einst/WW Kompr.freq. max,40.0,Hz
+2026-10-30T08:59:15,Einst/WW Extra Einstellungen,55.0,°C
+2026-10-30T08:59:18,Einst/WW Kompr.freq. min,15.0,Hz
+2026-10-30T08:59:18,Einst/WW Kompr.freq. max,40.0,Hz
+2026-10-30T08:59:18,Einst/WW Extra Einstellungen,55.0,°C
+2026-10-30T08:59:18,Einst/WW Extra Zeit,180,min
+2026-10-30T08:59:18,Einst/WW Kond.temp. zu hoch,3.0,K
+2026-10-30T08:59:18,Einst/WW Überhitzungsalarm,73.0,°C
+2026-10-30T08:59:31,Einst/Legionellenpräv.Temp,65.0,°C
+2026-10-30T08:59:31,Einst/Legionellatemp. 1,60,°C
+2026-10-30T08:59:31,Einst/Legionellatemp. 2,65,°C
+2026-10-30T08:59:37,Einst/Legionellatemp. 1,60,°C
+2026-10-30T08:59:37,Einst/Legionellatemp. 2,65,°C
+2026-10-30T08:59:37,Einst/Legionellenzeit 1,60,min
+2026-10-30T08:59:42,Einst/Ventil. Normale Leistung,65.0,%
+2026-10-30T08:59:42,Einst/Ventilator min. Leistung,-30.0,%
+2026-10-30T08:59:42,Einst/Ventilator max. Leistung,30.0,%
+2026-10-30T08:59:42,Einst/Ventil. Einstel. korr.,-30.0,%
+2026-10-30T08:59:47,Einst/Ventilator min. Leistung,-30.0,%
+2026-10-30T08:59:47,Einst/Ventilator max. Leistung,30.0,%
+2026-10-30T08:59:47,Einst/Ventil. Einstel. korr.,-30.0,%
+2026-10-30T08:59:54,Einst/Ventil. Einstel. korr.,-30.0,%
+2026-10-30T08:59:54,Einst/Aussenl.Temp.Grenze,5,°C
+2026-10-30T09:00:00,Einst/FS Zuluftvent Einstellen,70.0,%
+2026-10-30T09:00:00,Einst/FS Nachlaufzeit,5.0,min
+2026-10-30T09:00:00,Einst/Kaminoption Zeit Ende,120,min
+2026-10-30T09:00:00,Einst/Filterwechsel zeit,79,d
+2026-10-30T09:00:05,Einst/Filterwechsel zeit,79,d
+2026-10-30T09:00:25,Einst/Kompr.Freq.Max,82.0,Hz
+2026-10-30T09:00:25,Einst/Nachtfreq. max,82.0,Hz
+2026-10-30T09:00:42,Einst/Zusatz Leistungsgrenze,5000,W
+2026-10-30T09:00:46,Einst/Abtau. Block. Temp.,5.0,°C
+2026-10-30T09:00:46,Einst/Abt. Verzoegerung,50.0,min
+2026-10-30T09:01:15,Einst/EEV Max pos,50.0,%
+2026-10-30T09:01:50,Messung/Ventilatorleistung,65.0,%
+2026-10-30T09:01:50,Messung/Zeit Filterwechsel,79,d
+2026-10-30T09:01:59,Heizung/Erforderliche Leistung,668,W
+2026-10-30T09:01:59,Heizung/Gewuenschte Raumtemp.,21.5,°C
+2026-10-30T09:01:59,Heizung/Raumtemperatur,22.2,°C
+2026-10-30T09:01:59,Heizung/Berechnete Vorlauftemp.,24.3,°C
+2026-10-30T09:01:59,Heizung/Vorlauftemperatur,24.8,°C
+2026-10-30T09:01:59,Heizung/Heizungsdurchfluss,0.0,l/min
+2026-10-30T09:02:07,Warmwasser/Soll Temperaturdiff.,48.0,°C
+2026-10-30T09:02:07,Warmwasser/Warmwassertemp.,46.1,°C
+2026-10-30T09:02:07,Warmwasser/Eingestell. Hysterese,1.5,°C
+2026-10-30T09:02:07,Warmwasser/Warmwasserdurchfluss,11.4,l/min
+2026-10-30T09:02:14,Expansionsventil/Position Ex Ventil,15.1,%
+2026-10-30T09:02:14,Expansionsventil/Soll Temperaturdiff.,29.7,K
+2026-10-30T09:02:14,Expansionsventil/Temperaturdiff.,17.9,K
+2026-10-30T09:02:21,Waermepumpe/Kompressorfrequenz,23.3,Hz
+2026-10-30T09:02:21,Waermepumpe/Kompressorleistung,1923,W
+2026-10-30T09:02:21,Waermepumpe/Zusatzleistung,0,W
+2026-10-30T09:02:21,Waermepumpe/Gesamtleistung,1923,W
+2026-10-30T09:02:21,Waermepumpe/Kompr.aufnahmeleist.,979,W
+2026-10-30T09:02:36,Waermepumpe/Kompr.aufnahmeleist.,979,W
+2026-10-30T09:02:36,Waermepumpe/Kondensatortemp.,48.3,°C
+2026-10-30T09:02:36,Waermepumpe/Kondensatordruck,30.2,bar
+2026-10-30T09:02:36,Waermepumpe/Verdampferdruck,9.5,bar
+2026-10-30T09:02:36,Waermepumpe/Druckverhältnis,3.1,
+2026-10-30T09:02:36,Waermepumpe/Kompressorener...,14141.23,kWh
+2026-10-30T09:02:36,Waermepumpe/Zusatzenergie,122.64,kWh
+2026-10-30T09:02:41,Waermepumpe/Druckverhältnis,3.1,
+2026-10-30T09:02:41,Waermepumpe/Kompressorener...,14141.23,kWh
+2026-10-30T09:02:41,Waermepumpe/Zusatzenergie,122.64,kWh
+2026-10-30T09:02:41,Waermepumpe/Warmwasserene...,4778.99,kWh
+2026-10-30T09:02:41,Waermepumpe/Kompressorzeit,345687,min
+2026-10-30T09:02:41,Waermepumpe/Gesamtlaufzeit,1039546,min
+2026-10-30T09:02:45,Fuehler/TE0 Außentemp.,8.5,°C
+2026-10-30T09:02:45,Fuehler/TE1 Vorlauftemp.,24.8,°C
+2026-10-30T09:02:45,Fuehler/TE2 Rücklauftemp.,46.7,°C
+2026-10-30T09:02:45,Fuehler/TE3 Raumtemp.,22.2,°C
+2026-10-30T09:02:45,Fuehler/TE4 Heissgastemp.,66.4,°C
+2026-10-30T09:02:45,Fuehler/TE5 Kondens. Ausg.,47.4,°C
+2026-10-30T09:02:52,Fuehler/TE3 Raumtemp.,22.2,°C
+2026-10-30T09:02:52,Fuehler/TE4 Heissgastemp.,66.5,°C
+2026-10-30T09:02:52,Fuehler/TE5 Kondens. Ausg.,47.4,°C
+2026-10-30T09:02:52,Fuehler/TE6 Verdampfer Eing.,5.2,°C
+2026-10-30T09:02:52,Fuehler/TE7 Fortlufttemp.,3.4,°C
+2026-10-30T09:02:52,Fuehler/TE24 Warmwasser,46.2,°C
+2026-10-30T09:02:55,Einst/IN3 Heizung ueberhitzt,1,1
+2026-10-30T09:02:55,Einst/IN4 Niederdruck Alarm,1,1
+2026-10-30T09:03:03,Einst/HL2 Eingabe,1,
+2026-10-30T09:03:06,Inverter/Steuerfrequenz,23.30,Hz
+2026-10-30T09:03:06,Inverter/Ausgangsfrequenz,23.30,Hz
+2026-10-30T09:03:06,Inverter/Ausgangsstrom,6.3,Arms
+2026-10-30T09:03:06,Inverter/Leistungsteiltemp.,36.2,°C
+2026-10-30T09:03:06,Inverter/Fehlerstatus,0,
+2026-10-30T09:03:31,Einst/UI Software Version,2.22,.0
+2026-10-30T09:03:31,Einst/Steuerung Version,2.50,
+2026-10-30T09:03:31,Einst/WP Box Version,3,
+2026-10-30T09:03:31,Einst/Inverter,4.1,
+2026-10-30T09:05:43,Einst/HZG Heizkurve,4.0,
+2026-10-30T09:05:43,Einst/HZG Referenztemp.,22.0,°C
+2026-10-30T09:07:18,Einst/Legionellenpräv.Temp,65.0,°C
+2026-10-30T09:07:18,Einst/Legionellatemp. 1,60,°C
+2026-10-30T09:07:18,Einst/Legionellatemp. 2,65,°C
+2026-10-30T09:07:18,Einst/Legionellenzeit 1,60,min
+2026-10-30T09:07:34,Einst/Legionellenpräv.Temp,65.0,°C
+2026-10-30T09:07:34,Einst/Legionellatemp. 1,60,°C
+2026-10-30T09:07:34,Einst/Legionellatemp. 2,65,°C
+2026-10-30T09:07:34,Einst/Legionellenzeit 1,60,min
+2026-10-30T09:09:23,Einst/WW Extra Zeit,180,min
+2026-10-30T09:09:23,Einst/WW Kond.temp. zu hoch,3.0,K
+2026-10-30T09:09:23,Einst/WW Überhitzungsalarm,73.0,°C
+2026-10-30T09:09:35,Einst/WW Extra Zeit,180,min
+2026-10-30T09:09:35,Einst/WW Kond.temp. zu hoch,3.0,K
+2026-10-30T09:09:35,Einst/WW Überhitzungsalarm,73.0,°C

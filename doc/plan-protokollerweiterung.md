@@ -169,24 +169,20 @@ Uhrzeit (hh:mm:ss) | Aktion / Menüseite             | Foto (Dateiname)
 - [x] Werkzeuge erstellt: `tools/correlate_photos.py` (Fotowerte zuordnen) und
       `tools/analyze_writes.py` (Schreibzugriffe, `--around`,
       `--diff-register --bits`, `--timing`).
-- [ ] Fotowerte mit `tools/correlate_photos.py` auswerten. Eingabe ist eine CSV mit Zeit,
-      Bezeichnung und angezeigtem Wert. Das Werkzeug durchsucht alle Register
-      und Offsets in mehreren Kodierungen (u8, s16/1, /10, /100, u32) und
-      bewertet Kandidaten nur dann, wenn sie über mehrere Fotos hinweg passen.
-      Die Feldnamen aus upstream dienen als Namensliste.
-- [ ] Legionellen-Befehl finden:
-      - Herzschlag-Rahmen herausfiltern und die einmaligen `W`-Rahmen den
-        protokollierten Zeiten zuordnen.
-      - Auf das Präfix `8x`/`4x` (Bits setzen/löschen) und auf den Wert der
-        `w`-Quittung achten.
-      - Mit dem Extra-Warmwasser-Befehl aus Schritt 1.3 vergleichen.
-- [ ] Ein Statusbit "Legionellen aktiv" in den Leseregistern suchen
-      (Kandidaten: Bitfelder in `010400` Byte 18/20/28 und `014701` Byte 4–7).
-      Das Bit, das der Schreibbefehl setzt, sollte im zugehörigen
-      Leseregister auftauchen.
-- [ ] Prüfen, ob für 65 °C der Heizstab mitläuft (Leistung Zusatzheizung).
-      Davon hängt die nötige PV-Überschuss-Schwelle ab.
-- [ ] Heizungsdurchfluss (`01F901` Byte 18) im Heizbetrieb bestätigen.
+- [x] Fotowerte mit `tools/correlate_photos.py` ausgewertet (Mitschnitt und 58 Fotos
+      vom 2026-10-30). Alle bekannten Zuordnungen bestätigt, neue gefunden. Ergebnis
+      in `doc/capture-analyse-2026-10-30.md`, Menüübersicht in
+      `doc/anzeige-menue-uebersicht.md`.
+- [x] Legionellen-Befehl gefunden: Start `W 811700 = 01 00`, Stopp `W 411700 = FE FF`,
+      Quittung jeweils `2C`, danach liest das Bedienteil `R 011700 02` zurück.
+- [x] Statusbit gefunden, aber noch nicht eindeutig: Statuswort `010400`+18 geht von
+      `0x0800` auf `0x0B20`, 6,5 s nach dem Start. Welches der drei Bits
+      "Legionellen" bedeutet, ist offen (Vergleich mit Extra Warmwasser nötig).
+- [x] Heizelement läuft mit: 3500 W, dazu Verdichter 40 Hz. Gesamt ca. 4,9 kW,
+      Verzögerung nach dem Start ca. 62 s.
+- [ ] Heizungsdurchfluss (`01F901` Byte 18) im Heizbetrieb bestätigen (Foto zeigte 0,0).
+- [ ] Extra Warmwasser an/aus aufzeichnen, um das Statusbit zu trennen.
+- [ ] Einen vollständigen Legionellenlauf aufzeichnen (Dauer, Leistung, Ende).
 - [ ] Offene Punkte aus der Analyse vom 2026-09-18 prüfen: `014003` Byte 10,
       `fan_speed` als High-Byte von `fan_power`.
 - [x] Busvergabe aus den Zeitstempeln vermessen (`tools/analyze_writes.py

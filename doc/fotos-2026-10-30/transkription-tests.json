@@ -1,0 +1,1736 @@
+[
+ {
+  "img": 5843,
+  "time": "2026:10:30 10:40:52",
+  "title": "Einstellungen (Menü, scrolled)",
+  "breadcrumb": "Warmwasser Einstellungen (expanded)",
+  "rows": [
+   {
+    "label": "Allgemeine Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Grundlegende einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Heizung Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen",
+    "value": "▼",
+    "selected": false
+   },
+   {
+    "label": "WW Extra",
+    "value": "Ja",
+    "selected": true
+   },
+   {
+    "label": "WW Einstellungen",
+    "value": "48.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   }
+  ],
+  "note": "Photo is a mirror reflection; text legible."
+ },
+ {
+  "img": 5844,
+  "time": "2026:10:30 10:42:31",
+  "title": "Warmwasser",
+  "breadcrumb": "Warmwasser (status page, scrolled down)",
+  "rows": [
+   {
+    "label": "Warmwasserproduktion",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "Soll Temperaturdiff.",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Warmwassertemp.",
+    "value": "46.6°C",
+    "selected": false
+   },
+   {
+    "label": "Eingestell. Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   },
+   {
+    "label": "Temporäre Hysterese",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Warmwasserdurchfluss",
+    "value": "11.5 l/min",
+    "selected": true
+   }
+  ]
+ },
+ {
+  "img": 5845,
+  "time": "2026:10:30 10:42:56",
+  "title": "Einstellungen (Menü)",
+  "breadcrumb": "Warmwasser Einstellungen (expanded)",
+  "rows": [
+   {
+    "label": "Allgemeine Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Grundlegende einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Heizung Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen",
+    "value": "▼",
+    "selected": false
+   },
+   {
+    "label": "WW Extra",
+    "value": "Ja",
+    "selected": true
+   },
+   {
+    "label": "WW Einstellungen",
+    "value": "48.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   }
+  ]
+ },
+ {
+  "img": 5846,
+  "time": "2026:10:30 10:43:02",
+  "title": "Einstellungen (Menü)",
+  "breadcrumb": "Warmwasser Einstellungen (expanded)",
+  "rows": [
+   {
+    "label": "Allgemeine Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Grundlegende einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Heizung Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen",
+    "value": "▼",
+    "selected": false
+   },
+   {
+    "label": "WW Extra",
+    "value": "Nein",
+    "selected": true
+   },
+   {
+    "label": "WW Einstellungen",
+    "value": "48.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   }
+  ],
+  "note": "WW Extra toggled Ja -> Nein vs 5845."
+ },
+ {
+  "img": 5847,
+  "time": "2026:10:30 10:43:41",
+  "title": "Ventilator",
+  "breadcrumb": "Ventilator",
+  "rows": [
+   {
+    "label": "Ventilator Einstellungen",
+    "value": "Normal",
+    "selected": true
+   },
+   {
+    "label": "Ventilator Kaminoption",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Normale Leistung",
+    "value": "65.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator min. Leistung",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator max. Leistung",
+    "value": "30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   }
+  ]
+ },
+ {
+  "img": 5848,
+  "time": "2026:10:30 10:43:51",
+  "title": "Ventilator",
+  "breadcrumb": "Ventilator",
+  "rows": [
+   {
+    "label": "Ventilator Einstellungen",
+    "value": "Schnell",
+    "selected": true
+   },
+   {
+    "label": "Ventilator Kaminoption",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Normale Leistung",
+    "value": "65.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator min. Leistung",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator max. Leistung",
+    "value": "30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   }
+  ]
+ },
+ {
+  "img": 5849,
+  "time": "2026:10:30 10:44:17",
+  "title": "Ventilator",
+  "breadcrumb": "Ventilator",
+  "rows": [
+   {
+    "label": "Ventilator Einstellungen",
+    "value": "Langsam",
+    "selected": true
+   },
+   {
+    "label": "Ventilator Kaminoption",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Normale Leistung",
+    "value": "65.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator min. Leistung",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator max. Leistung",
+    "value": "30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   }
+  ]
+ },
+ {
+  "img": 5850,
+  "time": "2026:10:30 10:44:36",
+  "title": "Ventilator",
+  "breadcrumb": "Ventilator",
+  "rows": [
+   {
+    "label": "Ventilator Einstellungen",
+    "value": "Normal",
+    "selected": true
+   },
+   {
+    "label": "Ventilator Kaminoption",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Normale Leistung",
+    "value": "65.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator min. Leistung",
+    "value": "-30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventilator max. Leistung",
+    "value": "30.0%",
+    "selected": false
+   },
+   {
+    "label": "Ventil. Einstel. korr.",
+    "value": "-30.0%",
+    "selected": false
+   }
+  ]
+ },
+ {
+  "img": 5852,
+  "time": "2026:10:30 10:45:31",
+  "title": "Inverter",
+  "breadcrumb": "Inverter",
+  "rows": [
+   {
+    "label": "Steuerfrequenz",
+    "value": "0.00 Hz",
+    "selected": false
+   },
+   {
+    "label": "Ein/Aus-Signal",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Ausgangsfrequenz",
+    "value": "0.00 Hz",
+    "selected": false
+   },
+   {
+    "label": "Ausgangsstrom",
+    "value": "0.0 Arms",
+    "selected": false
+   },
+   {
+    "label": "Leistungsteiltemp.",
+    "value": "23.4°C",
+    "selected": false
+   },
+   {
+    "label": "Fehlerstatus",
+    "value": "0",
+    "selected": true
+   }
+  ]
+ },
+ {
+  "img": 5853,
+  "time": "2026:10:30 10:45:52",
+  "title": "Einstellungen (Menü)",
+  "breadcrumb": "Warmwasser Einstellungen (expanded, scrolled)",
+  "rows": [
+   {
+    "label": "Heizung Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen",
+    "value": "▼",
+    "selected": false
+   },
+   {
+    "label": "WW Extra",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "WW Einstellungen",
+    "value": "48.0°C",
+    "selected": false
+   },
+   {
+    "label": "WW Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Priorität",
+    "value": "Niedrig",
+    "selected": true
+   },
+   {
+    "label": "WW Smart Lernen",
+    "value": "Nein",
+    "selected": false
+   }
+  ]
+ },
+ {
+  "img": 5854,
+  "time": "2026:10:30 10:45:58",
+  "title": "Einstellungen (Menü)",
+  "breadcrumb": "Warmwasser Einstellungen (expanded, scrolled)",
+  "rows": [
+   {
+    "label": "Heizung Einstellungen",
+    "value": "▶",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser Einstellungen",
+    "value": "▼",
+    "selected": false
+   },
+   {
+    "label": "WW Extra",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "WW Einstellungen",
+    "value": "45.0°C",
+    "selected": true
+   },
+   {
+    "label": "WW Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   },
+   {
+    "label": "WW Priorität",
+    "value": "Niedrig",
+    "selected": false
+   },
+   {
+    "label": "WW Smart Lernen",
+    "value": "Nein",
+    "selected": false
+   }
+  ],
+  "note": "WW Einstellungen shows 45.0°C (was 48.0°C in 5853) - value edited/being edited."
+ },
+ {
+  "img": 5855,
+  "time": "2026:10:30 10:47:03",
+  "title": "Heizung",
+  "breadcrumb": "Heizung",
+  "rows": [
+   {
+    "label": "Heizung",
+    "value": "▼",
+    "selected": true
+   },
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumtemp.",
+    "value": "22.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "22.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "41.6°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": false
+   }
+  ],
+  "note": "Header row 'Heizung' is highlighted."
+ },
+ {
+  "img": 5856,
+  "time": "2026:10:30 10:47:30",
+  "title": "Heizung Einstellungen",
+  "breadcrumb": "Einstellungen > Heizung Einstellungen (scrolled)",
+  "rows": [
+   {
+    "label": "Urlaubszeit",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Heizungsmodus",
+    "value": "Fußbodenhzg.",
+    "selected": false
+   },
+   {
+    "label": "HZG Betriebsart",
+    "value": "Außen & Innen",
+    "selected": false
+   },
+   {
+    "label": "HZG Heizkurve",
+    "value": "4.0",
+    "selected": false
+   },
+   {
+    "label": "HZG Referenztemp.",
+    "value": "23.0°C",
+    "selected": true
+   },
+   {
+    "label": "HZG Raumfaktor",
+    "value": "2.0",
+    "selected": false
+   },
+   {
+    "label": "E-Heizung Erlaubt",
+    "value": "(21.0) -2.0°C",
+    "selected": false
+   }
+  ],
+  "note": "Title not visible; inferred."
+ },
+ {
+  "img": 5857,
+  "time": "2026:10:30 10:48:06",
+  "title": "Heizung",
+  "breadcrumb": "Heizung",
+  "rows": [
+   {
+    "label": "Heizung",
+    "value": "▼",
+    "selected": false
+   },
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumtemp.",
+    "value": "23.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "24.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "43.6°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": true
+   }
+  ]
+ },
+ {
+  "img": 5858,
+  "time": "2026-10-30 10:49:42",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "37.6°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5859,
+  "time": "2026-10-30 10:50:24",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.2°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "30.4°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.2 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5860,
+  "time": "2026-10-30 10:50:36",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.2°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "29.2°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5861,
+  "time": "2026-10-30 10:50:41",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.2°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "28.6°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5862,
+  "time": "2026-10-30 10:50:58",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.2°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "27.2°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null,
+  "note": "photo blurry; Vorlauftemperatur 27.2 uncertain"
+ },
+ {
+  "img": 5863,
+  "time": "2026-10-30 10:51:13",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.2°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "26.2°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5864,
+  "time": "2026-10-30 10:51:23",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "668 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.2°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.2°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "25.8°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.3 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5865,
+  "time": "2026-10-30 10:51:48",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "691 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.1°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.4°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "24.8°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "8.3 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5866,
+  "time": "2026-10-30 10:51:49",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "687 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.1°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "24.8°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "10.2 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5867,
+  "time": "2026-10-30 10:51:55",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "713 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.1°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "24.6°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "10.3 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5868,
+  "time": "2026-10-30 10:52:09",
+  "title": "Heizung",
+  "breadcrumb": [
+   "Heizung"
+  ],
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "796 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.1°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "10.2 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5869,
+  "time": "2026-10-30 10:52:26",
+  "title": "Inverter",
+  "breadcrumb": [
+   "Inverter"
+  ],
+  "header_selected": true,
+  "rows": [
+   {
+    "label": "Steuerfrequenz",
+    "value": "15.00 Hz",
+    "selected": false
+   },
+   {
+    "label": "Ein/Aus-Signal",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "Ausgangsfrequenz",
+    "value": "15.00 Hz",
+    "selected": false
+   },
+   {
+    "label": "Ausgangsstrom",
+    "value": "2.5 Arms",
+    "selected": false
+   },
+   {
+    "label": "Leistungsteiltemp.",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Fehlerstatus",
+    "value": "0",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5870,
+  "time": "2026-10-30 10:52:34",
+  "title": "Waermepumpe",
+  "breadcrumb": [
+   "Waermepumpe"
+  ],
+  "header_selected": true,
+  "rows": [
+   {
+    "label": "Kompressorfrequenz",
+    "value": "15.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompressorleistung",
+    "value": "1350 W",
+    "selected": false
+   },
+   {
+    "label": "Zusatzleistung",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Gesamtleistung",
+    "value": "1350 W",
+    "selected": false
+   },
+   {
+    "label": "Kompr.aufnahmeleist.",
+    "value": "454 W",
+    "selected": false
+   },
+   {
+    "label": "Kondensatortemp.",
+    "value": "26.4°C",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5871,
+  "time": "10:52:38",
+  "title": null,
+  "breadcrumb": "Informationen > Waermepumpe (scrolled to end of list)",
+  "rows": [
+   {
+    "label": "Kondensatortemp.",
+    "value": "26.0°C",
+    "selected": false
+   },
+   {
+    "label": "Kondensatordruck",
+    "value": "17.4 bar",
+    "selected": false
+   },
+   {
+    "label": "Verdampferdruck",
+    "value": "14.6 bar",
+    "selected": false
+   },
+   {
+    "label": "Druckverhältnis",
+    "value": "1.1",
+    "selected": false
+   },
+   {
+    "label": "Kompressorener...",
+    "value": "14141.90 kWh",
+    "selected": false
+   },
+   {
+    "label": "Zusatzenergie",
+    "value": "122.76 kWh",
+    "selected": false
+   },
+   {
+    "label": "Warmwasserene...",
+    "value": "4779.66 kWh",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5872,
+  "time": "10:52:46",
+  "title": "Expansionsventil (section expanded)",
+  "breadcrumb": "Informationen list",
+  "rows": [
+   {
+    "label": "Warmwasser ▶",
+    "value": "",
+    "selected": false
+   },
+   {
+    "label": "Expansionsventil ▼",
+    "value": "",
+    "selected": false
+   },
+   {
+    "label": "Position Ex Ventil",
+    "value": "14.2%",
+    "selected": true
+   },
+   {
+    "label": "Soll Temperaturdiff.",
+    "value": "28.0 K",
+    "selected": false
+   },
+   {
+    "label": "Temperaturdiff.",
+    "value": "4.7 K",
+    "selected": false
+   },
+   {
+    "label": "Waermepumpe ▶",
+    "value": "",
+    "selected": false
+   },
+   {
+    "label": "Fühler ▶",
+    "value": "",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5873,
+  "time": "10:53:15",
+  "title": "Heizung ▼",
+  "breadcrumb": "Informationen > Heizung",
+  "rows": [
+   {
+    "label": "Heizung ▼",
+    "value": "",
+    "selected": true
+   },
+   {
+    "label": "Erforderliche Leistung",
+    "value": "783 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumte...",
+    "value": "24.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.1°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "26.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "25.2°C",
+    "selected": false
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "10.4 l/min",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5874,
+  "time": "10:53:32",
+  "title": "Heizung Einstellungen ▼",
+  "breadcrumb": "Einstellungen > Heizung Einstellungen",
+  "rows": [
+   {
+    "label": "Urlaubszeit",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Heizungsmodus",
+    "value": "Fußbodenhzg.",
+    "selected": false
+   },
+   {
+    "label": "HZG Betriebsart",
+    "value": "Außen & Innen",
+    "selected": false
+   },
+   {
+    "label": "HZG Heizkurve",
+    "value": "4.0",
+    "selected": false
+   },
+   {
+    "label": "HZG Referenztemp.",
+    "value": "22.0°C",
+    "selected": true
+   },
+   {
+    "label": "HZG Raumfaktor",
+    "value": "2.0",
+    "selected": false
+   }
+  ],
+  "dialog": null,
+  "note": "value of selected row shown in green"
+ },
+ {
+  "img": 5875,
+  "time": "10:53:55",
+  "title": null,
+  "breadcrumb": "Informationen > Heizung (list; Warmwasser header visible below)",
+  "rows": [
+   {
+    "label": "Erforderliche Leistung",
+    "value": "462 W",
+    "selected": false
+   },
+   {
+    "label": "Gewuenschte Raumtemp.",
+    "value": "22.0°C",
+    "selected": false
+   },
+   {
+    "label": "Raumtemperatur",
+    "value": "22.1°C",
+    "selected": false
+   },
+   {
+    "label": "Berechnete Vorlauftemp.",
+    "value": "22.3°C",
+    "selected": false
+   },
+   {
+    "label": "Vorlauftemperatur",
+    "value": "24.6°C",
+    "selected": true
+   },
+   {
+    "label": "Heizungsdurchfluss",
+    "value": "0.4 l/min",
+    "selected": false
+   },
+   {
+    "label": "Warmwasser ▶",
+    "value": "",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5876,
+  "time": "10:56:49",
+  "title": null,
+  "breadcrumb": "Warmwasser Einstellungen > Legionellenprävention (dialog)",
+  "rows": [],
+  "dialog": "Sofor. Legionellenpräv. / Aufhören ... button: Anfangen (green, selected)",
+  "note": "Dialog text literally reads 'Sofor. Legionellenpräv.' then 'Aufhören' (possibly the dialog title/second line); button 'Anfangen'. Photo blurry/cropped."
+ },
+ {
+  "img": 5877,
+  "time": "10:56:51",
+  "title": null,
+  "breadcrumb": "Warmwasser Einstellungen (Legionellen section)",
+  "rows": [
+   {
+    "label": "Sofor. Legionellenpräv.",
+    "value": "Anfangen",
+    "selected": true
+   },
+   {
+    "label": "Legionellenprävention",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.tag",
+    "value": "Mo",
+    "selected": false
+   },
+   {
+    "label": "Legionellenpräv.Temp",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 1",
+    "value": "60°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellatemp. 2",
+    "value": "65°C",
+    "selected": false
+   },
+   {
+    "label": "Legionellenzeit 1",
+    "value": "60 min",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5878,
+  "time": "10:57:18",
+  "title": "Warmwasser ▼",
+  "breadcrumb": "Informationen > Warmwasser",
+  "rows": [
+   {
+    "label": "Warmwasser ▼",
+    "value": "",
+    "selected": true
+   },
+   {
+    "label": "Warmwasserproduktion",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "Soll Temperaturdiff.",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Warmwassertemp.",
+    "value": "45.6°C",
+    "selected": false
+   },
+   {
+    "label": "Eingestell. Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   },
+   {
+    "label": "Temporäre Hysterese",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Warmwasserdurchfluss",
+    "value": "12.0 l/min",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5879,
+  "time": "10:58:17",
+  "title": "Waermepumpe ▼",
+  "breadcrumb": "Informationen > Waermepumpe",
+  "rows": [
+   {
+    "label": "Waermepumpe ▼",
+    "value": "",
+    "selected": true
+   },
+   {
+    "label": "Kompressorfrequenz",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompressorleistung",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Zusatzleistung",
+    "value": "3500 W",
+    "selected": false
+   },
+   {
+    "label": "Gesamtleistung",
+    "value": "3500 W",
+    "selected": false
+   },
+   {
+    "label": "Kompr.aufnahmeleist.",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Kondensatortemp.",
+    "value": "41.4°C",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5880,
+  "time": "10:58:25",
+  "title": null,
+  "breadcrumb": "Informationen > Waermepumpe (scrolled)",
+  "rows": [
+   {
+    "label": "Gesamtleistung",
+    "value": "3500 W",
+    "selected": false
+   },
+   {
+    "label": "Kompr.aufnahmeleist.",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Kondensatortemp.",
+    "value": "41.6°C",
+    "selected": false
+   },
+   {
+    "label": "Kondensatordruck",
+    "value": "25.7 bar",
+    "selected": false
+   },
+   {
+    "label": "Verdampferdruck",
+    "value": "15.0 bar",
+    "selected": false
+   },
+   {
+    "label": "Druckverhältnis",
+    "value": "1.7",
+    "selected": false
+   },
+   {
+    "label": "Kompressorener...",
+    "value": "14141.92 kWh",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5881,
+  "time": "10:59:47",
+  "title": "Warmwasser ▼",
+  "breadcrumb": "Informationen > Warmwasser",
+  "rows": [
+   {
+    "label": "Warmwasser ▼",
+    "value": "",
+    "selected": true
+   },
+   {
+    "label": "Warmwasserproduktion",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "Soll Temperaturdiff.",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Warmwassertemp.",
+    "value": "45.4°C",
+    "selected": false
+   },
+   {
+    "label": "Eingestell. Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   },
+   {
+    "label": "Temporäre Hysterese",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Warmwasserdurchfluss",
+    "value": "11.4 l/min",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5882,
+  "time": "11:00:04",
+  "title": "Waermepumpe ▼",
+  "breadcrumb": "Informationen > Waermepumpe",
+  "rows": [
+   {
+    "label": "Waermepumpe ▼",
+    "value": "",
+    "selected": true
+   },
+   {
+    "label": "Kompressorfrequenz",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompressorleistung",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Zusatzleistung",
+    "value": "3500 W",
+    "selected": false
+   },
+   {
+    "label": "Gesamtleistung",
+    "value": "3500 W",
+    "selected": false
+   },
+   {
+    "label": "Kompr.aufnahmeleist.",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Kondensatortemp.",
+    "value": "40.8°C",
+    "selected": false
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5883,
+  "time": "11:04:08",
+  "title": "Warmwasser ▼",
+  "breadcrumb": "Informationen > Warmwasser",
+  "rows": [
+   {
+    "label": "Warmwasser ▼",
+    "value": "",
+    "selected": false
+   },
+   {
+    "label": "Warmwasserproduktion",
+    "value": "Ja",
+    "selected": false
+   },
+   {
+    "label": "Soll Temperaturdiff.",
+    "value": "65.0°C",
+    "selected": false
+   },
+   {
+    "label": "Warmwassertemp.",
+    "value": "45.4°C",
+    "selected": false
+   },
+   {
+    "label": "Eingestell. Hysterese",
+    "value": "1.5°C",
+    "selected": false
+   },
+   {
+    "label": "Temporäre Hysterese",
+    "value": "Nein",
+    "selected": false
+   },
+   {
+    "label": "Warmwasserdurchfluss",
+    "value": "11.2 l/min",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5884,
+  "time": "11:04:15",
+  "title": "Waermepumpe ▼",
+  "breadcrumb": "Informationen > Waermepumpe",
+  "rows": [
+   {
+    "label": "Waermepumpe ▼",
+    "value": "",
+    "selected": false
+   },
+   {
+    "label": "Kompressorfrequenz",
+    "value": "0.0 Hz",
+    "selected": false
+   },
+   {
+    "label": "Kompressorleistung",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Zusatzleistung",
+    "value": "3500 W",
+    "selected": false
+   },
+   {
+    "label": "Gesamtleistung",
+    "value": "3500 W",
+    "selected": false
+   },
+   {
+    "label": "Kompr.aufnahmeleist.",
+    "value": "0 W",
+    "selected": false
+   },
+   {
+    "label": "Kondensatortemp.",
+    "value": "44.2°C",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ },
+ {
+  "img": 5885,
+  "time": "11:04:29",
+  "title": null,
+  "breadcrumb": "Informationen > Waermepumpe (scrolled to end)",
+  "rows": [
+   {
+    "label": "Kondensatortemp.",
+    "value": "44.3°C",
+    "selected": false
+   },
+   {
+    "label": "Kondensatordruck",
+    "value": "27.4 bar",
+    "selected": false
+   },
+   {
+    "label": "Verdampferdruck",
+    "value": "15.8 bar",
+    "selected": false
+   },
+   {
+    "label": "Druckverhältnis",
+    "value": "1.7",
+    "selected": false
+   },
+   {
+    "label": "Kompressorener...",
+    "value": "14141.92 kWh",
+    "selected": false
+   },
+   {
+    "label": "Zusatzenergie",
+    "value": "123.15 kWh",
+    "selected": false
+   },
+   {
+    "label": "Warmwasserene...",
+    "value": "4780.05 kWh",
+    "selected": true
+   }
+  ],
+  "dialog": null
+ }
+]

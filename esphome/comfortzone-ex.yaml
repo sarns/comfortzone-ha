@@ -55,13 +55,13 @@ uart:
   rx_buffer_size: 512
   rx_pin:
     number: GPIO18
-    inverted: true
+    inverted: false
 
 comfortzone_ex:
   id: comfortzone_monitor
   uart_id: comfortzone_bus
   receiver_enable_pin: GPIO21
-  raw_frame_logging: false
+  raw_frame_logging: true
 
   outdoor_temperature:
     name: Outdoor Temperature
