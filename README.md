@@ -2,10 +2,11 @@
 
 This project reads the Comfortzone EX controller bus with a Waveshare
 ESP32-S3-RS485-CAN board and publishes confirmed readings to Home Assistant
-through the ESPHome native API.
+through the ESPHome native API. It can also write fan speed, setpoints and the
+hot-water programs.
 
-The implementation is receive-only. The RS485 transmitter-enable pin is held
-LOW, and the ESPHome UART is configured without a TX pin.
+Writing needs `allow_write: true`. Without it the firmware never transmits and
+the RS485 transmitter-enable pin stays LOW.
 
 Reference project
 https://github.com/qix67/comfortzone_heatpump
@@ -13,7 +14,8 @@ https://github.com/qix67/comfortzone_heatpump
 ## Hardware and protocol
 
 - RS485 RX: GPIO18, not inverted (bus A/B wired to board A/B)
-- RS485 receiver enable: GPIO21, held LOW
+- RS485 TX: GPIO17
+- RS485 direction: GPIO21, HIGH only while a frame is sent
 - Serial format: 19200 baud, 8N1
 - Observed register family: `0B 10`
 - Implemented read registers: 8 of 22 recurring groups
@@ -93,6 +95,32 @@ coverage. Counter diagnostics are disabled by default in Home Assistant.
 
 `Protocol Coverage` describes the implemented decoder, not current bus health.
 Unknown registers are counted but never published under speculative names.
+
+## Controls
+
+| Entity | Range | Effect |
+|---|---|---|
+| `Fan Speed Setting` | Low, Normal, High | Fan stage |
+| `Hot Water Target Setting` | 40–55 °C, step 0.5 | Hot-water setting |
+| `Room Setpoint Setting` | 18–25 °C, step 0.5 | Heating reference temperature |
+| `Hot Water Extra` | on/off | "WW Extra" from the main screen, 55 °C |
+| `Legionella Prevention` | on/off | Immediate legionella prevention, 65 °C |
+
+Fan speed and both setpoints were tested on the bus. The two switches were not
+tested yet, and both start the 3.5 kW heater.
+
+Every entity shows the value read back from the bus, so a change made on the
+panel also appears here. A switch turns off by itself when the heat pump ends
+the program. A change takes about 2–4 s to show up.
+
+A frame goes out directly after a panel request to one of six registers, because
+the heat pump answers those at least about 45 ms later. Unacknowledged writes are
+retried twice, and a request without a bus window is dropped after 30 s.
+
+The firmware rejects values outside the ranges above. A switch cannot turn on
+while the other program runs, or within 60 s after it was turned off. Turning off
+is always allowed. A reboot sends nothing. See
+`doc/capture-analyse-2026-11-01-schreibtest.md`.
 
 ## Long-term raw capture
 

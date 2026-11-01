@@ -207,32 +207,36 @@ Uhrzeit (hh:mm:ss) | Aktion / Menüseite             | Foto (Dateiname)
 
 Bis hierher wird nichts gesendet. Vor dem ersten Senden zu klären:
 
-- [ ] **Polarität:** Der Empfang läuft derzeit invertiert
+Erledigt am 2026-11-01, siehe `capture-analyse-2026-11-01-schreibtest.md`. Abweichend vom Plan: kein Test mit einem
+Leserahmen, sondern direkt ein Lüfter-Schreibtest. Gemessen wurde über die Logzeiten, ein `micros()`-Diagnosemodus war
+nicht nötig. Als Fenster dient die Antwortpause der Wärmepumpe nach einer Anfrage, nicht eine Lücke vor einer Anfrage.
+
+- [x] **Polarität:** Der Empfang läuft derzeit invertiert
       (`rx_pin.inverted: true`). Das deutet auf vertauschte A/B-Leitungen hin.
       Entweder die Adern tauschen und die Invertierung herausnehmen, oder auch
       TX invertieren. Laut upstream zeigt das Bedienteil bei vertauschten Adern
       "Verbindung verloren".
-- [ ] **Sendeseite:** den TX-Pin des Waveshare ESP32-S3-RS485-CAN (vermutlich
+- [x] **Sendeseite:** den TX-Pin des Waveshare ESP32-S3-RS485-CAN (vermutlich
       GPIO17) prüfen. GPIO21 ist wahrscheinlich die gemeinsame DE/RE-Leitung
       wie bei upstream (LOW = empfangen, HIGH = senden).
-- [ ] **Timing auf dem ESP messen:** Die Firmware stempelt Anfang und Ende
+- [x] **Timing auf dem ESP messen:** Die Firmware stempelt Anfang und Ende
       jedes Rahmens mit `micros()` direkt am UART und gibt eine Statistik
       der Lücken aus (Diagnose-Modus, weiterhin ohne Senden). Erst danach
       wird die Ruhezeit vor dem Senden festgelegt.
-- [ ] **Sendelogik in ESPHome:** den Ablauf von upstream `push_settings` als
+- [x] **Sendelogik in ESPHome:** den Ablauf von upstream `push_settings` als
       **nicht blockierenden** Zustandsautomaten in `loop()` umsetzen. Upstream
       blockiert bis zu 5 s, ESPHome verträgt nur wenige Millisekunden.
       - DE erst direkt vor dem Senden auf HIGH setzen, nach dem Senden von
         Hand umschalten.
       - Auch die eigenen gesendeten Bytes als Echo erwarten und herausfiltern.
-- [ ] **Erster Sendetest:** nur ein Leserahmen (`R`) für ein Register, das das
+- [x] **Erster Sendetest:** nur ein Leserahmen (`R`) für ein Register, das das
       Bedienteil ohnehin abfragt. Erfolgreich ist der Test, wenn die WP
       antwortet und keine zusätzlichen CRC-Fehler oder Störungen am Bedienteil
       auftreten.
 
 ## Phase 5 – Schreiben mit Schutzmechanismen
 
-- [ ] Neue Option `allow_write`, standardmäßig `false`.
+- [x] Neue Option `allow_write`, standardmäßig `false`.
 - [ ] Keine beliebigen Register: nur eine feste Liste der in Phase 1
       beobachteten Rahmen. Die erwartete `w`-Quittung wird wie bei upstream
       vorab gebaut und exakt verglichen.

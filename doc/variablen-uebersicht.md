@@ -89,15 +89,17 @@ WW Extra vom Hauptbildschirm lief bisher nur 2 Minuten (13:25:55–13:27:54). Da
 ### Sicherheitsregeln für die Firmware
 
 - `allow_write: false` als Standard. Ohne diese Option sendet die Firmware nichts.
-- Sendet nur in einer Buslücke nach einer Wärmepumpen-Antwort. Die Lücke wird mit `micros()` auf dem ESP gemessen.
-- Nach jedem Schreiben `w`-Quittung abwarten (ca. 55 ms) und den Wert über das normale Polling prüfen. Bei fehlender
-  Quittung höchstens einmal wiederholen, dann Fehler melden.
-- Mindestabstand zwischen zwei Schreibvorgängen (z. B. 10 s). Für die beiden WW-Schalter zusätzlich eine Sperrzeit gegen
-  Ein/Aus-Flattern aus Automationen.
+- Sendet nur direkt nach einer Anfrage des Bedienteils an `004503`, `008902`, `008D04`, `03BD0D`, `030B0D` oder
+  `014003`. Die Wärmepumpe antwortet darauf frühestens nach rund 45 ms, der Schreibrahmen dauert 12,5 ms.
+- Nach jedem Schreiben `w`-Quittung abwarten (ca. 220 ms, Zeitlimit 1 s) und den Wert über das normale Polling prüfen.
+  Bei fehlender Quittung höchstens zweimal wiederholen, dann Fehler melden. Anforderungen ohne Fenster verfallen nach 30 s.
+- Mindestabstand zwischen zwei Schreibvorgängen 1 s. Die WW-Schalter lassen sich erst 60 s nach dem Ausschalten wieder
+  einschalten und nicht, solange das andere Programm läuft. Ausschalten geht immer.
+- Ein Neustart des ESP sendet nichts.
 - Der Panel-Heartbeat (`01D903`, `01DB03`, `01E103`, `016805`) wird nie nachgebildet.
 - Die periodische Legionellenprävention (Montag 02:00) bleibt unverändert.
 
 ## Offene Punkte vor der Umsetzung
 
 1. Betriebsart-Bit `010400`+28 mit je einem Foto beider Durchfluss-Seiten bestätigen.
-2. TX-Hardware prüfen (Plan Phase 4): Richtungsumschaltung, Timing, zuerst nur ein harmloses `R`.
+2. WW-Schalter auf dem Bus testen. Lüfter und beide Sollwerte sind getestet (`capture-analyse-2026-11-01-schreibtest.md`).
