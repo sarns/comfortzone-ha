@@ -119,7 +119,153 @@ elements:
       text-align: left
       white-space: nowrap
 
-  # Kältekreis und Kompressor
+  # Kältekreis
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_high_pressure
+    prefix: "Hochdruck: "
+    tap_action:
+      action: more-info
+    style:
+      left: 63%
+      top: 12.5%
+      color: "#c9b8ff"
+      background: "rgba(5, 18, 32, 0.94)"
+      border: "1px solid rgba(190, 160, 255, 0.45)"
+      border-radius: "10px 10px 0 0"
+      box-sizing: border-box
+      width: 14%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_low_pressure
+    prefix: "Niederdruck: "
+    tap_action:
+      action: more-info
+    style:
+      left: 63%
+      top: 15.5%
+      color: "#c9b8ff"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(190, 160, 255, 0.45)"
+      border-right: "1px solid rgba(190, 160, 255, 0.45)"
+      border-bottom: "1px solid rgba(190, 160, 255, 0.45)"
+      border-radius: 0
+      box-sizing: border-box
+      width: 14%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_pressure_ratio
+    prefix: "Druckverhältnis: "
+    tap_action:
+      action: more-info
+    style:
+      left: 63%
+      top: 18.5%
+      color: "#c9b8ff"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(190, 160, 255, 0.45)"
+      border-right: "1px solid rgba(190, 160, 255, 0.45)"
+      border-bottom: "1px solid rgba(190, 160, 255, 0.45)"
+      border-radius: 0
+      box-sizing: border-box
+      width: 14%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_condenser_temperature
+    prefix: "Kondensation: "
+    tap_action:
+      action: more-info
+    style:
+      left: 63%
+      top: 21.5%
+      color: "#c9b8ff"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(190, 160, 255, 0.45)"
+      border-right: "1px solid rgba(190, 160, 255, 0.45)"
+      border-bottom: "1px solid rgba(190, 160, 255, 0.45)"
+      border-radius: 0
+      box-sizing: border-box
+      width: 14%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_superheat
+    prefix: "Überhitzung: "
+    tap_action:
+      action: more-info
+    style:
+      left: 63%
+      top: 24.5%
+      color: "#c9b8ff"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(190, 160, 255, 0.45)"
+      border-right: "1px solid rgba(190, 160, 255, 0.45)"
+      border-bottom: "1px solid rgba(190, 160, 255, 0.45)"
+      border-radius: 0
+      box-sizing: border-box
+      width: 14%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_target_superheat
+    prefix: "Überhitzung Soll: "
+    tap_action:
+      action: more-info
+    style:
+      left: 63%
+      top: 27.5%
+      color: "#c9b8ff"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(190, 160, 255, 0.45)"
+      border-right: "1px solid rgba(190, 160, 255, 0.45)"
+      border-bottom: "1px solid rgba(190, 160, 255, 0.45)"
+      border-radius: 0
+      box-sizing: border-box
+      width: 14%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_expansion_valve_position
+    prefix: "Expansionsventil: "
+    tap_action:
+      action: more-info
+    style:
+      left: 63%
+      top: 30.5%
+      color: "#c9b8ff"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(190, 160, 255, 0.45)"
+      border-right: "1px solid rgba(190, 160, 255, 0.45)"
+      border-bottom: "1px solid rgba(190, 160, 255, 0.45)"
+      border-radius: "0 0 10px 10px"
+      box-sizing: border-box
+      width: 14%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  # Kompressor
   - type: state-label
     entity: sensor.technikkeller_comfortzone_ex_evaporator_inlet_temperature
     prefix: "Verdampfer ein: "
@@ -209,13 +355,34 @@ elements:
       white-space: nowrap
 
   - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_compressor_target_frequency
+    prefix: "Soll-Frequenz: "
+    tap_action:
+      action: more-info
+    style:
+      left: 48%
+      top: 71%
+      color: "#ffad93"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(255, 100, 75, 0.5)"
+      border-right: "1px solid rgba(255, 100, 75, 0.5)"
+      border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+      border-radius: 0
+      box-sizing: border-box
+      width: 13%
+      padding: 6px 10px
+      font-size: "clamp(9px, 0.9vw, 14px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
     entity: sensor.technikkeller_comfortzone_ex_compressor_input_power
     prefix: "Aufnahme: "
     tap_action:
       action: more-info
     style:
       left: 48%
-      top: 71%
+      top: 74%
       color: "#ffad93"
       background: "rgba(5, 18, 32, 0.94)"
       border-left: "1px solid rgba(255, 100, 75, 0.5)"
@@ -236,7 +403,7 @@ elements:
       action: more-info
     style:
       left: 48%
-      top: 74%
+      top: 77%
       color: "#ffad93"
       background: "rgba(5, 18, 32, 0.94)"
       border-left: "1px solid rgba(255, 100, 75, 0.5)"
@@ -348,13 +515,34 @@ elements:
       white-space: nowrap
 
   - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_active_hot_water_target
+    prefix: "Aktiv-Soll: "
+    tap_action:
+      action: more-info
+    style:
+      left: 88%
+      top: 34.5%
+      color: "#ffd4c9"
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(255, 100, 75, 0.5)"
+      border-right: "1px solid rgba(255, 100, 75, 0.5)"
+      border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+      border-radius: 0
+      box-sizing: border-box
+      width: 10%
+      padding: 7px 11px
+      font-size: "clamp(9px, 1vw, 15px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
     entity: sensor.technikkeller_comfortzone_ex_hot_water_flow
     prefix: "WW-Fluss: "
     tap_action:
       action: more-info
     style:
       left: 88%
-      top: 34.5%
+      top: 37.5%
       color: "#ffd4c9"
       background: "rgba(5, 18, 32, 0.94)"
       border-left: "1px solid rgba(255, 100, 75, 0.5)"
@@ -368,6 +556,27 @@ elements:
       text-align: left
       white-space: nowrap
 
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.technikkeller_comfortzone_ex_hot_water_boost
+        state: "on"
+    elements:
+      - type: state-label
+        entity: binary_sensor.technikkeller_comfortzone_ex_hot_water_boost
+        prefix: "WW-Boost: "
+        tap_action:
+          action: more-info
+        style:
+          left: 88%
+          top: 41.5%
+          color: "#ffe08a"
+          background: "rgba(90, 30, 10, 0.94)"
+          border: "1px solid rgba(255, 150, 80, 0.8)"
+          border-radius: 8px
+          padding: 5px 9px
+          font-size: "clamp(9px, 1vw, 15px)"
+          white-space: nowrap
+
   - type: state-label
     entity: sensor.technikkeller_comfortzone_ex_total_output_power
     prefix: "Heizleistung: "
@@ -375,13 +584,37 @@ elements:
       action: more-info
     style:
       left: 78%
+      top: 59%
+      color: "#ffd166"
+      background: "rgba(5, 18, 32, 0.94)"
+      border: "1px solid rgba(255, 209, 102, 0.45)"
+      border-radius: "10px 10px 0 0"
+      box-sizing: border-box
+      width: 12%
+      padding: 7px 11px
+      font-size: "clamp(9px, 1vw, 15px)"
+      text-align: left
+      white-space: nowrap
+
+  - type: state-label
+    entity: sensor.technikkeller_comfortzone_ex_required_heating_power
+    prefix: "Bedarf: "
+    tap_action:
+      action: more-info
+    style:
+      left: 78%
       top: 62%
       color: "#ffd166"
-      background: "rgba(5, 18, 32, 0.9)"
-      border: "1px solid rgba(255, 209, 102, 0.45)"
-      border-radius: 8px
-      padding: 5px 9px
+      background: "rgba(5, 18, 32, 0.94)"
+      border-left: "1px solid rgba(255, 209, 102, 0.45)"
+      border-right: "1px solid rgba(255, 209, 102, 0.45)"
+      border-bottom: "1px solid rgba(255, 209, 102, 0.45)"
+      border-radius: "0 0 10px 10px"
+      box-sizing: border-box
+      width: 12%
+      padding: 7px 11px
       font-size: "clamp(9px, 1vw, 15px)"
+      text-align: left
       white-space: nowrap
 
   - type: state-label

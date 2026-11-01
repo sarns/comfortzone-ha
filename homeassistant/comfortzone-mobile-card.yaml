@@ -55,6 +55,8 @@ cards:
         name: Warmwasser
       - entity: sensor.technikkeller_comfortzone_ex_hot_water_target
         name: Warmwasser Soll
+      - entity: sensor.technikkeller_comfortzone_ex_active_hot_water_target
+        name: Warmwasser Soll aktiv
 
   - type: entities
     title: Betrieb
@@ -64,18 +66,43 @@ cards:
         name: Kompressor
       - entity: sensor.technikkeller_comfortzone_ex_compressor_frequency
         name: Frequenz
+      - entity: sensor.technikkeller_comfortzone_ex_compressor_target_frequency
+        name: Sollfrequenz
       - entity: sensor.technikkeller_comfortzone_ex_compressor_input_power
         name: Aufnahmeleistung
       - entity: sensor.technikkeller_comfortzone_ex_compressor_output_power
         name: Abgabeleistung
       - entity: sensor.technikkeller_comfortzone_ex_total_output_power
         name: Heizleistung
+      - entity: sensor.technikkeller_comfortzone_ex_required_heating_power
+        name: Erforderliche Leistung
       - entity: binary_sensor.technikkeller_comfortzone_ex_additional_heater_active
         name: Zusatzheizung
       - entity: sensor.technikkeller_comfortzone_ex_additional_heater_power
         name: Zusatzleistung
+      - entity: binary_sensor.technikkeller_comfortzone_ex_hot_water_boost
+        name: Warmwasser-Boost
       - entity: sensor.technikkeller_comfortzone_ex_fan_speed
         name: Lüfter
+
+  - type: entities
+    title: Kältekreis
+    show_header_toggle: false
+    entities:
+      - entity: sensor.technikkeller_comfortzone_ex_high_pressure
+        name: Hochdruck
+      - entity: sensor.technikkeller_comfortzone_ex_low_pressure
+        name: Niederdruck
+      - entity: sensor.technikkeller_comfortzone_ex_pressure_ratio
+        name: Druckverhältnis
+      - entity: sensor.technikkeller_comfortzone_ex_condenser_temperature
+        name: Kondensationstemperatur
+      - entity: sensor.technikkeller_comfortzone_ex_superheat
+        name: Überhitzung
+      - entity: sensor.technikkeller_comfortzone_ex_target_superheat
+        name: Überhitzung Soll
+      - entity: sensor.technikkeller_comfortzone_ex_expansion_valve_position
+        name: Expansionsventil
 
   - type: entities
     title: Luft und Durchfluss

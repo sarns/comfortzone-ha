@@ -31,10 +31,14 @@ Diese Karten-Datei beginnt direkt mit `type: picture-elements`; die vollständig
 Dashboard-Datei beginnt dagegen mit `title:` und `views:`.
 
 Ein Klick auf einen Messwert öffnet dessen Home-Assistant-Detailansicht mit dem
-Verlauf. Die Darstellung enthält 30 der 32 exportierten Entities. Die rein
+Verlauf. Die Darstellung enthält 41 der 43 exportierten Entities. Die rein
 technischen Werte `last_decoded_frame_age` und `protocol_coverage` sind bewusst
 ausgeblendet. Live-Werte liegen direkt bei ihren Bauteilen; Energie, Laufzeiten
-und der RS485-Status stehen im freien unteren Bildbereich.
+und der RS485-Status stehen im freien unteren Bildbereich. Die Kältekreiswerte
+(Drücke, Kondensation, Überhitzung, Expansionsventil) stehen im Desktop-Schema
+über dem Gerät, in Tablet- und Mobilansicht in einer eigenen Karte
+„Kältekreis“. Der Hinweis „WW-Boost“ erscheint im Schema nur, während WW Extra
+bzw. die Sofort-Legionellenprävention läuft.
 
 Alle Entity-IDs tragen das Bereichspräfix `technikkeller_comfortzone_ex_`
 (seit 2026-10-30 einheitlich, siehe `tools/ha_rename_entities.py`).

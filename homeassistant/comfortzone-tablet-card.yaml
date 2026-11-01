@@ -281,13 +281,34 @@ cards:
           white-space: nowrap
 
       - type: state-label
+        entity: sensor.technikkeller_comfortzone_ex_active_hot_water_target
+        prefix: "Aktiv-Soll: "
+        tap_action:
+          action: more-info
+        style:
+          left: 88%
+          top: 39%
+          color: "#ffd4c9"
+          background: "rgba(5, 18, 32, 0.94)"
+          border-left: "1px solid rgba(255, 100, 75, 0.5)"
+          border-right: "1px solid rgba(255, 100, 75, 0.5)"
+          border-bottom: "1px solid rgba(255, 100, 75, 0.5)"
+          border-radius: 0
+          box-sizing: border-box
+          width: 14%
+          padding: 4px 7px
+          font-size: "clamp(9px, 1.4vw, 14px)"
+          text-align: left
+          white-space: nowrap
+
+      - type: state-label
         entity: sensor.technikkeller_comfortzone_ex_hot_water_flow
         prefix: "WW-Fluss: "
         tap_action:
           action: more-info
         style:
           left: 88%
-          top: 39%
+          top: 44%
           color: "#ffd4c9"
           background: "rgba(5, 18, 32, 0.94)"
           border-left: "1px solid rgba(255, 100, 75, 0.5)"
@@ -300,6 +321,27 @@ cards:
           font-size: "clamp(9px, 1.4vw, 14px)"
           text-align: left
           white-space: nowrap
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.technikkeller_comfortzone_ex_hot_water_boost
+            state: "on"
+        elements:
+          - type: state-label
+            entity: binary_sensor.technikkeller_comfortzone_ex_hot_water_boost
+            prefix: "WW-Boost: "
+            tap_action:
+              action: more-info
+            style:
+              left: 88%
+              top: 50%
+              color: "#ffe08a"
+              background: "rgba(90, 30, 10, 0.94)"
+              border: "1px solid rgba(255, 150, 80, 0.8)"
+              border-radius: 8px
+              padding: 4px 6px
+              font-size: "clamp(9px, 1.4vw, 14px)"
+              white-space: nowrap
 
       - type: state-label
         entity: sensor.technikkeller_comfortzone_ex_total_output_power
@@ -405,6 +447,8 @@ cards:
             name: Warmwasser
           - entity: sensor.technikkeller_comfortzone_ex_hot_water_target
             name: Warmwasser Soll
+          - entity: sensor.technikkeller_comfortzone_ex_active_hot_water_target
+            name: Warmwasser Soll aktiv
 
       - type: entities
         title: Betrieb
@@ -414,16 +458,22 @@ cards:
             name: Kompressor
           - entity: sensor.technikkeller_comfortzone_ex_compressor_frequency
             name: Frequenz
+          - entity: sensor.technikkeller_comfortzone_ex_compressor_target_frequency
+            name: Sollfrequenz
           - entity: sensor.technikkeller_comfortzone_ex_compressor_input_power
             name: Aufnahmeleistung
           - entity: sensor.technikkeller_comfortzone_ex_compressor_output_power
             name: Abgabeleistung
           - entity: sensor.technikkeller_comfortzone_ex_total_output_power
             name: Heizleistung
+          - entity: sensor.technikkeller_comfortzone_ex_required_heating_power
+            name: Erforderliche Leistung
           - entity: binary_sensor.technikkeller_comfortzone_ex_additional_heater_active
             name: Zusatzheizung
           - entity: sensor.technikkeller_comfortzone_ex_additional_heater_power
             name: Zusatzleistung
+          - entity: binary_sensor.technikkeller_comfortzone_ex_hot_water_boost
+            name: Warmwasser-Boost
           - entity: sensor.technikkeller_comfortzone_ex_fan_speed
             name: Lüfter
           - entity: sensor.technikkeller_comfortzone_ex_fan_power
@@ -434,6 +484,25 @@ cards:
             name: Warmwasserdurchfluss
           - entity: sensor.technikkeller_comfortzone_ex_filter_change_time
             name: Filterwechselzeit
+
+  - type: entities
+    title: Kältekreis
+    show_header_toggle: false
+    entities:
+      - entity: sensor.technikkeller_comfortzone_ex_high_pressure
+        name: Hochdruck
+      - entity: sensor.technikkeller_comfortzone_ex_low_pressure
+        name: Niederdruck
+      - entity: sensor.technikkeller_comfortzone_ex_pressure_ratio
+        name: Druckverhältnis
+      - entity: sensor.technikkeller_comfortzone_ex_condenser_temperature
+        name: Kondensationstemperatur
+      - entity: sensor.technikkeller_comfortzone_ex_superheat
+        name: Überhitzung
+      - entity: sensor.technikkeller_comfortzone_ex_target_superheat
+        name: Überhitzung Soll
+      - entity: sensor.technikkeller_comfortzone_ex_expansion_valve_position
+        name: Expansionsventil
 
   - type: grid
     columns: 2
