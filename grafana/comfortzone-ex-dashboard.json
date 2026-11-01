@@ -3214,6 +3214,21 @@
                           "color": "green",
                           "index": 1,
                           "text": "On"
+                        },
+                        "Low": {
+                          "color": "blue",
+                          "index": 2,
+                          "text": "Low"
+                        },
+                        "Normal": {
+                          "color": "green",
+                          "index": 3,
+                          "text": "Normal"
+                        },
+                        "High": {
+                          "color": "orange",
+                          "index": 4,
+                          "text": "High"
                         }
                       },
                       "type": "value"

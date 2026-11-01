@@ -8,7 +8,7 @@ esphome:
   min_version: 2026.9.0
   project:
     name: local.comfortzone_ex
-    version: "0.4.0"
+    version: "0.5.0"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -30,6 +30,12 @@ logger:
 api:
   encryption:
     key: !secret api_encryption_key
+  actions:
+    - action: set_fan_speed
+      variables:
+        speed: int
+      then:
+        - lambda: id(comfortzone_monitor).request_fan_speed(speed);
 
 ota:
   - platform: esphome
@@ -53,6 +59,7 @@ uart:
   parity: NONE
   stop_bits: 1
   rx_buffer_size: 512
+  tx_pin: GPIO17
   rx_pin:
     number: GPIO18
     inverted: false
@@ -62,6 +69,7 @@ comfortzone_ex:
   uart_id: comfortzone_bus
   receiver_enable_pin: GPIO21
   raw_frame_logging: true
+  allow_write: true
 
   outdoor_temperature:
     name: Outdoor Temperature

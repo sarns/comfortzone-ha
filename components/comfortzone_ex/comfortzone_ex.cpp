@@ -17,7 +17,7 @@ void ComfortzoneExComponent::setup() {
   this->receiver_enable_pin_->digital_write(false);
   this->bus_online_binary_sensor_->publish_state(false);
   this->protocol_coverage_text_sensor_->publish_state(PROTOCOL_COVERAGE);
-  ESP_LOGI(TAG, "RS485 receiver enabled; transmitter remains disabled");
+  ESP_LOGI(TAG, "RS485 receiver enabled; writes %s", this->allow_write_ ? "allowed" : "disabled");
   ESP_LOGI(TAG, "Raw frame logging: %s", this->raw_frame_logging_ ? "enabled" : "disabled");
 }
 
@@ -27,6 +27,7 @@ void ComfortzoneExComponent::loop() {
     this->rs485_bytes_++;
     this->consume_byte_(value);
   }
+  this->check_tx_timeout_();
 
   const uint32_t now = millis();
   const bool online = this->last_decoded_frame_ms_ != 0 &&
@@ -43,7 +44,8 @@ void ComfortzoneExComponent::loop() {
 }
 
 void ComfortzoneExComponent::dump_config() {
-  ESP_LOGCONFIG(TAG, "Comfortzone EX receive-only monitor:");
+  ESP_LOGCONFIG(TAG, "Comfortzone EX monitor:");
+  ESP_LOGCONFIG(TAG, "  Writes: %s", this->allow_write_ ? "allowed" : "disabled");
   LOG_PIN("  Receiver enable pin: ", this->receiver_enable_pin_);
   ESP_LOGCONFIG(TAG, "  Protocol family: EX 0B10");
   ESP_LOGCONFIG(TAG, "  Implemented read registers: 8 of 22 observed");
@@ -103,6 +105,7 @@ void ComfortzoneExComponent::process_frame_() {
   this->valid_frames_++;
   if (this->raw_frame_logging_)
     this->log_raw_frame_();
+  this->handle_tx_on_frame_();
 
   if (this->decode_frame_()) {
     this->decoded_frames_++;
@@ -123,6 +126,75 @@ void ComfortzoneExComponent::log_raw_frame_() const {
 
   ESP_LOGI(TAG, "CZRAW uptime_ms=%lu frame=%s",
            static_cast<unsigned long>(millis()), encoded);
+}
+
+void ComfortzoneExComponent::request_fan_speed(int speed) {
+  if (!this->allow_write_) {
+    ESP_LOGW(TAG, "CZTX rejected: allow_write is off");
+    return;
+  }
+  if (speed < 1 || speed > 3) {
+    ESP_LOGW(TAG, "CZTX rejected: fan speed %d out of range", speed);
+    return;
+  }
+
+  // Panel write frame as seen on the bus; register 00DC03 = 004503 byte 151.
+  static constexpr uint8_t HEADER[] = {0x65, 0x6F, 0xDE, 0x02, 0xD3, 0x5E, 0x41, 0x44, 0x44, 0x52, 0x17,
+                                       'W',  0x01, 0x02, 0x03, 0x04, 0x0B, 0x10, 0x00, 0xDC, 0x03};
+  std::memcpy(this->tx_frame_, HEADER, sizeof(HEADER));
+  this->tx_frame_[21] = static_cast<uint8_t>(speed);
+  this->tx_frame_[22] = crc8_maxim_(this->tx_frame_, TX_FRAME_SIZE - 1);
+  this->tx_pending_ = true;
+  this->tx_awaiting_ack_ = false;
+  this->tx_attempts_ = 0;
+  ESP_LOGI(TAG, "CZTX queued fan speed %d", speed);
+}
+
+void ComfortzoneExComponent::handle_tx_on_frame_() {
+  if (!this->tx_pending_)
+    return;
+
+  if (this->tx_awaiting_ack_) {
+    if (this->frame_[11] == 'w' && this->frame_size_ == TX_FRAME_SIZE &&
+        std::memcmp(this->frame_ + 18, this->tx_frame_ + 18, 4) == 0) {
+      ESP_LOGI(TAG, "CZTX acknowledged after %lu ms",
+               static_cast<unsigned long>(millis() - this->tx_sent_ms_));
+      this->tx_pending_ = false;
+      this->tx_awaiting_ack_ = false;
+    }
+    return;
+  }
+
+  // The heat pump takes over 200 ms to answer the panel's read of 049C3E (about once a minute).
+  // The bus stays silent meanwhile, which leaves room for a write and its acknowledge.
+  if (this->frame_[11] == 'R' && this->register_is_(0x04, 0x9C, 0x3E) && !this->available())
+    this->transmit_pending_();
+}
+
+void ComfortzoneExComponent::transmit_pending_() {
+  this->tx_attempts_++;
+  const uint32_t start = millis();
+  this->receiver_enable_pin_->digital_write(true);
+  this->write_array(this->tx_frame_, TX_FRAME_SIZE);
+  this->flush();
+  this->receiver_enable_pin_->digital_write(false);
+  this->tx_sent_ms_ = millis();
+  this->tx_awaiting_ack_ = true;
+  ESP_LOGI(TAG, "CZTX attempt %u value %u took %lu ms", this->tx_attempts_, this->tx_frame_[21],
+           static_cast<unsigned long>(this->tx_sent_ms_ - start));
+}
+
+void ComfortzoneExComponent::check_tx_timeout_() {
+  if (!this->tx_awaiting_ack_ || millis() - this->tx_sent_ms_ < TX_ACK_TIMEOUT_MS)
+    return;
+
+  this->tx_awaiting_ack_ = false;
+  if (this->tx_attempts_ >= TX_MAX_ATTEMPTS) {
+    this->tx_pending_ = false;
+    ESP_LOGW(TAG, "CZTX failed: no acknowledge after %u attempts", this->tx_attempts_);
+  } else {
+    ESP_LOGW(TAG, "CZTX no acknowledge for attempt %u, retrying in next window", this->tx_attempts_);
+  }
 }
 
 bool ComfortzoneExComponent::decode_frame_() {

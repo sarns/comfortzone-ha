@@ -22,6 +22,10 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
 
   void set_receiver_enable_pin(InternalGPIOPin *pin) { this->receiver_enable_pin_ = pin; }
   void set_raw_frame_logging(bool enabled) { this->raw_frame_logging_ = enabled; }
+  void set_allow_write(bool enabled) { this->allow_write_ = enabled; }
+
+  // Queues a fan speed write (1 Low, 2 Normal, 3 High). Needs allow_write.
+  void request_fan_speed(int speed);
 
 #define CZ_SENSOR_SETTER(name) \
   void set_##name##_sensor(sensor::Sensor *value) { this->name##_sensor_ = value; }
@@ -97,6 +101,9 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   static constexpr uint32_t BUS_STALE_MS = 30000;
   static constexpr uint32_t PUBLISH_INTERVAL_MS = 60000;
   static constexpr uint32_t DIAGNOSTIC_INTERVAL_MS = 60000;
+  static constexpr size_t TX_FRAME_SIZE = 23;
+  static constexpr uint32_t TX_ACK_TIMEOUT_MS = 1000;
+  static constexpr uint8_t TX_MAX_ATTEMPTS = 3;
 
   enum PublishGroup : uint8_t {
     PUBLISH_TEMPERATURES,
@@ -126,6 +133,10 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   static uint32_t read_u32_le_(const uint8_t *data);
   static const char *fan_speed_name_(uint8_t value);
 
+  void handle_tx_on_frame_();
+  void transmit_pending_();
+  void check_tx_timeout_();
+
   InternalGPIOPin *receiver_enable_pin_{nullptr};
   uint8_t frame_[BUFFER_SIZE]{};
   size_t frame_size_{0};
@@ -141,6 +152,13 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   uint32_t last_publish_ms_[PUBLISH_GROUP_COUNT]{};
   bool bus_online_state_{false};
   bool raw_frame_logging_{false};
+  bool allow_write_{false};
+
+  uint8_t tx_frame_[TX_FRAME_SIZE]{};
+  bool tx_pending_{false};
+  bool tx_awaiting_ack_{false};
+  uint8_t tx_attempts_{0};
+  uint32_t tx_sent_ms_{0};
 
   uint16_t compressor_frequency_x10_{0};
   uint16_t compressor_input_power_w_{0};

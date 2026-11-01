@@ -28,6 +28,7 @@ AUTO_LOAD = ["binary_sensor", "sensor", "text_sensor"]
 
 CONF_RECEIVER_ENABLE_PIN = "receiver_enable_pin"
 CONF_RAW_FRAME_LOGGING = "raw_frame_logging"
+CONF_ALLOW_WRITE = "allow_write"
 
 TEMPERATURE_KEYS = (
     "outdoor_temperature",
@@ -135,6 +136,7 @@ CONFIG_SCHEMA = (
             cv.GenerateID(): cv.declare_id(ComfortzoneExComponent),
             cv.Required(CONF_RECEIVER_ENABLE_PIN): pins.gpio_output_pin_schema,
             cv.Optional(CONF_RAW_FRAME_LOGGING, default=False): cv.boolean,
+            cv.Optional(CONF_ALLOW_WRITE, default=False): cv.boolean,
             **{cv.Required(key): temperature_schema() for key in TEMPERATURE_KEYS},
             **{cv.Required(key): temperature_schema() for key in SETPOINT_KEYS},
             cv.Required("compressor_frequency"): sensor.sensor_schema(
@@ -239,6 +241,7 @@ async def to_code(config):
     pin = await cg.gpio_pin_expression(config[CONF_RECEIVER_ENABLE_PIN])
     cg.add(var.set_receiver_enable_pin(pin))
     cg.add(var.set_raw_frame_logging(config[CONF_RAW_FRAME_LOGGING]))
+    cg.add(var.set_allow_write(config[CONF_ALLOW_WRITE]))
 
     for key in (
         TEMPERATURE_KEYS
