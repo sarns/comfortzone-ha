@@ -12,6 +12,7 @@ CARD_BREAKPOINTS = {
     "desktop": "(min-width: 1400px)",
     "tablet": "(min-width: 600px)",
     "mobile": "(max-width: 599px)",
+    "controls": "(max-width: 1399px)",
 }
 
 
@@ -67,12 +68,17 @@ def generate_dashboard() -> None:
     desktop = (HA_DIR / "comfortzone-desktop-card.yaml").read_text(encoding="utf-8-sig").strip()
     tablet = (HA_DIR / "comfortzone-tablet-card.yaml").read_text(encoding="utf-8-sig").strip()
     mobile = (HA_DIR / "comfortzone-mobile-card.yaml").read_text(encoding="utf-8-sig").strip()
+    controls = (HA_DIR / "comfortzone-controls-card.yaml").read_text(encoding="utf-8-sig").strip()
 
     responsive = "\n".join(
         [
             "type: vertical-stack",
             "cards:",
+            # Controls come first on small screens and below the schema on the desktop.
+            # They must stay first: the import takes the first match of each media query.
+            conditional_card("(max-width: 1399px)", controls),
             conditional_card("(min-width: 1400px)", desktop),
+            conditional_card("(min-width: 1400px)", controls),
             conditional_card("(min-width: 600px) and (max-width: 1399px)", tablet),
             conditional_card("(max-width: 599px)", mobile),
         ]

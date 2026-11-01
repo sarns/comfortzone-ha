@@ -102,4 +102,5 @@ WW Extra vom Hauptbildschirm lief bisher nur 2 Minuten (13:25:55–13:27:54). Da
 ## Offene Punkte vor der Umsetzung
 
 1. Betriebsart-Bit `010400`+28 mit je einem Foto beider Durchfluss-Seiten bestätigen.
-2. WW-Schalter auf dem Bus testen. Lüfter und beide Sollwerte sind getestet (`capture-analyse-2026-11-01-schreibtest.md`).
+2. Vollen Lauf von WW Extra beobachten. Lüfter, beide Sollwerte und beide WW-Schalter sind auf dem Bus getestet
+   (`capture-analyse-2026-11-01-schreibtest.md`).

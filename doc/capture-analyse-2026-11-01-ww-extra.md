@@ -47,5 +47,7 @@ Mitschnitts). Das Warmwasser lag um 13:26:23 bei 44,7 °C, also unter dem Soll v
 ## Offen
 
 - Verhalten eines vollen Laufs: Abschalten bei 55 °C, Halten, Dauer.
-- Ob `41 17 00` einen vom Hauptbildschirm gestarteten Lauf beendet und umgekehrt.
 - Was passiert, wenn beide Funktionen gleichzeitig aktiv sind.
+
+Geklärt am 2026-11-01: `41 17 00` beendet einen Lauf von WW Extra nicht und `41 1D 00` keinen Lauf der
+Legionellenprävention, beobachtet je 25 s (`capture-analyse-2026-11-01-schreibtest.md`).

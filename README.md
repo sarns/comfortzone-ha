@@ -106,8 +106,8 @@ Unknown registers are counted but never published under speculative names.
 | `Hot Water Extra` | on/off | "WW Extra" from the main screen, 55 °C |
 | `Legionella Prevention` | on/off | Immediate legionella prevention, 65 °C |
 
-Fan speed and both setpoints were tested on the bus. The two switches were not
-tested yet, and both start the 3.5 kW heater.
+All five were tested on the bus. Both switches start the 3.5 kW heater after
+about 1.5 minutes.
 
 Every entity shows the value read back from the bus, so a change made on the
 panel also appears here. A switch turns off by itself when the heat pump ends

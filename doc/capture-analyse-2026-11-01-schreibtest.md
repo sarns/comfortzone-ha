@@ -19,9 +19,40 @@ Richtung schaltet also die Firmware. Die Busadern sind richtig gepolt, `rx_pin` 
 | 14:17:11 | WW-Soll 45,0 °C | 237 ms | 45,0 °C |
 | 14:17:18 | Raum-Soll 23,0 °C | 229 ms | `008902`+9 = 23,0 °C |
 | 14:17:52 | Raum-Soll 22,0 °C | 218 ms | 22,0 °C |
+| 15:00:39 | Lüfter Langsam (1), aus HA | 219 ms | 1 |
+| 15:00:42 | WW-Soll, aus HA | 211 ms | von der Folgeanforderung überholt |
+| 15:00:44 | WW-Soll 44,0 °C, aus HA | 220 ms | 44,0 °C |
 
-Die Lüfter-Rahmen liefen im Fenster nach `R 049C3E`, die Sollwerte in den Fenstern von 0.6.0. Die Schalter für WW Extra
-und Legionellenprävention sind gebaut, aber noch nicht auf dem Bus getestet.
+Die Lüfter-Rahmen bis 14:05 liefen mit 0.5.0 im Fenster nach `R 049C3E`, alle übrigen in den Fenstern von 0.6.0.
+
+## Schalter
+
+Test um 15:24–15:30 über die native API, jedes Programm rund 2 Minuten. Alle Rahmen wurden beim ersten Versuch
+quittiert (178–229 ms). Zeiten ab der Quittung, auf ganze Sekunden nach der Empfangszeit der Zustände:
+
+| Größe | WW Extra | Legionellenprävention |
+|---|---|---|
+| Schalter und `Hot Water Boost` an | unter 1 s | 2 s |
+| Aktives WW-Soll | 55,0 °C nach 32 s | 65,0 °C nach 20 s |
+| Heizelement 3500 W | nach 95 s | nach 83 s |
+| Schalter aus nach dem Stopp | 2 s | 3 s |
+| Heizelement aus und WW-Soll 45,0 °C nach dem Stopp | 37 s | 21 s |
+
+Weitere Ergebnisse:
+
+- Stopp der jeweils anderen Funktion: Das Programm lief in beiden Richtungen weiter, beobachtet 25 s lang (Status,
+  aktives Soll und Heizelement unverändert).
+- Einschalten der anderen Funktion während eines Laufs lehnt die Firmware ab, der Rahmen geht nicht auf den Bus.
+- Einschalten 5 s nach dem Ausschalten lehnt die Firmware ebenfalls ab (Sperrzeit 60 s).
+
+Der Verdichter startete rund 30 s nach dem Einschalten von WW Extra und lief nach dem Test mit rund 22 Hz bei
+Warmwasser-Durchfluss weiter, bei 44,3 °C im Speicher. Ob das eine normale Nachladung ist, wurde nicht weiter verfolgt.
+
+## Bedienteil
+
+Die Rahmen um 15:00 kamen aus Home Assistant. Der Nutzer sah die neuen Werte auf dem Display. Um 15:02 stellte das
+Bedienteil selbst zurück (`W 00DC03 02`, `W 004503 C201`, ohne eigenen Sendeeintrag der Firmware). Home Assistant zeigt
+danach Normal und 45,0 °C, Änderungen am Bedienteil kommen also an.
 
 ## Sendefenster
 
@@ -52,13 +83,13 @@ Fenster, rund 0,2 s auf die Quittung und der Rest auf den nächsten Lesezyklus. 
 
 ## Busgesundheit
 
-CRC-Fehlerzähler 0 in allen Läufen. Im Mitschnitt ab 14:16 fehlten zwei Antworten: um 14:16:34, vor dem ersten
-Senden, und um 14:19:08, 73 s nach dem letzten. Beide stehen also nicht in zeitlicher Nähe zu einem Schreibrahmen. Die
-Referenz ohne eigenes Senden zeigt denselben Effekt. Die Ursache ist nicht geklärt, möglich sind verlorene Bytes im
-Empfang des ESP.
+CRC-Fehlerzähler 0 bis zum Testende um 15:30. Im Mitschnitt von 14:16 bis 15:30 fehlten sechs Antworten: um 14:16:34,
+vor dem ersten Senden, und um 14:19:08, 14:22:44, 14:38:59, 15:16:20 und 15:22:01, frühestens 76 s nach einem
+Schreibrahmen. Keine steht also in zeitlicher Nähe zu einem Schreibrahmen. Die Referenz ohne eigenes Senden zeigt
+denselben Effekt (eine in 1175 s). Die Ursache ist nicht geklärt, möglich sind verlorene Bytes im Empfang des ESP.
 
 ## Offen
 
-- Bedienteil während eines Schreibvorgangs beobachten: Anzeige und mögliche Fehlermeldung.
-- Schalter auf dem Bus testen. Beide starten das Heizelement.
+- Wiederholung nach fehlender Quittung und Verfall nach 30 s: Beides trat nicht auf und ist deshalb ungetestet.
+- Anzeige des Bedienteils während eines über die Schalter gestarteten Programms.
 - Voller Lauf von WW Extra vom Hauptbildschirm: Abschalten bei 55 °C, Halten, Dauer.

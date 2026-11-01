@@ -3,6 +3,25 @@ cards:
   - type: conditional
     conditions:
       - condition: screen
+        media_query: "(max-width: 1399px)"
+    card:
+      type: entities
+      title: Steuerung
+      show_header_toggle: false
+      entities:
+        - entity: select.technikkeller_comfortzone_ex_fan_speed_setting
+          name: Lüfterstufe
+        - entity: number.technikkeller_comfortzone_ex_hot_water_target_setting
+          name: Warmwasser-Soll
+        - entity: number.technikkeller_comfortzone_ex_room_setpoint_setting
+          name: Raum-Soll
+        - entity: switch.technikkeller_comfortzone_ex_hot_water_extra
+          name: WW Extra (55 °C)
+        - entity: switch.technikkeller_comfortzone_ex_legionella_prevention
+          name: Legionellenprävention (65 °C)
+  - type: conditional
+    conditions:
+      - condition: screen
         media_query: "(min-width: 1400px)"
     card:
       type: picture-elements
@@ -813,6 +832,25 @@ cards:
             padding: 5px 9px
             font-size: "clamp(9px, 0.95vw, 14px)"
             white-space: nowrap
+  - type: conditional
+    conditions:
+      - condition: screen
+        media_query: "(min-width: 1400px)"
+    card:
+      type: entities
+      title: Steuerung
+      show_header_toggle: false
+      entities:
+        - entity: select.technikkeller_comfortzone_ex_fan_speed_setting
+          name: Lüfterstufe
+        - entity: number.technikkeller_comfortzone_ex_hot_water_target_setting
+          name: Warmwasser-Soll
+        - entity: number.technikkeller_comfortzone_ex_room_setpoint_setting
+          name: Raum-Soll
+        - entity: switch.technikkeller_comfortzone_ex_hot_water_extra
+          name: WW Extra (55 °C)
+        - entity: switch.technikkeller_comfortzone_ex_legionella_prevention
+          name: Legionellenprävention (65 °C)
   - type: conditional
     conditions:
       - condition: screen

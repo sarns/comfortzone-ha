@@ -31,7 +31,7 @@ Diese Karten-Datei beginnt direkt mit `type: picture-elements`; die vollständig
 Dashboard-Datei beginnt dagegen mit `title:` und `views:`.
 
 Ein Klick auf einen Messwert öffnet dessen Home-Assistant-Detailansicht mit dem
-Verlauf. Die Darstellung enthält 41 der 43 exportierten Entities. Die rein
+Verlauf. Die Darstellung enthält 46 der 48 exportierten Entities. Die rein
 technischen Werte `last_decoded_frame_age` und `protocol_coverage` sind bewusst
 ausgeblendet. Live-Werte liegen direkt bei ihren Bauteilen; Energie, Laufzeiten
 und der RS485-Status stehen im freien unteren Bildbereich. Die Kältekreiswerte
@@ -40,16 +40,22 @@ und der RS485-Status stehen im freien unteren Bildbereich. Die Kältekreiswerte
 „Kältekreis“. Der Hinweis „WW-Boost“ erscheint im Schema nur, während WW Extra
 bzw. die Sofort-Legionellenprävention läuft.
 
+Die Karte „Steuerung“ enthält Lüfterstufe, Warmwasser-Soll, Raum-Soll und die
+Schalter für WW Extra und Legionellenprävention. Sie steht auf dem Desktop unter
+dem Schema, auf Tablet und Handy ganz oben. Beide Schalter starten das 3,5-kW-
+Heizelement, und ein Antippen startet sofort ohne Rückfrage.
+
 Alle Entity-IDs tragen das Bereichspräfix `technikkeller_comfortzone_ex_`
 (seit 2026-10-30 einheitlich, siehe `tools/ha_rename_entities.py`).
 
 ## Hinweise
 
-- Die Desktop-, Tablet- und Mobilkarten liegen getrennt vor und werden mit
-  `tools/generate_ha_dashboard.py` zur vollständigen Konfiguration kombiniert.
+- Die Desktop-, Tablet-, Mobil- und Steuerungskarten liegen getrennt vor und
+  werden mit `tools/generate_ha_dashboard.py` zur vollständigen Konfiguration
+  kombiniert.
 - Wenn Positionen direkt im Rohkonfigurationseditor angepasst wurden, zuerst
   `python tools/generate_ha_dashboard.py --import-dashboard` ausführen. Dadurch
-  werden die manuellen Änderungen in die drei Quelldateien übernommen. Danach
+  werden die manuellen Änderungen in die vier Quelldateien übernommen. Danach
   erzeugt `python tools/generate_ha_dashboard.py` wieder die Gesamtdatei.
 - Die kumulierten Energiezähler zeigen zunächst die Gesamtstände. Wochen- und
   Tagesverbrauch lassen sich anschließend mit Home-Assistant-Helfern vom Typ
