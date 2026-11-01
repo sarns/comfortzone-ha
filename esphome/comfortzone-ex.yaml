@@ -8,7 +8,7 @@ esphome:
   min_version: 2026.9.0
   project:
     name: local.comfortzone_ex
-    version: "0.6.0"
+    version: "0.6.1"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -62,7 +62,7 @@ comfortzone_ex:
   id: comfortzone_monitor
   uart_id: comfortzone_bus
   receiver_enable_pin: GPIO21
-  raw_frame_logging: true
+  raw_frame_logging: false
   allow_write: true
 
   outdoor_temperature:
