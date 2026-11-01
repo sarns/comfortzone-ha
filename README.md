@@ -61,10 +61,10 @@ heating flow in space-heating mode and as hot-water flow in hot-water mode, and
 0 for the inactive circuit; the component does the same, using the hot-water
 mode bit (`010400` byte 28, bit `0x08`).
 
-`Hot Water Boost` is on while "WW Extra" or the immediate legionella
-prevention runs. Both menu entries switch the same function: the heat pump
-heats to 65 °C and then holds that temperature until "WW Extra Zeit" (180 min)
-expires.
+`Hot Water Boost` is on while either of two functions runs. "WW Extra" from the
+main screen heats to 55 °C. The immediate legionella prevention heats to 65 °C
+and then holds that temperature until "WW Extra Zeit" (180 min) expires. The
+`Active Hot Water Target` entity shows which target applies.
 
 All register mappings were confirmed against display photos; see
 `doc/variablen-uebersicht.md` and `doc/capture-analyse-2026-10-30-tests.md`.

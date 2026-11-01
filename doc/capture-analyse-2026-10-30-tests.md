@@ -19,6 +19,9 @@ Die Abschrift stammt von Sonnet-Agents und wurde nur stichprobenartig geprüft.
 
 ## Ergebnisse
 
+> Korrektur 2026-11-01: Die folgenden Aussagen gelten nur für die Zeile "WW Extra" im Menü. WW Extra vom
+> Hauptbildschirm sendet einen anderen Rahmen und heizt auf 55 °C, siehe `capture-analyse-2026-11-01-ww-extra.md`.
+
 1. **WW Extra und sofortige Legionellenprävention sind auf dem Bus nicht zu unterscheiden.** Beide senden denselben
    Rahmen `81 17 00 01 00`. Danach ändern sich dieselben Felder: Statuswort `010400`+18 von `0x0800` auf `0x0B20`,
    Heizelement nach ca. 61 s, und das aktive WW-Soll `01F901`+97 springt von 48,0 auf 65,0 °C (`E0 01` → `8A 02`).
