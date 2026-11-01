@@ -4,14 +4,64 @@
 #include <cstdint>
 
 #include "esphome/components/binary_sensor/binary_sensor.h"
+#include "esphome/components/number/number.h"
+#include "esphome/components/select/select.h"
 #include "esphome/components/sensor/sensor.h"
+#include "esphome/components/switch/switch.h"
 #include "esphome/components/text_sensor/text_sensor.h"
 #include "esphome/components/uart/uart.h"
 #include "esphome/core/component.h"
 #include "esphome/core/gpio.h"
+#include "esphome/core/helpers.h"
 
 namespace esphome {
 namespace comfortzone_ex {
+
+class ComfortzoneExComponent;
+
+enum TxSlot : uint8_t {
+  TX_FAN,
+  TX_HOT_WATER_TARGET,
+  TX_ROOM_SETPOINT,
+  TX_HOT_WATER_EXTRA,
+  TX_LEGIONELLA,
+  TX_SLOT_COUNT,
+};
+
+class FanSpeedSelect : public select::Select {
+ public:
+  void set_parent(ComfortzoneExComponent *parent) { this->parent_ = parent; }
+
+ protected:
+  void control(size_t index) override;
+  ComfortzoneExComponent *parent_{nullptr};
+};
+
+class SetpointNumber : public number::Number {
+ public:
+  void set_parent(ComfortzoneExComponent *parent, TxSlot slot) {
+    this->parent_ = parent;
+    this->slot_ = slot;
+  }
+
+ protected:
+  void control(float value) override;
+  ComfortzoneExComponent *parent_{nullptr};
+  TxSlot slot_{TX_HOT_WATER_TARGET};
+};
+
+class HotWaterSwitch : public switch_::Switch {
+ public:
+  void set_parent(ComfortzoneExComponent *parent, TxSlot slot) {
+    this->parent_ = parent;
+    this->slot_ = slot;
+  }
+
+ protected:
+  void write_state(bool state) override;
+  ComfortzoneExComponent *parent_{nullptr};
+  TxSlot slot_{TX_HOT_WATER_EXTRA};
+};
 
 class ComfortzoneExComponent : public Component, public uart::UARTDevice {
  public:
@@ -24,8 +74,31 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   void set_raw_frame_logging(bool enabled) { this->raw_frame_logging_ = enabled; }
   void set_allow_write(bool enabled) { this->allow_write_ = enabled; }
 
-  // Queues a fan speed write (1 Low, 2 Normal, 3 High). Needs allow_write.
-  void request_fan_speed(int speed);
+  void set_fan_speed_setting(FanSpeedSelect *value) {
+    this->fan_speed_setting_ = value;
+    value->set_parent(this);
+  }
+  void set_hot_water_target_setting(SetpointNumber *value) {
+    this->hot_water_target_setting_ = value;
+    value->set_parent(this, TX_HOT_WATER_TARGET);
+  }
+  void set_room_setpoint_setting(SetpointNumber *value) {
+    this->room_setpoint_setting_ = value;
+    value->set_parent(this, TX_ROOM_SETPOINT);
+  }
+  void set_hot_water_extra_switch(HotWaterSwitch *value) {
+    this->hot_water_extra_switch_ = value;
+    value->set_parent(this, TX_HOT_WATER_EXTRA);
+  }
+  void set_legionella_switch(HotWaterSwitch *value) {
+    this->legionella_switch_ = value;
+    value->set_parent(this, TX_LEGIONELLA);
+  }
+
+  // All write requests go through a queue and are sent in the next bus window.
+  void request_fan_speed(size_t option_index);
+  void request_setpoint(TxSlot slot, float value);
+  void request_switch(TxSlot slot, bool on);
 
 #define CZ_SENSOR_SETTER(name) \
   void set_##name##_sensor(sensor::Sensor *value) { this->name##_sensor_ = value; }
@@ -101,9 +174,23 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   static constexpr uint32_t BUS_STALE_MS = 30000;
   static constexpr uint32_t PUBLISH_INTERVAL_MS = 60000;
   static constexpr uint32_t DIAGNOSTIC_INTERVAL_MS = 60000;
-  static constexpr size_t TX_FRAME_SIZE = 23;
+  static constexpr size_t TX_MAX_FRAME_SIZE = 24;
   static constexpr uint32_t TX_ACK_TIMEOUT_MS = 1000;
   static constexpr uint8_t TX_MAX_ATTEMPTS = 3;
+  static constexpr uint32_t TX_MIN_SPACING_MS = 1000;
+  static constexpr uint32_t TX_QUEUE_TIMEOUT_MS = 30000;
+  static constexpr uint32_t TX_MAX_LOOP_AGE_US = 6000;
+  static constexpr uint32_t SWITCH_ON_LOCKOUT_MS = 60000;
+  static constexpr int16_t SETPOINT_UNKNOWN = INT16_MIN;
+  static constexpr int8_t SWITCH_UNKNOWN = -1;
+
+  struct TxRequest {
+    uint8_t frame[TX_MAX_FRAME_SIZE];
+    uint8_t size;
+    uint8_t attempts;
+    bool queued;
+    uint32_t queued_ms;
+  };
 
   enum PublishGroup : uint8_t {
     PUBLISH_TEMPERATURES,
@@ -133,9 +220,13 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   static uint32_t read_u32_le_(const uint8_t *data);
   static const char *fan_speed_name_(uint8_t value);
 
+  void queue_write_(TxSlot slot, uint8_t reg0, uint8_t reg1, uint8_t reg2, const uint8_t *value, size_t size);
   void handle_tx_on_frame_();
-  void transmit_pending_();
-  void check_tx_timeout_();
+  bool in_tx_window_() const;
+  void transmit_next_();
+  void check_tx_timeouts_();
+  void forget_published_state_(TxSlot slot);
+  void update_write_entities_status_(const uint8_t *payload);
 
   InternalGPIOPin *receiver_enable_pin_{nullptr};
   uint8_t frame_[BUFFER_SIZE]{};
@@ -154,11 +245,26 @@ class ComfortzoneExComponent : public Component, public uart::UARTDevice {
   bool raw_frame_logging_{false};
   bool allow_write_{false};
 
-  uint8_t tx_frame_[TX_FRAME_SIZE]{};
-  bool tx_pending_{false};
+  TxRequest tx_requests_[TX_SLOT_COUNT]{};
   bool tx_awaiting_ack_{false};
-  uint8_t tx_attempts_{0};
+  TxSlot tx_active_slot_{TX_FAN};
+  uint8_t tx_active_register_[3]{};
   uint32_t tx_sent_ms_{0};
+  uint32_t last_loop_end_us_{0};
+  uint32_t switch_off_ms_[TX_SLOT_COUNT]{};
+  HighFrequencyLoopRequester high_frequency_;
+
+  uint8_t published_fan_speed_{0};
+  int16_t published_hot_water_target_{SETPOINT_UNKNOWN};
+  int16_t published_room_setpoint_{SETPOINT_UNKNOWN};
+  int8_t published_hot_water_extra_{SWITCH_UNKNOWN};
+  int8_t published_legionella_{SWITCH_UNKNOWN};
+
+  FanSpeedSelect *fan_speed_setting_{nullptr};
+  SetpointNumber *hot_water_target_setting_{nullptr};
+  SetpointNumber *room_setpoint_setting_{nullptr};
+  HotWaterSwitch *hot_water_extra_switch_{nullptr};
+  HotWaterSwitch *legionella_switch_{nullptr};
 
   uint16_t compressor_frequency_x10_{0};
   uint16_t compressor_input_power_w_{0};

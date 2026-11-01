@@ -8,7 +8,7 @@ esphome:
   min_version: 2026.9.0
   project:
     name: local.comfortzone_ex
-    version: "0.5.0"
+    version: "0.6.0"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -30,12 +30,6 @@ logger:
 api:
   encryption:
     key: !secret api_encryption_key
-  actions:
-    - action: set_fan_speed
-      variables:
-        speed: int
-      then:
-        - lambda: id(comfortzone_monitor).request_fan_speed(speed);
 
 ota:
   - platform: esphome
@@ -172,6 +166,21 @@ comfortzone_ex:
     icon: mdi:water-boiler-alert
   fan_speed:
     name: Fan Speed
+  fan_speed_setting:
+    name: Fan Speed Setting
+    icon: mdi:fan
+  hot_water_target_setting:
+    name: Hot Water Target Setting
+    mode: box
+  room_setpoint_setting:
+    name: Room Setpoint Setting
+    mode: box
+  hot_water_extra:
+    name: Hot Water Extra
+    icon: mdi:water-plus
+  legionella:
+    name: Legionella Prevention
+    icon: mdi:bacteria-outline
 
   bus_online:
     name: RS485 Bus Online

@@ -27,7 +27,7 @@ void ComfortzoneExComponent::loop() {
     this->rs485_bytes_++;
     this->consume_byte_(value);
   }
-  this->check_tx_timeout_();
+  this->check_tx_timeouts_();
 
   const uint32_t now = millis();
   const bool online = this->last_decoded_frame_ms_ != 0 &&
@@ -41,6 +41,7 @@ void ComfortzoneExComponent::loop() {
     this->last_diagnostic_ms_ = now;
     this->publish_diagnostics_();
   }
+  this->last_loop_end_us_ = micros();
 }
 
 void ComfortzoneExComponent::dump_config() {
@@ -103,9 +104,10 @@ void ComfortzoneExComponent::process_frame_() {
   }
 
   this->valid_frames_++;
+  // Before logging: the send window after a request is short.
+  this->handle_tx_on_frame_();
   if (this->raw_frame_logging_)
     this->log_raw_frame_();
-  this->handle_tx_on_frame_();
 
   if (this->decode_frame_()) {
     this->decoded_frames_++;
@@ -128,72 +130,209 @@ void ComfortzoneExComponent::log_raw_frame_() const {
            static_cast<unsigned long>(millis()), encoded);
 }
 
-void ComfortzoneExComponent::request_fan_speed(int speed) {
-  if (!this->allow_write_) {
-    ESP_LOGW(TAG, "CZTX rejected: allow_write is off");
+void FanSpeedSelect::control(size_t index) { this->parent_->request_fan_speed(index); }
+
+void SetpointNumber::control(float value) { this->parent_->request_setpoint(this->slot_, value); }
+
+void HotWaterSwitch::write_state(bool state) { this->parent_->request_switch(this->slot_, state); }
+
+void ComfortzoneExComponent::request_fan_speed(size_t option_index) {
+  if (option_index > 2)
     return;
-  }
-  if (speed < 1 || speed > 3) {
-    ESP_LOGW(TAG, "CZTX rejected: fan speed %d out of range", speed);
+  // Register 00DC03 = 004503 byte 151; the speeds are 1, 2 and 3.
+  const uint8_t value = static_cast<uint8_t>(option_index + 1);
+  this->queue_write_(TX_FAN, 0x00, 0xDC, 0x03, &value, 1);
+}
+
+void ComfortzoneExComponent::request_setpoint(TxSlot slot, float value) {
+  const bool hot_water = slot == TX_HOT_WATER_TARGET;
+  const float low = hot_water ? 40.0f : 18.0f;
+  const float high = hot_water ? 55.0f : 25.0f;
+  if (std::isnan(value) || value < low || value > high) {
+    ESP_LOGW(TAG, "CZTX rejected: setpoint %.1f outside %.1f..%.1f", value, low, high);
     return;
   }
 
-  // Panel write frame as seen on the bus; register 00DC03 = 004503 byte 151.
-  static constexpr uint8_t HEADER[] = {0x65, 0x6F, 0xDE, 0x02, 0xD3, 0x5E, 0x41, 0x44, 0x44, 0x52, 0x17,
-                                       'W',  0x01, 0x02, 0x03, 0x04, 0x0B, 0x10, 0x00, 0xDC, 0x03};
-  std::memcpy(this->tx_frame_, HEADER, sizeof(HEADER));
-  this->tx_frame_[21] = static_cast<uint8_t>(speed);
-  this->tx_frame_[22] = crc8_maxim_(this->tx_frame_, TX_FRAME_SIZE - 1);
-  this->tx_pending_ = true;
-  this->tx_awaiting_ack_ = false;
-  this->tx_attempts_ = 0;
-  ESP_LOGI(TAG, "CZTX queued fan speed %d", speed);
+  const int16_t raw = static_cast<int16_t>(std::lround(value * 10.0f));
+  const uint8_t bytes[] = {static_cast<uint8_t>(raw & 0xFF), static_cast<uint8_t>(raw >> 8)};
+  if (hot_water) {
+    this->queue_write_(slot, 0x00, 0x45, 0x03, bytes, 2);  // 004503 byte 0
+  } else {
+    this->queue_write_(slot, 0x00, 0x92, 0x02, bytes, 2);  // 008902 byte 9
+  }
+}
+
+void ComfortzoneExComponent::request_switch(TxSlot slot, bool on) {
+  const bool extra = slot == TX_HOT_WATER_EXTRA;
+  const uint32_t now = millis();
+  if (on) {
+    const int8_t other = extra ? this->published_legionella_ : this->published_hot_water_extra_;
+    const uint32_t off_ms = this->switch_off_ms_[slot];
+    if (other == 1 || (off_ms != 0 && now - off_ms < SWITCH_ON_LOCKOUT_MS)) {
+      ESP_LOGW(TAG, "CZTX rejected: %s", other == 1 ? "other hot water program active" : "switched off too recently");
+      this->forget_published_state_(slot);
+      return;
+    }
+  } else {
+    this->switch_off_ms_[slot] = now == 0 ? 1 : now;
+  }
+
+  // Prefix 0x81 sets bits, 0x41 clears them: main-screen WW Extra 001D bit 0x40, legionella 0017 bit 0x01.
+  const uint8_t prefix = on ? 0x81 : 0x41;
+  const uint8_t reg = extra ? 0x1D : 0x17;
+  const uint8_t set_bits = extra ? 0x40 : 0x01;
+  const uint8_t bytes[] = {static_cast<uint8_t>(on ? set_bits : static_cast<uint8_t>(~set_bits)),
+                           static_cast<uint8_t>(on ? 0x00 : 0xFF)};
+  this->queue_write_(slot, prefix, reg, 0x00, bytes, 2);
+}
+
+void ComfortzoneExComponent::queue_write_(TxSlot slot, uint8_t reg0, uint8_t reg1, uint8_t reg2,
+                                          const uint8_t *value, size_t size) {
+  if (!this->allow_write_) {
+    ESP_LOGW(TAG, "CZTX rejected: allow_write is off");
+    this->forget_published_state_(slot);
+    return;
+  }
+
+  // Panel write frame as seen on the bus.
+  static constexpr uint8_t HEADER[] = {0x65, 0x6F, 0xDE, 0x02, 0xD3, 0x5E, 0x41, 0x44, 0x44, 0x52,
+                                       0x00, 'W',  0x01, 0x02, 0x03, 0x04, 0x0B, 0x10};
+  TxRequest &request = this->tx_requests_[slot];
+  std::memcpy(request.frame, HEADER, sizeof(HEADER));
+  request.frame[18] = reg0;
+  request.frame[19] = reg1;
+  request.frame[20] = reg2;
+  std::memcpy(request.frame + HEADER_SIZE, value, size);
+  request.size = static_cast<uint8_t>(HEADER_SIZE + size + 1);
+  request.frame[10] = request.size;
+  request.frame[request.size - 1] = crc8_maxim_(request.frame, request.size - 1);
+  request.attempts = 0;
+  request.queued = true;
+  const uint32_t now = millis();
+  request.queued_ms = now;
+  this->high_frequency_.start();
+  ESP_LOGI(TAG, "CZTX queued slot %u register %02X%02X%02X", slot, reg0, reg1, reg2);
 }
 
 void ComfortzoneExComponent::handle_tx_on_frame_() {
-  if (!this->tx_pending_)
-    return;
-
   if (this->tx_awaiting_ack_) {
-    if (this->frame_[11] == 'w' && this->frame_size_ == TX_FRAME_SIZE &&
-        std::memcmp(this->frame_ + 18, this->tx_frame_ + 18, 4) == 0) {
-      ESP_LOGI(TAG, "CZTX acknowledged after %lu ms",
-               static_cast<unsigned long>(millis() - this->tx_sent_ms_));
-      this->tx_pending_ = false;
+    if (this->frame_[11] == 'w' && std::memcmp(this->frame_ + 18, this->tx_active_register_, 3) == 0) {
+      ESP_LOGI(TAG, "CZTX acknowledged after %lu ms", static_cast<unsigned long>(millis() - this->tx_sent_ms_));
       this->tx_awaiting_ack_ = false;
     }
     return;
   }
 
-  // The heat pump takes over 200 ms to answer the panel's read of 049C3E (about once a minute).
-  // The bus stays silent meanwhile, which leaves room for a write and its acknowledge.
-  if (this->frame_[11] == 'R' && this->register_is_(0x04, 0x9C, 0x3E) && !this->available())
-    this->transmit_pending_();
+  if (this->frame_[11] == 'R' && this->in_tx_window_() && !this->available())
+    this->transmit_next_();
 }
 
-void ComfortzoneExComponent::transmit_pending_() {
-  this->tx_attempts_++;
-  const uint32_t start = millis();
-  this->receiver_enable_pin_->digital_write(true);
-  this->write_array(this->tx_frame_, TX_FRAME_SIZE);
-  this->flush();
-  this->receiver_enable_pin_->digital_write(false);
-  this->tx_sent_ms_ = millis();
-  this->tx_awaiting_ack_ = true;
-  ESP_LOGI(TAG, "CZTX attempt %u value %u took %lu ms", this->tx_attempts_, this->tx_frame_[21],
-           static_cast<unsigned long>(this->tx_sent_ms_ - start));
+bool ComfortzoneExComponent::in_tx_window_() const {
+  // The heat pump starts these replies at least about 45 ms after the request, which leaves room for
+  // a write of 12.5 ms. It answers the write after the reply and the panel's next request.
+  return this->register_is_(0x00, 0x45, 0x03) || this->register_is_(0x00, 0x89, 0x02) ||
+         this->register_is_(0x00, 0x8D, 0x04) || this->register_is_(0x03, 0xBD, 0x0D) ||
+         this->register_is_(0x03, 0x0B, 0x0D) || this->register_is_(0x01, 0x40, 0x03);
 }
 
-void ComfortzoneExComponent::check_tx_timeout_() {
-  if (!this->tx_awaiting_ack_ || millis() - this->tx_sent_ms_ < TX_ACK_TIMEOUT_MS)
+void ComfortzoneExComponent::transmit_next_() {
+  const uint32_t now = millis();
+  if (this->tx_sent_ms_ != 0 && now - this->tx_sent_ms_ < TX_MIN_SPACING_MS)
     return;
 
-  this->tx_awaiting_ack_ = false;
-  if (this->tx_attempts_ >= TX_MAX_ATTEMPTS) {
-    this->tx_pending_ = false;
-    ESP_LOGW(TAG, "CZTX failed: no acknowledge after %u attempts", this->tx_attempts_);
-  } else {
-    ESP_LOGW(TAG, "CZTX no acknowledge for attempt %u, retrying in next window", this->tx_attempts_);
+  // A stalled loop may have seen the request late, and the window could already be over.
+  const uint32_t loop_age_us = micros() - this->last_loop_end_us_;
+  if (loop_age_us > TX_MAX_LOOP_AGE_US)
+    return;
+
+  for (uint8_t slot = 0; slot < TX_SLOT_COUNT; slot++) {
+    TxRequest &request = this->tx_requests_[slot];
+    if (!request.queued)
+      continue;
+
+    request.queued = false;
+    request.attempts++;
+    this->tx_active_slot_ = static_cast<TxSlot>(slot);
+    std::memcpy(this->tx_active_register_, request.frame + 18, 3);
+    this->receiver_enable_pin_->digital_write(true);
+    this->write_array(request.frame, request.size);
+    this->flush();
+    this->receiver_enable_pin_->digital_write(false);
+    this->tx_sent_ms_ = millis();
+    this->tx_awaiting_ack_ = true;
+    ESP_LOGI(TAG, "CZTX attempt %u slot %u after R %02X%02X%02X, loop age %lu us, took %lu ms", request.attempts, slot,
+             this->frame_[18], this->frame_[19], this->frame_[20], static_cast<unsigned long>(loop_age_us),
+             static_cast<unsigned long>(this->tx_sent_ms_ - now));
+    return;
+  }
+}
+
+void ComfortzoneExComponent::check_tx_timeouts_() {
+  const uint32_t now = millis();
+  if (this->tx_awaiting_ack_ && now - this->tx_sent_ms_ >= TX_ACK_TIMEOUT_MS) {
+    this->tx_awaiting_ack_ = false;
+    TxRequest &request = this->tx_requests_[this->tx_active_slot_];
+    if (!request.queued) {
+      if (request.attempts >= TX_MAX_ATTEMPTS) {
+        ESP_LOGW(TAG, "CZTX failed: no acknowledge after %u attempts", request.attempts);
+        this->forget_published_state_(this->tx_active_slot_);
+      } else {
+        ESP_LOGW(TAG, "CZTX no acknowledge for attempt %u, retrying", request.attempts);
+        request.queued = true;
+      }
+    }
+  }
+
+  bool work_left = this->tx_awaiting_ack_;
+  for (uint8_t slot = 0; slot < TX_SLOT_COUNT; slot++) {
+    TxRequest &request = this->tx_requests_[slot];
+    if (request.queued && now - request.queued_ms >= TX_QUEUE_TIMEOUT_MS) {
+      ESP_LOGW(TAG, "CZTX dropped slot %u: no bus window", slot);
+      request.queued = false;
+      this->forget_published_state_(static_cast<TxSlot>(slot));
+    }
+    work_left = work_left || request.queued;
+  }
+  if (!work_left)
+    this->high_frequency_.stop();
+}
+
+// Makes the next bus reply publish the entity again, so that a failed request does not stay on screen.
+void ComfortzoneExComponent::forget_published_state_(TxSlot slot) {
+  switch (slot) {
+    case TX_FAN:
+      this->published_fan_speed_ = 0;
+      break;
+    case TX_HOT_WATER_TARGET:
+      this->published_hot_water_target_ = SETPOINT_UNKNOWN;
+      break;
+    case TX_ROOM_SETPOINT:
+      this->published_room_setpoint_ = SETPOINT_UNKNOWN;
+      break;
+    case TX_HOT_WATER_EXTRA:
+      this->published_hot_water_extra_ = SWITCH_UNKNOWN;
+      break;
+    case TX_LEGIONELLA:
+      this->published_legionella_ = SWITCH_UNKNOWN;
+      break;
+    default:
+      break;
+  }
+}
+
+void ComfortzoneExComponent::update_write_entities_status_(const uint8_t *payload) {
+  // 010400 byte 25 bit 0x40: main-screen WW Extra. Byte 18 bit 0x20 is set for both programs.
+  const int8_t extra = (payload[25] & 0x40) != 0 ? 1 : 0;
+  const int8_t legionella = ((payload[18] & 0x20) != 0 && extra == 0) ? 1 : 0;
+  if (extra != this->published_hot_water_extra_) {
+    this->published_hot_water_extra_ = extra;
+    if (this->hot_water_extra_switch_ != nullptr)
+      this->hot_water_extra_switch_->publish_state(extra == 1);
+  }
+  if (legionella != this->published_legionella_) {
+    this->published_legionella_ = legionella;
+    if (this->legionella_switch_ != nullptr)
+      this->legionella_switch_->publish_state(legionella == 1);
   }
 }
 
@@ -218,32 +357,51 @@ bool ComfortzoneExComponent::decode_frame_() {
     };
     this->hot_water_mode_ = (payload[28] & 0x08) != 0;
     this->operating_mode_known_ = true;
+    this->update_write_entities_status_(payload);
+    // Status word bit 0x0020 is set while main-screen WW Extra or legionella prevention runs.
+    this->hot_water_boost_binary_sensor_->publish_state((payload[18] & 0x20) != 0);
     if (this->should_publish_(PUBLISH_TEMPERATURES)) {
       for (size_t i = 0; i < 9; i++) {
         const int16_t raw = static_cast<int16_t>(
             read_u16_le_(payload + SENSOR_OFFSET + SENSOR_INDICES[i] * 2));
         entities[i]->publish_state(raw / 10.0f);
       }
-      // Status word bit 0x0020 is set while "WW Extra" / immediate legionella prevention runs.
-      this->hot_water_boost_binary_sensor_->publish_state((read_u16_le_(payload + 18) & 0x0020) != 0);
     }
     return true;
   }
 
   if (this->register_is_(0x00, 0x89, 0x02) && payload_size >= 11) {
-    if (this->should_publish_(PUBLISH_ROOM_SETPOINT)) {
-      const int16_t raw = static_cast<int16_t>(read_u16_le_(payload + 9));
-      this->room_setpoint_sensor_->publish_state(raw / 10.0f);
+    const int16_t raw = static_cast<int16_t>(read_u16_le_(payload + 9));
+    if (raw != this->published_room_setpoint_) {
+      this->published_room_setpoint_ = raw;
+      this->last_publish_ms_[PUBLISH_ROOM_SETPOINT] = 0;
+      if (this->room_setpoint_setting_ != nullptr)
+        this->room_setpoint_setting_->publish_state(raw / 10.0f);
     }
+    if (this->should_publish_(PUBLISH_ROOM_SETPOINT))
+      this->room_setpoint_sensor_->publish_state(raw / 10.0f);
     return true;
   }
 
   // Full reply only: the panel also reads back 2-byte fragments after its own writes.
   if (this->register_is_(0x00, 0x45, 0x03) && payload_size >= 152) {
+    const int16_t raw = static_cast<int16_t>(read_u16_le_(payload));
+    const uint8_t fan_speed = payload[151];
+    if (raw != this->published_hot_water_target_) {
+      this->published_hot_water_target_ = raw;
+      this->last_publish_ms_[PUBLISH_HOT_WATER_TARGET] = 0;
+      if (this->hot_water_target_setting_ != nullptr)
+        this->hot_water_target_setting_->publish_state(raw / 10.0f);
+    }
+    if (fan_speed != this->published_fan_speed_) {
+      this->published_fan_speed_ = fan_speed;
+      this->last_publish_ms_[PUBLISH_HOT_WATER_TARGET] = 0;
+      if (this->fan_speed_setting_ != nullptr && fan_speed >= 1 && fan_speed <= 3)
+        this->fan_speed_setting_->publish_state(static_cast<size_t>(fan_speed - 1));
+    }
     if (this->should_publish_(PUBLISH_HOT_WATER_TARGET)) {
-      const int16_t raw = static_cast<int16_t>(read_u16_le_(payload));
       this->hot_water_target_sensor_->publish_state(raw / 10.0f);
-      this->fan_speed_text_sensor_->publish_state(fan_speed_name_(payload[151]));
+      this->fan_speed_text_sensor_->publish_state(fan_speed_name_(fan_speed));
     }
     return true;
   }

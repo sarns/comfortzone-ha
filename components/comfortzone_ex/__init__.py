@@ -1,7 +1,7 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome import pins
-from esphome.components import binary_sensor, sensor, text_sensor, uart
+from esphome.components import binary_sensor, number, select, sensor, switch, text_sensor, uart
 from esphome.const import (
     CONF_ID,
     DEVICE_CLASS_CONNECTIVITY,
@@ -24,7 +24,7 @@ from esphome.const import (
 )
 
 DEPENDENCIES = ["uart"]
-AUTO_LOAD = ["binary_sensor", "sensor", "text_sensor"]
+AUTO_LOAD = ["binary_sensor", "number", "select", "sensor", "switch", "text_sensor"]
 
 CONF_RECEIVER_ENABLE_PIN = "receiver_enable_pin"
 CONF_RAW_FRAME_LOGGING = "raw_frame_logging"
@@ -92,6 +92,15 @@ comfortzone_ex_ns = cg.esphome_ns.namespace("comfortzone_ex")
 ComfortzoneExComponent = comfortzone_ex_ns.class_(
     "ComfortzoneExComponent", cg.Component, uart.UARTDevice
 )
+FanSpeedSelect = comfortzone_ex_ns.class_("FanSpeedSelect", select.Select)
+SetpointNumber = comfortzone_ex_ns.class_("SetpointNumber", number.Number)
+HotWaterSwitch = comfortzone_ex_ns.class_("HotWaterSwitch", switch.Switch)
+
+FAN_SPEED_OPTIONS = ["Low", "Normal", "High"]
+SETPOINT_LIMITS = {
+    "hot_water_target_setting": (40.0, 55.0),
+    "room_setpoint_setting": (18.0, 25.0),
+}
 
 
 def temperature_schema():
@@ -226,6 +235,22 @@ CONFIG_SCHEMA = (
             cv.Required("protocol_coverage"): text_sensor.text_sensor_schema(
                 entity_category=ENTITY_CATEGORY_DIAGNOSTIC,
             ),
+            cv.Optional("fan_speed_setting"): select.select_schema(FanSpeedSelect),
+            **{
+                cv.Optional(key): number.number_schema(
+                    SetpointNumber,
+                    unit_of_measurement=UNIT_CELSIUS,
+                    device_class=DEVICE_CLASS_TEMPERATURE,
+                )
+                for key in SETPOINT_LIMITS
+            },
+            # DISABLED: a reboot must not send anything to the heat pump.
+            **{
+                cv.Optional(key): switch.switch_schema(
+                    HotWaterSwitch, default_restore_mode="DISABLED"
+                )
+                for key in ("hot_water_extra", "legionella")
+            },
         }
     )
     .extend(cv.COMPONENT_SCHEMA)
@@ -266,3 +291,17 @@ async def to_code(config):
     for key in ("fan_speed", "protocol_coverage"):
         entity = await text_sensor.new_text_sensor(config[key])
         cg.add(getattr(var, f"set_{key}_text_sensor")(entity))
+
+    if conf := config.get("fan_speed_setting"):
+        entity = await select.new_select(conf, options=FAN_SPEED_OPTIONS)
+        cg.add(var.set_fan_speed_setting(entity))
+
+    for key, (low, high) in SETPOINT_LIMITS.items():
+        if conf := config.get(key):
+            entity = await number.new_number(conf, min_value=low, max_value=high, step=0.5)
+            cg.add(getattr(var, f"set_{key}")(entity))
+
+    for key in ("hot_water_extra", "legionella"):
+        if conf := config.get(key):
+            entity = await switch.new_switch(conf)
+            cg.add(getattr(var, f"set_{key}_switch")(entity))
