@@ -1900,8 +1900,8 @@
                       "group": "influxdb",
                       "kind": "DataQuery",
                       "spec": {
-                        "alias": "Hot Water",
-                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "alias": "Compressor",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
                         "rawQuery": true,
                         "resultFormat": "time_series"
                       },
@@ -1958,7 +1958,7 @@
                             "id": "isNotNull",
                             "options": {}
                           },
-                          "fieldName": "Hot Water"
+                          "fieldName": "Compressor"
                         }
                       ],
                       "match": "all",
@@ -1975,7 +1975,7 @@
                       "mode": "reduceRow",
                       "reduce": {
                         "include": [
-                          "Hot Water",
+                          "Compressor",
                           "Additional Heater"
                         ],
                         "reducer": "sum"
@@ -2063,7 +2063,7 @@
               ]
             }
           },
-          "description": "COP = (hot-water heat output + additional heater) / electrical input of the heat pump (Shelly), daily counter increases summed per calendar month. Includes standby consumption. Only days with hot-water energy data are counted; only hot-water production is metered as heat output so far.",
+          "description": "Total COP = (compressor heat output + additional heater) / electrical input of the heat pump (Shelly), daily counter increases summed per calendar month. Compressor energy covers hot water and space heating. Includes standby consumption. Only days with compressor energy data are counted.",
           "id": 18,
           "links": [],
           "title": "Monthly COP — This Year",
