@@ -399,7 +399,7 @@
                 }
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -535,7 +535,7 @@
                 }
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -650,7 +650,7 @@
                 }
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -733,7 +733,7 @@
                 "wideLayout": true
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -985,7 +985,7 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -1237,7 +1237,7 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -1517,7 +1517,7 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -1661,7 +1661,7 @@
                 }
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -1857,7 +1857,7 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -2144,7 +2144,181 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-19": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "High Pressure",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_high_pressure\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_high_pressure\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Low Pressure",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_low_pressure\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_low_pressure\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Pressure Ratio",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_pressure_ratio\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_pressure_ratio\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Condenser (high) and evaporator (low) pressure; pressure ratio on the right axis.",
+          "id": 19,
+          "links": [],
+          "title": "Refrigerant Pressures",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": 3600000,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "pressurebar"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Pressure Ratio"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.axisPlacement",
+                        "value": "right"
+                      },
+                      {
+                        "id": "unit",
+                        "value": "none"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.3.1"
           }
         }
       },
@@ -2601,1125 +2775,7 @@
                 }
               }
             },
-            "version": "13.2.4"
-          }
-        }
-      },
-      "panel-3": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Compressor Frequency",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_frequency\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_frequency\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Compressor Target Frequency",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_target_frequency\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_target_frequency\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "B"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "interval": "20s"
-              },
-              "transformations": []
-            }
-          },
-          "description": "",
-          "id": 3,
-          "links": [],
-          "title": "Compressor Frequency",
-          "vizConfig": {
-            "group": "timeseries",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisBorderShow": false,
-                    "axisCenteredZero": false,
-                    "axisColorMode": "text",
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "barWidthFactor": 0.6,
-                    "drawStyle": "line",
-                    "fillOpacity": 8,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": 3600000,
-                    "lineInterpolation": "linear",
-                    "lineWidth": 2,
-                    "pointSize": 4,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "showValues": false,
-                    "spanNulls": false,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
-                  },
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  },
-                  "unit": "hertz"
-                },
-                "overrides": []
-              },
-              "options": {
-                "legend": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "displayMode": "table",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "multi",
-                  "sort": "none"
-                }
-              }
-            },
-            "version": "13.2.4"
-          }
-        }
-      },
-      "panel-4": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Compressor",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Additional Heater",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "B"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Hot Water",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "C"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Shelly Heat Pump",
-                        "groupBy": [
-                          {
-                            "params": [
-                              "$__interval"
-                            ],
-                            "type": "time"
-                          },
-                          {
-                            "params": [
-                              "null"
-                            ],
-                            "type": "fill"
-                          }
-                        ],
-                        "measurement": "sensor.shellypro3em_waermepumpe_energy",
-                        "orderByTime": "ASC",
-                        "policy": "default",
-                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.shellypro3em_waermepumpe_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series",
-                        "select": [
-                          [
-                            {
-                              "params": [
-                                "value"
-                              ],
-                              "type": "field"
-                            },
-                            {
-                              "params": [],
-                              "type": "distinct"
-                            }
-                          ]
-                        ],
-                        "tags": []
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "D"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "hideTimeOverride": false,
-                "interval": "20s",
-                "timeFrom": "now-7d"
-              },
-              "transformations": []
-            }
-          },
-          "description": "Each series shows consumption relative to its first cumulative-energy value in the rolling seven-day window.",
-          "id": 4,
-          "links": [],
-          "title": "Energy Consumption — Last 7 Days",
-          "vizConfig": {
-            "group": "timeseries",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisBorderShow": false,
-                    "axisCenteredZero": false,
-                    "axisColorMode": "text",
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "barWidthFactor": 0.6,
-                    "drawStyle": "line",
-                    "fillOpacity": 8,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": false,
-                    "lineInterpolation": "linear",
-                    "lineWidth": 2,
-                    "pointSize": 4,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "showValues": false,
-                    "spanNulls": false,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
-                  },
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  },
-                  "unit": "kwh"
-                },
-                "overrides": []
-              },
-              "options": {
-                "legend": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "displayMode": "table",
-                  "placement": "right",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "multi",
-                  "sort": "none"
-                }
-              }
-            },
-            "version": "13.2.4"
-          }
-        }
-      },
-      "panel-5": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Compressor Runtime",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Total Runtime",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "B"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "interval": "20s"
-              },
-              "transformations": []
-            }
-          },
-          "description": "",
-          "id": 5,
-          "links": [],
-          "title": "Runtime",
-          "vizConfig": {
-            "group": "stat",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "fixedColor": "#ad46ff",
-                    "mode": "thresholds"
-                  },
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  },
-                  "unit": "m"
-                },
-                "overrides": []
-              },
-              "options": {
-                "colorMode": "value",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "horizontal",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              }
-            },
-            "version": "13.2.4"
-          }
-        }
-      },
-      "panel-6": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Compressor Running",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_compressor_running\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_compressor_running\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Additional Heater Active",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_additional_heater_active\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_additional_heater_active\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "B"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "RS485 Bus Online",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "C"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Fan Speed",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"sensor.technikkeller_comfortzone_ex_fan_speed\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"sensor.technikkeller_comfortzone_ex_fan_speed\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "D"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Hot Water Boost",
-                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_hot_water_boost\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_hot_water_boost\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "E"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "interval": "20s"
-              },
-              "transformations": []
-            }
-          },
-          "description": "",
-          "id": 6,
-          "links": [],
-          "title": "Operating States",
-          "vizConfig": {
-            "group": "state-timeline",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisPlacement": "auto",
-                    "fillOpacity": 70,
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": false,
-                    "lineWidth": 0,
-                    "spanNulls": true
-                  },
-                  "mappings": [
-                    {
-                      "options": {
-                        "off": {
-                          "color": "red",
-                          "index": 0,
-                          "text": "Off"
-                        },
-                        "on": {
-                          "color": "green",
-                          "index": 1,
-                          "text": "On"
-                        },
-                        "Low": {
-                          "color": "blue",
-                          "index": 2,
-                          "text": "Low"
-                        },
-                        "Normal": {
-                          "color": "green",
-                          "index": 3,
-                          "text": "Normal"
-                        },
-                        "High": {
-                          "color": "orange",
-                          "index": 4,
-                          "text": "High"
-                        }
-                      },
-                      "type": "value"
-                    }
-                  ],
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  }
-                },
-                "overrides": []
-              },
-              "options": {
-                "alignValue": "left",
-                "legend": {
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "mergeValues": true,
-                "rowHeight": 0.8,
-                "showValue": "auto",
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                }
-              }
-            },
-            "version": "13.2.4"
-          }
-        }
-      },
-      "panel-7": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "RS485 Bytes",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_rs485_bytes\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_rs485_bytes\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Valid Frames",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_valid_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_valid_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "B"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Decoded Frames",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_decoded_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_decoded_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "C"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Unsupported Frames",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_unsupported_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_unsupported_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "D"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "CRC Errors",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_crc_errors\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_crc_errors\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "E"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "interval": "20s"
-              },
-              "transformations": []
-            }
-          },
-          "description": "",
-          "id": 7,
-          "links": [],
-          "title": "RS485 Counters",
-          "vizConfig": {
-            "group": "timeseries",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisBorderShow": false,
-                    "axisCenteredZero": false,
-                    "axisColorMode": "text",
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "barWidthFactor": 0.6,
-                    "drawStyle": "line",
-                    "fillOpacity": 8,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": false,
-                    "lineInterpolation": "linear",
-                    "lineWidth": 2,
-                    "pointSize": 4,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "showValues": false,
-                    "spanNulls": false,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
-                  },
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  },
-                  "unit": "short"
-                },
-                "overrides": []
-              },
-              "options": {
-                "legend": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "displayMode": "table",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "multi",
-                  "sort": "none"
-                }
-              }
-            },
-            "version": "13.2.4"
-          }
-        }
-      },
-      "panel-8": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Age",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_last_decoded_frame_age\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_last_decoded_frame_age\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "interval": "20s"
-              },
-              "transformations": []
-            }
-          },
-          "description": "",
-          "id": 8,
-          "links": [],
-          "title": "Last Decoded Frame Age",
-          "vizConfig": {
-            "group": "stat",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "thresholds"
-                  },
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  },
-                  "unit": "s"
-                },
-                "overrides": []
-              },
-              "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "percentChangeColorMode": "standard",
-                "reduceOptions": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-              }
-            },
-            "version": "13.2.4"
-          }
-        }
-      },
-      "panel-19": {
-        "kind": "Panel",
-        "spec": {
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "High Pressure",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_high_pressure\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_high_pressure\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "A"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Low Pressure",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_low_pressure\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_low_pressure\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "B"
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "hidden": false,
-                    "query": {
-                      "datasource": {
-                        "name": "efmvdvas94ydcd"
-                      },
-                      "group": "influxdb",
-                      "kind": "DataQuery",
-                      "spec": {
-                        "alias": "Pressure Ratio",
-                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_pressure_ratio\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_pressure_ratio\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
-                        "rawQuery": true,
-                        "resultFormat": "time_series"
-                      },
-                      "version": "v0"
-                    },
-                    "refId": "C"
-                  }
-                }
-              ],
-              "queryOptions": {
-                "interval": "20s"
-              },
-              "transformations": []
-            }
-          },
-          "description": "Condenser (high) and evaporator (low) pressure; pressure ratio on the right axis.",
-          "id": 19,
-          "links": [],
-          "title": "Refrigerant Pressures",
-          "vizConfig": {
-            "group": "timeseries",
-            "kind": "VizConfig",
-            "spec": {
-              "fieldConfig": {
-                "defaults": {
-                  "color": {
-                    "mode": "palette-classic"
-                  },
-                  "custom": {
-                    "axisBorderShow": false,
-                    "axisCenteredZero": false,
-                    "axisColorMode": "text",
-                    "axisLabel": "",
-                    "axisPlacement": "auto",
-                    "barAlignment": 0,
-                    "barWidthFactor": 0.6,
-                    "drawStyle": "line",
-                    "fillOpacity": 8,
-                    "gradientMode": "none",
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "insertNulls": 3600000,
-                    "lineInterpolation": "linear",
-                    "lineWidth": 2,
-                    "pointSize": 4,
-                    "scaleDistribution": {
-                      "type": "linear"
-                    },
-                    "showPoints": "never",
-                    "showValues": false,
-                    "spanNulls": false,
-                    "stacking": {
-                      "group": "A",
-                      "mode": "none"
-                    },
-                    "thresholdsStyle": {
-                      "mode": "off"
-                    }
-                  },
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "color": "green",
-                        "value": 0
-                      }
-                    ]
-                  },
-                  "unit": "pressurebar"
-                },
-                "overrides": [
-                  {
-                    "matcher": {
-                      "id": "byName",
-                      "options": "Pressure Ratio"
-                    },
-                    "properties": [
-                      {
-                        "id": "custom.axisPlacement",
-                        "value": "right"
-                      },
-                      {
-                        "id": "unit",
-                        "value": "none"
-                      }
-                    ]
-                  }
-                ]
-              },
-              "options": {
-                "legend": {
-                  "calcs": [
-                    "lastNotNull"
-                  ],
-                  "displayMode": "table",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "multi",
-                  "sort": "none"
-                }
-              }
-            },
-            "version": "13.2.4"
+            "version": "13.3.1"
           }
         }
       },
@@ -3946,7 +3002,1190 @@
                 }
               }
             },
-            "version": "13.2.4"
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-21": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Electric Energy",
+                        "query": "SELECT NON_NEGATIVE_DIFFERENCE(LAST(\"value\")) AS \"consumption\" FROM \"sensor.shellypro3em_waermepumpe_energy\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Mean Outdoor Temperature",
+                        "query": "SELECT MEAN(\"temperature\") AS \"temperature\" FROM (SELECT MEAN(\"value\") AS \"temperature\" FROM \"sensor.technikkeller_comfortzone_ex_outdoor_temperature\" WHERE time >= ${__from}ms - 1d AND time <= ${__to}ms GROUP BY time(10m) fill(previous)) WHERE time >= ${__from}ms AND time <= ${__to}ms GROUP BY time(1d) fill(none) tz('Europe/Berlin')",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "hideTimeOverride": false,
+                "timeFrom": "now-29d/d"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Daily electric input of the heat pump (Shelly counter) against the daily mean outdoor temperature, per calendar day for the last 30 days. Today's values are partial.",
+          "id": 21,
+          "links": [],
+          "title": "Daily Mean Outdoor Temperature vs Energy — Last 30 Days",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.8,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "decimals": 1,
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "kwh"
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Electric Energy"
+                    },
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "kwh"
+                      },
+                      {
+                        "id": "min",
+                        "value": 0
+                      },
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "orange",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.drawStyle",
+                        "value": "bars"
+                      },
+                      {
+                        "id": "custom.barAlignment",
+                        "value": 1
+                      },
+                      {
+                        "id": "custom.fillOpacity",
+                        "value": 70
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 1
+                      },
+                      {
+                        "id": "custom.axisPlacement",
+                        "value": "left"
+                      },
+                      {
+                        "id": "custom.axisLabel",
+                        "value": "Electric energy per day"
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Mean Outdoor Temperature"
+                    },
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "celsius"
+                      },
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "blue",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.drawStyle",
+                        "value": "line"
+                      },
+                      {
+                        "id": "custom.lineInterpolation",
+                        "value": "stepAfter"
+                      },
+                      {
+                        "id": "custom.fillOpacity",
+                        "value": 0
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 2
+                      },
+                      {
+                        "id": "custom.showPoints",
+                        "value": "always"
+                      },
+                      {
+                        "id": "custom.pointSize",
+                        "value": 5
+                      },
+                      {
+                        "id": "custom.axisPlacement",
+                        "value": "right"
+                      },
+                      {
+                        "id": "custom.axisLabel",
+                        "value": "Daily mean outdoor temperature"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "mean",
+                    "min",
+                    "max"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-3": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Compressor Frequency",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_frequency\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_frequency\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Compressor Target Frequency",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_target_frequency\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_target_frequency\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 3,
+          "links": [],
+          "title": "Compressor Frequency",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": 3600000,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "hertz"
+                },
+                "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-4": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Compressor",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Additional Heater",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_additional_heater_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Hot Water",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.technikkeller_comfortzone_ex_hot_water_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Shelly Heat Pump",
+                        "groupBy": [
+                          {
+                            "params": [
+                              "$__interval"
+                            ],
+                            "type": "time"
+                          },
+                          {
+                            "params": [
+                              "null"
+                            ],
+                            "type": "fill"
+                          }
+                        ],
+                        "measurement": "sensor.shellypro3em_waermepumpe_energy",
+                        "orderByTime": "ASC",
+                        "policy": "default",
+                        "query": "SELECT CUMULATIVE_SUM(\"delta\") AS \"consumption\" FROM (SELECT DIFFERENCE(LAST(\"value\")) AS \"delta\" FROM \"sensor.shellypro3em_waermepumpe_energy\" GROUP BY time($__interval) fill(null)) WHERE time >= now() - 7d AND time <= now() ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series",
+                        "select": [
+                          [
+                            {
+                              "params": [
+                                "value"
+                              ],
+                              "type": "field"
+                            },
+                            {
+                              "params": [],
+                              "type": "distinct"
+                            }
+                          ]
+                        ],
+                        "tags": []
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "hideTimeOverride": false,
+                "interval": "20s",
+                "timeFrom": "now-7d"
+              },
+              "transformations": []
+            }
+          },
+          "description": "Each series shows consumption relative to its first cumulative-energy value in the rolling seven-day window.",
+          "id": 4,
+          "links": [],
+          "title": "Energy Consumption — Last 7 Days",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "kwh"
+                },
+                "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "right",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-5": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Compressor Runtime",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_compressor_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Total Runtime",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_runtime\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_total_runtime\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 5,
+          "links": [],
+          "title": "Runtime",
+          "vizConfig": {
+            "group": "stat",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "fixedColor": "#ad46ff",
+                    "mode": "thresholds"
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "m"
+                },
+                "overrides": []
+              },
+              "options": {
+                "colorMode": "value",
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              }
+            },
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-6": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Compressor Running",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_compressor_running\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_compressor_running\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Additional Heater Active",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_additional_heater_active\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_additional_heater_active\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "RS485 Bus Online",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_rs485_bus_online\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Fan Speed",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"sensor.technikkeller_comfortzone_ex_fan_speed\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"sensor.technikkeller_comfortzone_ex_fan_speed\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Hot Water Boost",
+                        "query": "SELECT \"state\" FROM (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_hot_water_boost\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"state\") AS \"state\" FROM \"binary_sensor.technikkeller_comfortzone_ex_hot_water_boost\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "E"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 6,
+          "links": [],
+          "title": "Operating States",
+          "vizConfig": {
+            "group": "state-timeline",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisPlacement": "auto",
+                    "fillOpacity": 70,
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineWidth": 0,
+                    "spanNulls": true
+                  },
+                  "mappings": [
+                    {
+                      "options": {
+                        "High": {
+                          "color": "orange",
+                          "index": 4,
+                          "text": "High"
+                        },
+                        "Low": {
+                          "color": "blue",
+                          "index": 2,
+                          "text": "Low"
+                        },
+                        "Normal": {
+                          "color": "green",
+                          "index": 3,
+                          "text": "Normal"
+                        },
+                        "off": {
+                          "color": "red",
+                          "index": 0,
+                          "text": "Off"
+                        },
+                        "on": {
+                          "color": "green",
+                          "index": 1,
+                          "text": "On"
+                        }
+                      },
+                      "type": "value"
+                    }
+                  ],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "options": {
+                "alignValue": "left",
+                "legend": {
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "mergeValues": true,
+                "rowHeight": 0.8,
+                "showValue": "auto",
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-7": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "RS485 Bytes",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_rs485_bytes\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_rs485_bytes\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Valid Frames",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_valid_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_valid_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Decoded Frames",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_decoded_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_decoded_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Unsupported Frames",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_unsupported_frames\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_unsupported_frames\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "CRC Errors",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_crc_errors\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_crc_errors\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "E"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 7,
+          "links": [],
+          "title": "RS485 Counters",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisBorderShow": false,
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "barWidthFactor": 0.6,
+                    "drawStyle": "line",
+                    "fillOpacity": 8,
+                    "gradientMode": "none",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "insertNulls": false,
+                    "lineInterpolation": "linear",
+                    "lineWidth": 2,
+                    "pointSize": 4,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "never",
+                    "showValues": false,
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "short"
+                },
+                "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              }
+            },
+            "version": "13.3.1"
+          }
+        }
+      },
+      "panel-8": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "efmvdvas94ydcd"
+                      },
+                      "group": "influxdb",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "alias": "Age",
+                        "query": "SELECT \"value\" FROM (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_last_decoded_frame_age\" WHERE time < ${__from}ms AND time >= ${__from}ms - 365d), (SELECT last(\"value\") AS \"value\" FROM \"sensor.technikkeller_comfortzone_ex_last_decoded_frame_age\" WHERE $timeFilter GROUP BY time($__interval) fill(previous)) ORDER BY time ASC",
+                        "rawQuery": true,
+                        "resultFormat": "time_series"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                }
+              ],
+              "queryOptions": {
+                "interval": "20s"
+              },
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 8,
+          "links": [],
+          "title": "Last Decoded Frame Age",
+          "vizConfig": {
+            "group": "stat",
+            "kind": "VizConfig",
+            "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      }
+                    ]
+                  },
+                  "unit": "s"
+                },
+                "overrides": []
+              },
+              "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              }
+            },
+            "version": "13.3.1"
           }
         }
       }
@@ -4129,12 +4368,25 @@
             "spec": {
               "element": {
                 "kind": "ElementReference",
+                "name": "panel-21"
+              },
+              "height": 10,
+              "width": 24,
+              "x": 0,
+              "y": 100
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "element": {
+                "kind": "ElementReference",
                 "name": "panel-4"
               },
               "height": 9,
               "width": 12,
               "x": 0,
-              "y": 100
+              "y": 110
             }
           },
           {
@@ -4147,7 +4399,7 @@
               "height": 9,
               "width": 12,
               "x": 12,
-              "y": 100
+              "y": 110
             }
           },
           {
@@ -4160,7 +4412,7 @@
               "height": 8,
               "width": 24,
               "x": 0,
-              "y": 109
+              "y": 119
             }
           },
           {
@@ -4173,7 +4425,7 @@
               "height": 9,
               "width": 16,
               "x": 0,
-              "y": 117
+              "y": 127
             }
           },
           {
@@ -4186,7 +4438,7 @@
               "height": 9,
               "width": 4,
               "x": 16,
-              "y": 117
+              "y": 127
             }
           },
           {
@@ -4199,7 +4451,7 @@
               "height": 9,
               "width": 4,
               "x": 20,
-              "y": 117
+              "y": 127
             }
           }
         ]
