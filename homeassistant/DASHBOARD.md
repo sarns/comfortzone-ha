@@ -1,56 +1,81 @@
 # Comfortzone-EX-Dashboard für Home Assistant
 
-Das Dashboard verwendet nur die eingebaute Home-Assistant-Karte `picture-elements`.
-Es werden keine zusätzlichen Frontend-Erweiterungen benötigt.
+Das Dashboard besteht aus einer eigenen Karte `custom:comfortzone-card`
+(`www/comfortzone/comfortzone-card.js`, eine Datei ohne Abhängigkeiten) und einer
+Ansicht vom Typ `sections` mit Steuerung und Verlaufsdiagrammen.
+
+Die Karte zeichnet das Schema als ein einziges SVG: Das Hintergrundbild
+`comfortzone-ex-schema.png` und alle Messwert-Panels liegen im selben
+Koordinatensystem (`viewBox` 1672 × 941). Text skaliert dadurch zusammen mit dem
+Bild und kann sich auf keinem Bildschirm überlappen oder abgeschnitten werden.
+Ist die **Karte selbst** schmaler als 900 px (z. B. auf dem iPhone), schaltet sie
+per CSS-Container-Query auf ein Raster mit denselben Panels um. Es gibt nur noch
+eine Konfiguration statt getrennter Desktop-, Tablet- und Mobilvarianten.
 
 ## Installation
 
-1. Den Ordner `homeassistant/www/comfortzone` nach
-   `/config/www/comfortzone` auf dem Home-Assistant-System kopieren.
-2. Home Assistant neu laden oder den Browser-Cache aktualisieren. Das Bild ist
-   danach unter `/local/comfortzone/comfortzone-ex-schema.png` erreichbar.
-3. Unter **Einstellungen → Dashboards** ein neues Dashboard anlegen.
-4. Das Dashboard öffnen, **Dashboard bearbeiten → Drei-Punkte-Menü →
-   Rohkonfigurationseditor** wählen.
-5. Den Inhalt von `homeassistant/comfortzone-dashboard.yaml` einfügen und
-   speichern.
+1. Den Ordner `homeassistant/www/comfortzone` nach `/config/www/comfortzone` auf
+   dem Home-Assistant-System kopieren (z. B. mit dem Add-on Studio Code Server).
+2. Unter **Einstellungen → Dashboards → Drei-Punkte-Menü → Ressourcen** die
+   Ressource `/local/comfortzone/comfortzone-card.js?v=1` als
+   **JavaScript-Modul** hinzufügen.
+3. Ein Dashboard anlegen, öffnen, **Dashboard bearbeiten → Drei-Punkte-Menü →
+   Rohkonfigurationseditor** wählen und den Inhalt von
+   `homeassistant/comfortzone-dashboard.yaml` einfügen.
+4. Browser neu laden (Strg+Umschalt+R). In der iOS-/Android-App das Dashboard
+   herunterziehen oder unter **Companion App → Debugging → Frontend-Cache
+   zurücksetzen** wählen, sonst meldet die App „Konfigurationsfehler“.
 
-Die Ansicht verwendet den Typ `panel` und wählt über native
-Bildschirmbedingungen automatisch eine Darstellung aus:
+Alternativ kann in einem vorhandenen Dashboard eine **Manuelle Karte** mit dem
+Inhalt von `homeassistant/comfortzone-card.yaml` angelegt werden.
 
-- ab 1400 px: vollständiges Desktop-Schema
-- 600–1399 px: vereinfachtes Tablet-Schema mit zweispaltigen Detailkarten
-- bis 599 px: iPhone-Ansicht mit Bild, Schnellübersicht und einspaltigen Listen
+## Aktualisieren
 
-Home Assistant zeigt bedingte Karten während des Bearbeitens immer an. Die
-responsive Auswahl deshalb nach dem Beenden des Bearbeitungsmodus prüfen.
+Nach jeder Änderung an `comfortzone-card.js` die Datei erneut kopieren und die
+Versionsnummer in der Ressourcen-URL erhöhen (`?v=2`, `?v=3`, …). Sonst laden
+Browser und Apps weiterhin die alte Datei aus dem Cache.
 
-Alternativ kann in einem vorhandenen Dashboard eine **Manuelle Karte** angelegt
-und dort der Inhalt von `homeassistant/comfortzone-card.yaml` eingefügt werden.
-Diese Karten-Datei beginnt direkt mit `type: picture-elements`; die vollständige
-Dashboard-Datei beginnt dagegen mit `title:` und `views:`.
+## Funktionen
 
-Ein Klick auf einen Messwert öffnet dessen Home-Assistant-Detailansicht mit dem
-Verlauf. Die Darstellung enthält 30 der 32 exportierten Entities. Die rein
-technischen Werte `last_decoded_frame_age` und `protocol_coverage` sind bewusst
-ausgeblendet. Live-Werte liegen direkt bei ihren Bauteilen; Energie, Laufzeiten
-und der RS485-Status stehen im freien unteren Bildbereich.
+- Klick auf einen Messwert öffnet die Home-Assistant-Detailansicht mit Verlauf.
+- Kompressor, Zusatzheizung und Warmwasser-Boost zeigen einen pulsierenden
+  Statuspunkt. Die Zeile „Boost“ erscheint nur, wenn der Boost aktiv ist.
+- „COP (live)“ im Kompressor-Panel wird von der Karte berechnet
+  (Abgabe ÷ Aufnahme, nur bei mehr als 50 W Aufnahme) und stammt nicht vom Gerät.
+- Ist der RS485-Bus offline, erscheint ein Hinweis „Werte sind veraltet“ und die
+  Panels werden abgedunkelt.
+- Die Darstellung enthält 41 der 43 Sensoren und Binärsensoren plus den
+  berechneten COP. Die rein technischen Werte `last_decoded_frame_age` und
+  `protocol_coverage` sind bewusst ausgeblendet; die Stellgrößen (Lüfterstufe,
+  Sollwerte, Schalter) liegen in der Karte „Steuerung“.
 
-Die fünf nachträglich ergänzten Messwerte verwenden die von Home Assistant
-vergebenen Entity-IDs mit dem Präfix `sensor.technikkeller_comfortzone_ex_`.
+## Konfiguration
+
+```yaml
+type: custom:comfortzone-card
+entity_prefix: technikkeller_comfortzone_ex   # Standard
+image: /local/comfortzone/comfortzone-ex-schema.png
+compact_below: 900    # Kartenbreite in px, unterhalb derer das Raster erscheint
+compact_image: true   # Schema-Bild über dem Raster anzeigen
+panels:               # Panels verschieben, verbreitern oder ausblenden
+  warmwasser: { x: 1250, y: 20 }
+  energie: { hidden: true }
+```
+
+Panel-IDs: `aussen`, `raum`, `fortluft`, `kaeltekreis`, `warmwasser`,
+`verdampfer`, `waermetauscher`, `heissgas`, `heizkreis`, `energie`, `laufzeit`,
+`kompressor`, `zusatzheizung`, `leistung`, `status`. Die Standardpositionen und
+Zeilen stehen in der Liste `PANELS` am Anfang von `comfortzone-card.js`.
+
+Das Raster für schmale Karten benötigt iOS 16 bzw. einen aktuellen Browser
+(CSS-Container-Queries).
 
 ## Hinweise
 
-- Die Desktop-, Tablet- und Mobilkarten liegen getrennt vor und werden mit
-  `tools/generate_ha_dashboard.py` zur vollständigen Konfiguration kombiniert.
-- Wenn Positionen direkt im Rohkonfigurationseditor angepasst wurden, zuerst
-  `python tools/generate_ha_dashboard.py --import-dashboard` ausführen. Dadurch
-  werden die manuellen Änderungen in die drei Quelldateien übernommen. Danach
-  erzeugt `python tools/generate_ha_dashboard.py` wieder die Gesamtdatei.
-- Die kumulierten Energiezähler zeigen zunächst die Gesamtstände. Wochen- und
-  Tagesverbrauch lassen sich anschließend mit Home-Assistant-Helfern vom Typ
-  `utility_meter` ergänzen.
+- Die kumulierten Energiezähler zeigen die Gesamtstände. Wochen- und
+  Tagesverbrauch lassen sich mit Home-Assistant-Helfern vom Typ `utility_meter`
+  ergänzen.
 - Für die beiden Laufzeit-Entities in den jeweiligen Entity-Einstellungen die
-  Anzeigeeinheit auf `h` und die Anzeigepräzision auf eine Nachkommastelle
-  setzen. Home Assistant rechnet die vom Gerät gelieferten Minuten für die
-  Anzeige um; die Entity-IDs und deren Historie bleiben erhalten.
+  Anzeigeeinheit auf `h` setzen. Home Assistant rechnet die vom Gerät
+  gelieferten Minuten für die Anzeige um; die Entity-IDs und deren Historie
+  bleiben erhalten.
